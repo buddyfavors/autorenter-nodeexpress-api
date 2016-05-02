@@ -1,4 +1,8 @@
 FROM node:latest
+# Work around for NPM install: https://github.com/npm/npm/issues/9863
+RUN cd $(npm root -g)/npm \
+  && npm install fs-extra \
+  && sed -i -e s/graceful-fs/fs-extra/ -e s/fs.rename/fs.move/ ./lib/utils/rename.js
 RUN useradd --user-group --create-home --shell /bin/false api &&\
     npm install --global npm@3.8.8
 
@@ -16,7 +20,6 @@ COPY . $HOME
 RUN chown -R api:api $HOME/*
 USER api
 
-EXPOSE API_PORT
+EXPOSE 3000
 
 CMD ["node", "app.js"]
-

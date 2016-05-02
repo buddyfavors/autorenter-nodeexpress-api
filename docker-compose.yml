@@ -12,7 +12,7 @@ postgres:
 
 data:
   image: cogniteev/echo
-  command: echo 'Data Container for PostgreSQL and Bundler'
+  command: echo 'Data Container for PostgreSQL'
   volumes:
     - /var/lib/postgresql/data
 
@@ -22,9 +22,6 @@ api:
     - "3000:3000"
   links:
     - postgres
-  volumes:
-    - .:/home/api/
-    - /home/api/node_modules
   volumes_from:
     - data
 #  env_file: .env
@@ -32,4 +29,3 @@ api:
 #    - API_HOST=0.0.0.0
 #    - API_PORT=3000
 #    - SECRET_TOKEN=op_devtoken
-
