@@ -27,4 +27,4 @@ USER api
 
 EXPOSE 3000
 
-CMD ["nodemon", "app.js"]
+CMD ["npm", "start"]
