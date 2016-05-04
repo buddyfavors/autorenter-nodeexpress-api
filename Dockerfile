@@ -7,8 +7,8 @@ RUN cd $(npm root -g)/npm \
   && npm install fs-extra \
   && sed -i -e s/graceful-fs/fs-extra/ -e s/fs.rename/fs.move/ ./lib/utils/rename.js
 
-RUN useradd --user-group --create-home --shell /bin/false api &&\
-    npm install --g npm@3.8.8 &&\
+RUN useradd --user-group --create-home --shell /bin/false api; \
+    npm install -g npm@3.8.8 &&\
     npm install -g nodemon
 
 ENV HOME=/home/api
