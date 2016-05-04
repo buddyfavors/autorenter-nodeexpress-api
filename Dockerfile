@@ -1,6 +1,6 @@
 FROM node:latest
 
-MAINTAINER Fusion Alliance
+MAINTAINER Fusion Alliance code@fusionalliance.com
 
 # Work around for NPM install: https://github.com/npm/npm/issues/9863
 RUN cd $(npm root -g)/npm \
