@@ -4,11 +4,10 @@ postgres:
     - data
   ports:
     - 5432
-#  env_file: .env
-#  environment:
-#    - POSTGRES_PASSWORD=Ref_ApP
-#    - POSTGRES_USER=api
-#    - POSTGRES_PORT=5432
+  environment:
+    POSTGRES_PASSWORD: Ref_ApP
+    POSTGRES_USER: api
+    POSTGRES_PORT: 5432
 
 data:
   image: cogniteev/echo
@@ -16,16 +15,22 @@ data:
   volumes:
     - /var/lib/postgresql/data
 
+redis:
+  image: redis
+
 api:
   build: .
   ports:
     - "3000:3000"
   links:
     - postgres
+    - redis
+  volumes:
+    - .:/home/api/
+    - /home/api/node_modules
   volumes_from:
     - data
-#  env_file: .env
-#  environment:
-#    - API_HOST=0.0.0.0
-#    - API_PORT=3000
-#    - SECRET_TOKEN=op_devtoken
+  environment:
+    HOST: 0.0.0.0
+    PORT: 3000
+    SECRET_TOKEN: au_devtoken

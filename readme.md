@@ -8,7 +8,8 @@ TODO
 
 ## Development Environment Setup ##
 
+`docker-compose up`
+
 ## Browse the App
 
-After performing a build you should be able to run the application by browsing to `http://localhost:XXXX/`. You can see the API running at `http://localhost:XXXX/api`.
-
+After performing a build you should be able to run the application by browsing to `http://{docker_ip}:XXXX/`.
