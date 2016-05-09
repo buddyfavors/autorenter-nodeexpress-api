@@ -1,6 +1,6 @@
 FROM node:6.0
 
-MAINTAINER Fusion Alliance code@fusionalliance.com
+MAINTAINER Fusion Alliance <code@fusionalliance.com>
 
 # Work around for NPM install, remove after issue is resolved with Docker: https://github.com/npm/npm/issues/9863
 RUN cd $(npm root -g)/npm; \
@@ -9,20 +9,18 @@ RUN cd $(npm root -g)/npm; \
 
 RUN useradd --user-group --create-home --shell /bin/false api; \
     npm install -g npm@3.8.8; \
-    npm install -g nodemon
+    npm install -g foreman;
 
+RUN mkdir -p /home/api
 ENV HOME=/home/api
-
-COPY package.json $HOME/
-RUN chown -R api:api $HOME/*
-
-USER api
 WORKDIR $HOME
-RUN npm install
 
-USER root
-COPY . $HOME
-RUN chown -R api:api $HOME/*
+COPY . $HOME/
+RUN chown -R api:api $HOME/* && \
+  rm -rf fixtures/ && \
+  rm -rf node_modules/ && \
+  npm install
+  
 USER api
 
 EXPOSE 3000

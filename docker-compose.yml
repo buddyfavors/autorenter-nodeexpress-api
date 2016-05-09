@@ -24,7 +24,6 @@ services:
       - redis
     volumes:
       - .:/home/api/
-      - /home/api/node_modules
 volumes:
   redis-data:
     driver: local

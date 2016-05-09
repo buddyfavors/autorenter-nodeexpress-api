@@ -1,7 +1,6 @@
 # Logs
 logs
 *.log
-npm-debug.log*
 
 # Runtime data
 pids
@@ -21,8 +20,11 @@ coverage
 build/Release
 
 # Dependency directories
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
-jspm_packages
+
+# Debug log from npm
+npm-debug.log
 
 # Optional npm cache directory
 .npm
@@ -30,5 +32,22 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-.idea
+# DevOps
+*.box
+.vagrant
+
+.idea/
+.DS_Store
+
+.envrc
+
+.bashrc
+.bash_history
+.cache
 .config
+.node-gyp
+.npm
+.npm_packages
+
+# User uploads
+userdata/documents/**/*

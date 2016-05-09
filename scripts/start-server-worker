@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+const app = require('../server/app');
+const debug = require('debug')('server');
+const http = require('http');
+const config = require('../server/config');
+const normalizePort = require('../server/utils/normalizePort');
+const onServerError = require('../server/utils/onServerError');
+const onServerListening = require('../server/utils/onServerListening');
+
+debug('Starting Express application.');
+let port = normalizePort(config.server.port);
+app.set('port', port);
+
+let server = http.createServer(app);
+server.listen(port);
+server.on('error', onServerError(server));
+server.on('listening', onServerListening(server));
+
+process.on('uncaughtException', function(err) {
+  debug(err);
+  require('forky').disconnect();
+});

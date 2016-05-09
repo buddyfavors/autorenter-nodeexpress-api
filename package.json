@@ -1,12 +1,22 @@
 {
+  "engines": {
+    "node": "6.0.0"
+  },
   "name": "autorenter_node",
   "version": "0.0.1",
   "description": "AutoRenter API",
+  "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nf start",
+    "jscs": "jscs server/**/*.js",
+    "lint": "eslint server/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "pre-commit": [
+    "lint",
+    "jscs"
+  ],
   "repository": {
     "type": "git",
     "url": "ssh://git@stash.fusionalliance.com:7999/fusadip/autorenter_nodeexpress_api.git"
@@ -14,9 +24,52 @@
   "author": "Fusion Alliance",
   "license": "MIT",
   "dependencies": {
+    "async": "2.0.0-rc.4",
+    "bcrypt": "0.8.6",
+    "bluebird": "3.3.5",
+    "body-parser": "1.15.1",
+    "checkit": "0.6.0",
+    "compression": "1.6.1",
+    "cookie-parser": "1.4.1",
+    "cors": "2.7.1",
+    "csurf": "1.8.3",
+    "debug": "2.2.0",
     "express": "^4.13.4",
+    "express-session": "1.13.0",
+    "express-validator": "2.20.4",
+    "faker": "3.1.0",
+    "forky": "0.3.0",
+    "helmet": "2.0.0",
     "hiredis": "^0.4.1",
+    "line-reader": "0.4.0",
+    "lodash": "4.11.2",
+    "method-override": "2.3.5",
     "mocha": "^2.4.5",
-    "redis": "^2.6.0-2"
+    "moment": "2.13.0",
+    "multer": "1.1.0",
+    "node-uuid": "1.4.7",
+    "oauth2orize": "1.2.2",
+    "passport": "0.3.2",
+    "passport-http": "0.3.0",
+    "passport-http-bearer": "1.0.1",
+    "passport-ldapauth": "0.5.0",
+    "passport-local": "1.0.0",
+    "passport-oauth": "1.0.0",
+    "pg": "4.5.5",
+    "pg-hstore": "2.3.2",
+    "redis": "^2.6.0-2",
+    "sequelize": "3.23.0",
+    "util": "0.10.3",
+    "validator": "5.2.0"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint": "2.9.0",
+    "form-data": "1.0.0-rc4",
+    "frisby": "0.8.5",
+    "jscs": "3.0.3",
+    "pre-commit": "1.1.2",
+    "supertest": "1.2.0",
+    "supertest-as-promised": "3.1.0"
   }
 }

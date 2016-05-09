@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+const forky = require('forky');
+forky({path: __dirname + '/start-server-worker'});
