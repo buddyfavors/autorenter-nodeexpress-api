@@ -15,12 +15,11 @@ RUN mkdir -p /home/api
 ENV HOME=/home/api
 WORKDIR $HOME
 
+COPY package.json $HOME/package.json
+RUN npm install
+
 COPY . $HOME/
-RUN chown -R api:api $HOME/* && \
-  rm -rf fixtures/ && \
-  rm -rf node_modules/ && \
-  npm install
-  
+RUN chown -R api:api $HOME/*
 USER api
 
 EXPOSE 3000
