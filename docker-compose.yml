@@ -24,6 +24,7 @@ services:
       - redis
     volumes:
       - .:/home/api/
+    container_name: autorenter-api
 volumes:
   redis-data:
     driver: local
