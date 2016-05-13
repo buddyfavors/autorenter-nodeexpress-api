@@ -26,9 +26,9 @@ To use vagrant:
 
 If using docker:
 
-After performing a build you should be able to run the application by browsing to `http://192.168.99.100:9000/`.
+After performing a build you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
 
 
 If using Vagrant:
 
-After performing a build you should be able to run the application by browsing to `http://localhost:9000/`.
+After performing a build you should be able to run the application by browsing to `http://localhost:3000/`.
