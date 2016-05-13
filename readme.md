@@ -4,16 +4,31 @@ An Express/Node.js based implementation of the AutoRenter API.
 
 ## Prerequisites ##
 
-TODO
+To use docker:
+Make sure docker and docker-compose are installed.
+
 Must have docker engine 1.10 or higher.
+
+To use Vagrant:
+Make sure to have  VirtualBox and Vagrant installed.
 
 ## Development Environment Setup ##
 
-`docker-compose up`
+To use docker:
+ `docker-compose build`
+ `docker-compose up`
+
+To use vagrant:
+ `vagrant up`
+ If you don't have the correct plugins installed, it will install them and then rerun the above command.
 
 ## Browse the App
 
-After performing a build you should be able to run the application by browsing to `http://{docker_ip}:XXXX/`.
+If using docker:
 
-To get your docker machine ip:
-`docker-machine ip`
+After performing a build you should be able to run the application by browsing to `http://192.168.99.100:9000/`.
+
+
+If using Vagrant:
+
+After performing a build you should be able to run the application by browsing to `http://localhost:9000/`.
