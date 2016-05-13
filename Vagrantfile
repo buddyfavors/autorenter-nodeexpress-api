@@ -12,13 +12,6 @@ unless Vagrant.has_plugin?("vagrant-vbguest")
   exit
 end
 
-# Install dependency vagrant-docker-compose
-unless Vagrant.has_plugin?("vagrant-docker-compose")
-  system("vagrant plugin install vagrant-docker-compose")
-  puts "Dependencies install, please try the command again."
-  exit
-end
-
 # Create and configure the Docker container(s)
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
@@ -27,8 +20,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
   end
-  config.vm.provision :shell, inline: "apt-get update"
-  config.vm.provision :docker
-  config.vm.provision :docker_compose, compose_version: "1.7.0"
-  config.vm.provision :shell, inline: "docker-compose -f /vagrant/docker-compose.yml up -d", run: "always", privileged: false
+  # Only run the provisioning on the first 'vagrant up'
+   if Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/default/*/id").empty?
+     # Install Docker
+     pkg_cmd = 
+       "apt-get update -qq; apt-get install -y curl python-pip;" \
+       "curl -fsSL https://get.docker.io/gpg | apt-key add -;" \
+       "curl -fsSL https://get.docker.com/ | sh;" \
+       "pip install docker-compose;" \
+       "service docker restart;"
+     # Add vagrant user to the docker group
+     pkg_cmd << "usermod -aG docker ${USER}"
+     config.vm.provision :shell, :inline => pkg_cmd
+   end
+  #config.vm.provision :shell, inline: "apt-get update"
+  config.vm.provision :shell, inline: "docker-compose -f /vagrant/docker-compose.yml up -d;", run: "always"
 end
