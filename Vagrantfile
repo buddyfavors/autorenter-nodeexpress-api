@@ -16,7 +16,7 @@ end
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "docker-host"
-  config.vm.network(:forwarded_port, guest: 3000, host: 3001)
+  config.vm.network(:forwarded_port, guest: 3000, host: 3000)
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
   end
