@@ -16,14 +16,14 @@ end
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "docker-host"
-  config.vm.network(:forwarded_port, guest: 3000, host: 3000)
+  config.vm.network(:forwarded_port, guest: 3000, host: 3001)
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
   end
   # Only run the provisioning on the first 'vagrant up'
    if Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/default/*/id").empty?
      # Install Docker
-     pkg_cmd = 
+     pkg_cmd =
        "apt-get update -qq; apt-get install -y curl python-pip;" \
        "curl -fsSL https://get.docker.io/gpg | apt-key add -;" \
        "curl -fsSL https://get.docker.com/ | sh;" \

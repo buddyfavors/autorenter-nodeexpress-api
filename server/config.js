@@ -4,10 +4,7 @@ let redisConfig;
 
 config.server = {
   host: process.env.HOST || '0.0.0.0',
-  port: process.env.PORT || 3000,
-  sessionKey: process.env.SESSION_KEY || 'aut-session-key',
-  sessionCoookieName: process.env.SESSION_COOKIE || 'autsessionid',
-  blacklist: ['password', 'passwordConfirmation']
+  port: process.env.PORT || 3000
 };
 
 config.postgres = {
