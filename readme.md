@@ -27,8 +27,8 @@ https://www.vagrantup.com/docs/getting-started/
 
 **Note On windows or mac, the following commands must be ran from the docker quickstart terminal**
 
- `docker-compose build`
- `docker-compose up`
+ `docker build -t aur-api-image:latest .`
+ `docker run -d -p 3000:3000 --name aur-api aur-api-image`
 
 #### To use vagrant:
  `vagrant up`
