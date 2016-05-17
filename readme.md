@@ -12,7 +12,7 @@ Must have Docker engine 1.10 or higher:
 
 ## Development Environment Setup ##
 
-Use the Docker Quickstart Terminal to run the following commands from the project's root directory:
+Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands from the project's root directory:
 
 ```
 docker build -t aur-api-image:latest .
