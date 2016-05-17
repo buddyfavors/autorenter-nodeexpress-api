@@ -24,19 +24,23 @@ https://www.vagrantup.com/docs/getting-started/
 ### From the root directory of the project:
 
 #### To use docker:
+
+**Note On windows or mac, the following commands must be ran from the docker quickstart terminal**
+
  `docker-compose build`
  `docker-compose up`
 
 #### To use vagrant:
  `vagrant up`
- If you don't have the correct plugins installed, it will install them and then rerun the above command.
+ 
+ **Note: If you don't have the correct plugins installed, it will install them and then rerun the above command.**
 
 ## Browse the App
 
-If using docker:
+### If using docker:
 
 After performing a build you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
 
-If using Vagrant:
+### If using Vagrant:
 
 After performing a build you should be able to run the application by browsing to `http://localhost:3000/`.
