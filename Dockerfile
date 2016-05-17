@@ -1,3 +1,4 @@
+# TODO: Switch to an offical alpine-node when one is made or create our own Fusion alpine image
 FROM mhart/alpine-node:6.1.0
 
 MAINTAINER Fusion Alliance <code@fusionalliance.com>
