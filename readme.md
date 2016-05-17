@@ -4,43 +4,21 @@ An Express/Node.js based implementation of the AutoRenter API.
 
 ## Prerequisites ##
 
-To use docker:
-Make sure Docker is installed:
+Must have Docker engine 1.10 or higher:
 
-For Mac: https://docs.docker.com/mac/
-For Windows: https://docs.docker.com/windows/
-For Linux: https://docs.docker.com/linux/
-
-Must have docker engine 1.10 or higher.
-
-To use Vagrant:
-Make sure to have VirtualBox and Vagrant installed.
-
-https://www.virtualbox.org/wiki/Downloads - Choose the correct binary for your OS
-https://www.vagrantup.com/docs/getting-started/
+* Mac: https://docs.docker.com/mac/
+* Windows: https://docs.docker.com/windows/
+* Linux: https://docs.docker.com/linux/
 
 ## Development Environment Setup ##
 
-### From the root directory of the project:
+Use the Docker Quickstart Terminal to run the following commands from the project's root directory:
 
-#### To use docker:
-
-**Note On windows or mac, the following commands must be ran from the docker quickstart terminal**
-
- `docker build -t aur-api-image:latest .`
- `docker run -d -p 3000:3000 --name aur-api aur-api-image`
-
-#### To use vagrant:
- `vagrant up`
- 
- **Note: If you don't have the correct plugins installed, it will install them and then rerun the above command.**
+```
+docker build -t aur-api-image:latest .
+docker run -d -p 3000:3000 --name aur-api aur-api-image
+```
 
 ## Browse the App
 
-### If using docker:
-
-After performing a build you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
-
-### If using Vagrant:
-
-After performing a build you should be able to run the application by browsing to `http://localhost:3000/`.
+After performing a build and executing the run command you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
