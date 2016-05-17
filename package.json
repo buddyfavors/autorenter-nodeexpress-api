@@ -8,7 +8,7 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "nf start",
+    "start": "env DEBUG=api,server,sql node ./bin/start-server",
     "jscs": "jscs server/**/*.js",
     "lint": "eslint server/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
