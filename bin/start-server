@@ -14,5 +14,4 @@ server.listen(port);
 
 process.on('uncaughtException', function(err) {
   debug(err);
-  require('forky').disconnect();
 });
