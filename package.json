@@ -1,0 +1,36 @@
+{
+  "engines": {
+    "node": "6.0.0"
+  },
+  "name": "autorenter_node",
+  "version": "0.0.1",
+  "description": "AutoRenter API",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "env DEBUG=api,server,sql node ./bin/start-server",
+    "jscs": "jscs server/**/*.js",
+    "lint": "eslint server/**/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "pre-commit": [
+    "lint",
+    "jscs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.fusionalliance.com:7999/fusadip/autorenter_nodeexpress_api.git"
+  },
+  "author": "Fusion Alliance",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "1.15.1",
+    "debug": "2.2.0",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "eslint": "2.9.0",
+    "jscs": "3.0.3",
+    "pre-commit": "1.1.2"
+  }
+}
