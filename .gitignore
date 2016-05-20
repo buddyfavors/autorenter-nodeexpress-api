@@ -51,3 +51,7 @@ npm-debug.log
 
 # User uploads
 userdata/documents/**/*
+
+# Visual Studio
+obj/
+.vs

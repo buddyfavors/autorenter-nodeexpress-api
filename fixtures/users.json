@@ -1,0 +1,74 @@
+[
+  {
+    "user_id": 2,
+    "username": "reimann",
+    "isLdapEnabled": true,
+    "isUserAdmin": false,
+    "isFleetAdmin": false,
+    "isBrandAdmin": false,
+    "email": null
+  },
+  {
+    "user_id": 4,
+    "username": "euler",
+    "isLdapEnabled": true,
+    "isUserAdmin": true,
+    "isFleetAdmin": false,
+    "isBrandAdmin": false,
+    "email": null
+  },
+  {
+    "user_id": 5,
+    "username": "euclid",
+    "isLdapEnabled": true,
+    "isUserAdmin": true,
+    "isFleetAdmin": true,
+    "isBrandAdmin": false,
+    "email": null
+  },
+  {
+    "user_id": 7,
+    "username": "newton",
+    "isLdapEnabled": true,
+    "isUserAdmin": true,
+    "isFleetAdmin": true,
+    "isBrandAdmin": false,
+    "email": null
+  },
+  {
+    "user_id": 8,
+    "username": "galieleo",
+    "isLdapEnabled": true,
+    "isUserAdmin": true,
+    "isFleetAdmin": true,
+    "isBrandAdmin": false,
+    "email": null
+  },
+  {
+    "user_id": 9,
+    "username": "tesla",
+    "isLdapEnabled": true,
+    "isUserAdmin": true,
+    "isFleetAdmin": true,
+    "isBrandAdmin": false,
+    "email": null
+  },
+  {
+    "user_id": 3,
+    "username": "gauss",
+    "isLdapEnabled": true,
+    "isUserAdmin": false,
+    "isFleetAdmin": true,
+    "isBrandAdmin": false,
+    "email": null
+  },
+  {
+    "user_id": 6,
+    "username": "einstein",
+    "isLdapEnabled": true,
+    "isUserAdmin": true,
+    "isFleetAdmin": true,
+    "isBrandAdmin": true,
+    "email": null
+  }
+]
