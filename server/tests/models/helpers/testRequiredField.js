@@ -7,13 +7,13 @@ module.exports = (models, model, options, requiredFieldName) => {
     let updatedOptions = JSON.parse(JSON.stringify(options));
     updatedOptions[requiredFieldName] = null;
 
-    return models.sequelize.transaction({ autocommit: false }).then(function (t) {
-      return model.create(updatedOptions, { transaction: t })
+    return models.sequelize.transaction({ autocommit: false }).then(function (transaction) {
+      return model.create(updatedOptions, { transaction: transaction })
         .then(() => {
-          return t.rollback();
+          return transaction.rollback();
         })
         .finally(() => {
-          if (!t.finished) return t.rollback();
+          if (!transaction.finished) return transaction.rollback();
         });
     }).catch(error => {
       expect(error.name).to.equal('SequelizeValidationError');

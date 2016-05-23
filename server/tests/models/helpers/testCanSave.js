@@ -5,14 +5,14 @@ module.exports = (models, model, options) => {
 
   it('can save a ' + model.name, () => {
 
-    return models.sequelize.transaction({ autocommit: false }).then(function (t) {
-      return model.create(options, { transaction: t })
+    return models.sequelize.transaction({ autocommit: false }).then(function (transaction) {
+      return model.create(options, { transaction: transaction })
         .then(user => {
           expect(user.id).to.be.greaterThan(0);
-          return t.rollback();
+          return transaction.rollback();
         })
         .finally(() => {
-          if (!t.finished) return t.rollback();
+          if (!transaction.finished) return transaction.rollback();
         });
     });
 
