@@ -2,6 +2,11 @@
 
 module.exports = function (sequelize, DataTypes) {
   var IncentiveGroup = sequelize.define('IncentiveGroup', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     locationId: {
       type: DataTypes.INTEGER,
       allowNull: false

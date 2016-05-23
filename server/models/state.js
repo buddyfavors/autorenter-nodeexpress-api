@@ -2,6 +2,11 @@
 
 module.exports = function (sequelize, DataTypes) {
   var State = sequelize.define('State', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false
