@@ -2,6 +2,11 @@
 
 module.exports = function (sequelize, DataTypes) {
   var ActivityLog = sequelize.define('ActivityLog', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     refType: {
       type: DataTypes.STRING,
       required: true

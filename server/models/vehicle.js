@@ -2,6 +2,11 @@
 
 module.exports = function (sequelize, DataTypes) {
   var Vehicle = sequelize.define('Vehicle', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     vin: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -38,6 +43,9 @@ module.exports = function (sequelize, DataTypes) {
     thumbnail: {
       type: DataTypes.TEXT,
       length: 'long'
+    },
+    incentiveGroupId: {
+      type: DataTypes.INTEGER
     }
   }, {
     classMethods: {
