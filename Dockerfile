@@ -14,4 +14,7 @@ COPY . $HOME/
 
 EXPOSE 3000
 
+RUN npm run init
+RUN npm run load-test-data
+
 CMD ["npm", "start"]
