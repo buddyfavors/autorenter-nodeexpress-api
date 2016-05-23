@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     siteId: {
-      type: DataTypes.CHAR(3),
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true
     },
