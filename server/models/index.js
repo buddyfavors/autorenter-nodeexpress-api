@@ -24,6 +24,7 @@ Object.keys(db).forEach(function (modelName) {
   }
 });
 
+// "Sequelize" maintains a reference to the module, while "sequelize" maintains a reference to the instance being used.
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
