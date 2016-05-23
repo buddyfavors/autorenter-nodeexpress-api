@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Stop and remove containers
+echo '=> Stopping api' && docker kill aur-api
+echo '=> Removing api' && docker rm aur-api
+echo '=> Stopping db' && docker kill aur-db
+echo '=> Removing db' && docker rm aur-db
+
+# Build and run containers
+source ./bin/build-server
