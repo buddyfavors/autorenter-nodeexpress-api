@@ -7,8 +7,8 @@ module.exports = (models, model, options) => {
 
     return models.sequelize.transaction({ autocommit: false }).then(function (transaction) {
       return model.create(options, { transaction: transaction })
-        .then(user => {
-          expect(user.id).to.be.greaterThan(0);
+        .then(newObject => {
+          expect(newObject.id).to.be.greaterThan(0);
           return transaction.rollback();
         })
         .finally(() => {
