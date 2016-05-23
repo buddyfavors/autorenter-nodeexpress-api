@@ -95,22 +95,24 @@ function dropTables() {
     .then(() => { return models.User.drop(); })
 }
 
-models.sequelize.sync().then(() => {
+dropTables().then(() => {
+  return models.sequelize.sync().then(() => {
 
-  var users = require('../fixtures/users.json');
-  var states = require('../fixtures/states.json');
-  var locations = require('../fixtures/locations.json');
-  var settings = require('../fixtures/settings.json');
-  var incentiveGroups = require('../fixtures/incentiveGroups.json');
-  var vehicles = require('../fixtures/vehicles.json');
+    var users = require('../fixtures/users.json');
+    var states = require('../fixtures/states.json');
+    var locations = require('../fixtures/locations.json');
+    var settings = require('../fixtures/settings.json');
+    var incentiveGroups = require('../fixtures/incentiveGroups.json');
+    var vehicles = require('../fixtures/vehicles.json');
 
-  models.sequelize.transaction(function (t) {
-    return Promise.map(states, loadState)
-      .then(() => { return Promise.map(locations, loadLocation); })
-      .then(() => { return Promise.map(users, loadUser); })
-      .then(() => { return Promise.map(settings, loadSetting); })
-      .then(() => { return Promise.map(incentiveGroups, loadIncentiveGroup); })
-      .then(() => { return Promise.map(vehicles, loadVehicle); })
-      .catch(error);
+    return models.sequelize.transaction(function (t) {
+      return Promise.map(states, loadState)
+        .then(() => { return Promise.map(locations, loadLocation); })
+        .then(() => { return Promise.map(users, loadUser); })
+        .then(() => { return Promise.map(settings, loadSetting); })
+        .then(() => { return Promise.map(incentiveGroups, loadIncentiveGroup); })
+        .then(() => { return Promise.map(vehicles, loadVehicle); })
+        .catch(error);
+    });
   });
 });
