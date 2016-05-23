@@ -15,8 +15,9 @@ Must have Docker engine 1.10 or higher:
 Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands from the project's root directory:
 
 ```
+docker run -d -p 5432:5432 --name aur-db -e POSTGRES_PASSWORD=postgres -v postgres_data:/var/lib/postgresql/data --restart=always postgres
 docker build -t aur-api-image:latest .
-docker run -d -p 3000:3000 --name aur-api aur-api-image
+docker run -d -p 3000:3000 --link aur-db:postgres --name aur-api aur-api-image
 ```
 
 ## Browse the App
