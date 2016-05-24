@@ -1,15 +1,15 @@
 ﻿'use strict';
 const expect = require('chai').expect;
 
-module.exports = (models, model, options1, options2, uniqueFieldName) => {
+module.exports = (models, model, obj1, obj2, uniqueFieldName) => {
 
   it('requires the field "' + uniqueFieldName + '" to be unique', () => {
-    let updatedOptions = JSON.parse(JSON.stringify(options1));
-    updatedOptions[uniqueFieldName] = options2[uniqueFieldName];
+    let updatedObj = JSON.parse(JSON.stringify(obj1));
+    updatedObj[uniqueFieldName] = obj2[uniqueFieldName];
     return models.sequelize.transaction({ autocommit: false }).then(function (transaction) {
-      return model.create(updatedOptions, { transaction: transaction })
+      return model.create(updatedObj, { transaction: transaction })
         .then(() => {
-          return model.create(options2, { transaction: transaction });
+          return model.create(obj2, { transaction: transaction });
         })
         .then(() => {
           return transaction.rollback();

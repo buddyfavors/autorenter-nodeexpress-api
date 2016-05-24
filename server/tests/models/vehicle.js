@@ -4,7 +4,7 @@ const helpers = require('./helpers');
 
 describe('models/Vehicle', () => {
 
-  let validOptions1 = {
+  let vehicleObject1 = {
     vin: '1FM5K7AR8DGA89041',
     make: 'Test1',
     model: 'Bubble',
@@ -14,7 +14,7 @@ describe('models/Vehicle', () => {
     rentToOwn: false
   };
 
-  let validOptions2 = {
+  let vehicleObject2 = {
     vin: '1GTEC14TXYE362553',
     make: 'Test2',
     model: 'Batmobile',
@@ -24,14 +24,14 @@ describe('models/Vehicle', () => {
     rentToOwn: true
   };
 
-  helpers.testCanSave(models, models.Vehicle, validOptions1);
+  helpers.testCanSave(models, models.Vehicle, vehicleObject1);
 
-  helpers.testRequiredField(models, models.Vehicle, validOptions1, 'vin');
-  helpers.testRequiredField(models, models.Vehicle, validOptions1, 'make');
-  helpers.testRequiredField(models, models.Vehicle, validOptions1, 'model');
-  helpers.testRequiredField(models, models.Vehicle, validOptions1, 'miles');
-  helpers.testRequiredField(models, models.Vehicle, validOptions1, 'rentToOwn');
+  helpers.testRequiredField(models, models.Vehicle, vehicleObject1, 'vin');
+  helpers.testRequiredField(models, models.Vehicle, vehicleObject1, 'make');
+  helpers.testRequiredField(models, models.Vehicle, vehicleObject1, 'model');
+  helpers.testRequiredField(models, models.Vehicle, vehicleObject1, 'miles');
+  helpers.testRequiredField(models, models.Vehicle, vehicleObject1, 'rentToOwn');
 
-  helpers.testUniqueField(models, models.Vehicle, validOptions1, validOptions2, 'vin');
+  helpers.testUniqueField(models, models.Vehicle, vehicleObject1, vehicleObject2, 'vin');
 
 });

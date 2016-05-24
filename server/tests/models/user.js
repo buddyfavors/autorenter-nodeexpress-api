@@ -4,7 +4,7 @@ const helpers = require('./helpers');
 
 describe('models/User', () => {
 
-  let validOptions1 = {
+  let userObject1 = {
     username: 'testuser1',
     ldapEnabled: true,
     userAdmin: true,
@@ -12,7 +12,7 @@ describe('models/User', () => {
     brandAdmin: true
   };
 
-  let validOptions2 = {
+  let userObject2 = {
     username: 'testuser2',
     ldapEnabled: false,
     userAdmin: false,
@@ -20,14 +20,14 @@ describe('models/User', () => {
     brandAdmin: false
   };
 
-  helpers.testCanSave(models, models.User, validOptions1);
+  helpers.testCanSave(models, models.User, userObject1);
 
-  helpers.testRequiredField(models, models.User, validOptions1, 'username');
-  helpers.testRequiredField(models, models.User, validOptions1, 'ldapEnabled');
-  helpers.testRequiredField(models, models.User, validOptions1, 'userAdmin');
-  helpers.testRequiredField(models, models.User, validOptions1, 'fleetAdmin');
-  helpers.testRequiredField(models, models.User, validOptions1, 'brandingAdmin');
+  helpers.testRequiredField(models, models.User, userObject1, 'username');
+  helpers.testRequiredField(models, models.User, userObject1, 'ldapEnabled');
+  helpers.testRequiredField(models, models.User, userObject1, 'userAdmin');
+  helpers.testRequiredField(models, models.User, userObject1, 'fleetAdmin');
+  helpers.testRequiredField(models, models.User, userObject1, 'brandingAdmin');
 
-  helpers.testUniqueField(models, models.User, validOptions1, validOptions2, 'username');
+  helpers.testUniqueField(models, models.User, userObject1, userObject2, 'username');
 
 });
