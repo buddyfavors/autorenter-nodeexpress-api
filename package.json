@@ -11,7 +11,6 @@
     "init": "node bin/init",
     "start": "env DEBUG=api,server,sql node ./bin/start-server",
     "lint": "eslint server/**/*.js",
-    "load-test-data": "node --use-strict bin/load-test-data.js",
     "test": "mocha \"server/tests/**/*.js\""
   },
   "pre-commit": [
