@@ -12,6 +12,8 @@ Must have Docker engine 1.10 or higher:
 
 ## Development Environment Setup ##
 
+### Initial build of the containers
+
 Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands from the project's root directory:
 
 ```
@@ -24,6 +26,17 @@ Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* -
 
 ```
 ./bin/rebuild-server
+```
+
+### Troubleshooting
+
+#### Permission Denied
+
+If you get a "permissions denied" error when executing any of the setup scripts, you will need to assign `execute` permission to the related script file(s). This can be accomplished by executing the following commands from the project's root directory:
+
+```
+chmod u+x ./bin/build-server
+chmod u+x ./bin/rebuild-server
 ```
 
 ## Browse the App
