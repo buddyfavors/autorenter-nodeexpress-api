@@ -35,14 +35,6 @@ module.exports = function (sequelize, DataTypes) {
         IncentiveGroup.hasMany(models.Vehicle, {
           foreignKey: 'incentiveGroupId'
         });
-        IncentiveGroup.belongsTo(models.User, {
-          onDelete: 'RESTRICT',
-          foreignKey: 'createdBy'
-        });
-        IncentiveGroup.belongsTo(models.User, {
-          onDelete: 'RESTRICT',
-          foreignKey: 'updatedBy'
-        });
       }
     }
   });

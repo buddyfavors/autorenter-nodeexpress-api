@@ -34,14 +34,6 @@ module.exports = function (sequelize, DataTypes) {
         Location.hasMany(models.IncentiveGroup, {
           foreignKey: 'locationId'
         });
-        Location.belongsTo(models.User, {
-          onDelete: 'RESTRICT',
-          foreignKey: 'createdBy'
-        });
-        Location.belongsTo(models.User, {
-          onDelete: 'RESTRICT',
-          foreignKey: 'updatedBy'
-        });
       }
     },
     indexes: [{

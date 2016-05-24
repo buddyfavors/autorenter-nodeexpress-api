@@ -54,14 +54,6 @@ module.exports = function (sequelize, DataTypes) {
           onDelete: 'RESTRICT',
           foreignKey: 'incentiveGroupId'
         });
-        Vehicle.belongsTo(models.User, {
-          onDelete: 'RESTRICT',
-          foreignKey: 'createdBy'
-        });
-        Vehicle.belongsTo(models.User, {
-          onDelete: 'RESTRICT',
-          foreignKey: 'updatedBy'
-        });
       }
     },
     indexes: [{

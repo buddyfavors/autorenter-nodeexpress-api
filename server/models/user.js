@@ -42,18 +42,6 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    classMethods: {
-      associate: function (models) {
-        User.belongsTo(models.User, {
-          onDelete: 'RESTRICT',
-          foreignKey: 'createdBy'
-        });
-        User.belongsTo(models.User, {
-          onDelete: 'RESTRICT',
-          foreignKey: 'updatedBy'
-        });
-      }
-    },
     indexes: [{
       unique: true,
       fields: ['username']
