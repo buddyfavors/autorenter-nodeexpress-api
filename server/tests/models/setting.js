@@ -4,23 +4,23 @@ const helpers = require('./helpers');
 
 describe('models/Setting', () => {
 
-  let validOptions1 = {
+  let settingObject1 = {
     name: 'test setting 1',
     type: 'image',
     value: 'whatever'
   };
 
-  let validOptions2 = {
+  let settingObject2 = {
     name: 'test setting 2',
     type: 'pdf',
     value: 'something else'
   };
 
-  helpers.testCanSave(models, models.Setting, validOptions1);
+  helpers.testCanSave(models, models.Setting, settingObject1);
 
-  helpers.testRequiredField(models, models.Setting, validOptions1, 'name');
-  helpers.testRequiredField(models, models.Setting, validOptions1, 'value');
+  helpers.testRequiredField(models, models.Setting, settingObject1, 'name');
+  helpers.testRequiredField(models, models.Setting, settingObject1, 'value');
 
-  helpers.testUniqueField(models, models.Setting, validOptions1, validOptions2, 'name');
+  helpers.testUniqueField(models, models.Setting, settingObject1, settingObject2, 'name');
 
 });

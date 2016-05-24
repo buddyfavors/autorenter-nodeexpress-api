@@ -4,7 +4,7 @@ const helpers = require('./helpers');
 
 describe('models/IncentiveGroup', () => {
 
-  let validOptions1 = {
+  let incentiveGroupObject1 = {
     locationId: 1,
     priority: 2,
     name: 'Silver',
@@ -12,11 +12,11 @@ describe('models/IncentiveGroup', () => {
     endDate: '2016-03-01T00:00:00.000Z'
   };
 
-  helpers.testCanSave(models, models.IncentiveGroup, validOptions1);
+  helpers.testCanSave(models, models.IncentiveGroup, incentiveGroupObject1);
 
-  helpers.testRequiredField(models, models.IncentiveGroup, validOptions1, 'name');
-  helpers.testRequiredField(models, models.IncentiveGroup, validOptions1, 'priority');
-  helpers.testRequiredField(models, models.IncentiveGroup, validOptions1, 'locationId');
+  helpers.testRequiredField(models, models.IncentiveGroup, incentiveGroupObject1, 'name');
+  helpers.testRequiredField(models, models.IncentiveGroup, incentiveGroupObject1, 'priority');
+  helpers.testRequiredField(models, models.IncentiveGroup, incentiveGroupObject1, 'locationId');
 
   // TODO Test relations?
 

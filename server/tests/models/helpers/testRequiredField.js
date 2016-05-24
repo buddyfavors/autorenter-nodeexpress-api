@@ -1,14 +1,14 @@
 ﻿'use strict';
 const expect = require('chai').expect;
 
-module.exports = (models, model, options, requiredFieldName) => {
+module.exports = (models, model, obj, requiredFieldName) => {
 
   it('requires the field "' + requiredFieldName + '"', () => {
-    let updatedOptions = JSON.parse(JSON.stringify(options));
-    updatedOptions[requiredFieldName] = null;
+    let updatedObj = JSON.parse(JSON.stringify(obj));
+    updatedObj[requiredFieldName] = null;
 
     return models.sequelize.transaction({ autocommit: false }).then(function (transaction) {
-      return model.create(updatedOptions, { transaction: transaction })
+      return model.create(updatedObj, { transaction: transaction })
         .then(() => {
           return transaction.rollback();
         })
