@@ -14,4 +14,6 @@ COPY . $HOME/
 
 EXPOSE 3000
 
+RUN npm run init
+
 CMD ["npm", "start"]
