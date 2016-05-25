@@ -30,7 +30,7 @@ Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* -
 
 ## Running Tests ##
 
-Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac*:
+Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands:
 
 ```
 docker exec -t aur-api npm test
@@ -40,13 +40,13 @@ docker exec -t aur-api npm test
 
 ### Using the psql Command Line Interface ###
 
-Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac*:
+Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands:
 
 ```
 docker exec -it aur-db psql -U postgres
 ```
 
-psql Documentation: https://www.postgresql.org/docs/9.3/static/app-psql.html
+NOTE: psql documentation is available at `https://www.postgresql.org/docs/9.3/static/app-psql.html`
 
 #### Example psql session ####
 
