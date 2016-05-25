@@ -57,9 +57,9 @@ The following example:
  - exits psql.
 
 ```
-/connect auto_renter
+\connect auto_renter
 select * from "Locations";
-/q
+\q
 ```
 
 ## Troubleshooting ##
