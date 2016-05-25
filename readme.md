@@ -46,6 +46,8 @@ Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac*:
 docker exec -it aur-db psql -U postgres
 ```
 
+psql Documentation: https://www.postgresql.org/docs/9.3/static/app-psql.html
+
 #### Example psql session ####
 
 The following example:
