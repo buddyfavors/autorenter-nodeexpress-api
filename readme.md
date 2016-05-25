@@ -46,6 +46,20 @@ Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac*:
 docker exec -it aur-db psql -U postgres
 ```
 
+#### Example psql session ####
+
+The following example:
+
+ - Connects to the auto_renter database.
+ - List all locations.
+ - exits psql.
+
+```
+/connect auto_renter
+select * from "Locations";
+/q
+```
+
 ## Troubleshooting ##
 
 ### Permission Denied ###
