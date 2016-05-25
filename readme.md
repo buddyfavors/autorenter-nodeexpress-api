@@ -38,23 +38,13 @@ docker exec -t aur-api npm test
 
 ## View the Database ##
 
-### Using the pgAdmin GUI ###
-
- - Download and install pgAdmin from here: https://www.pgadmin.org/
- - Create a new connection with the following properties:
-    - Name: aur-db
-    - Host: 192.168.99.100
-    - Username: postgres
-    - Password: postgres
-    - Save Password: checked
-
-Auto Renter tables are located in the auto_renter database.
-
-Please see pgAdmin documentation for details: https://www.pgadmin.org/docs/1.22/index.html
-
 ### Using the psql Command Line Interface ###
 
-TODO - common commands
+Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac*:
+
+```
+docker exec -it aur-db psql -U postgres
+```
 
 ## Troubleshooting ##
 
