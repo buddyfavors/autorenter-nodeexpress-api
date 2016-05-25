@@ -28,6 +28,28 @@ Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* -
 ./bin/rebuild-server
 ```
 
+## Running Tests ##
+
+Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac*:
+
+```
+docker exec -t aur-api npm test
+```
+
+## Database Connection Using pgAdmin ##
+
+ - Download and install pgAdmin from here: https://www.pgadmin.org/
+ - Create a new connection with the following properties:
+    - Name: aur-db
+    - Host: 192.168.99.100
+    - Username: postgres
+    - Password: postgres
+    - Save Password: checked
+
+Auto Renter tables are located in the auto_renter database.
+
+Please see pgAdmin documentation for details: https://www.pgadmin.org/docs/1.22/index.html
+
 ### Troubleshooting
 
 #### Permission Denied
