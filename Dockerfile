@@ -8,7 +8,7 @@ ENV HOME=/home/api
 WORKDIR $HOME
 
 COPY package.json $HOME/package.json
-RUN npm install
+RUN npm install; npm install -g nodemon
 
 COPY . $HOME/
 
