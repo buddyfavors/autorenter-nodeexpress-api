@@ -9,7 +9,7 @@
   "main": "app.js",
   "scripts": {
     "init": "node bin/init",
-    "start": "env DEBUG=api,server,sql nodemon ./bin/start-server",
+    "start": "env DEBUG=api,server,sql nodemon -L ./bin/start-server",
     "lint": "eslint server/**/*.js",
     "test": "mocha \"server/tests/**/*.js\""
   },
