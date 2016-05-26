@@ -6,7 +6,7 @@ const pkgJSON = require('../../package.json');
 
 function getRoot(request, response) {
 
-  models.User.findOne({ where: {username: 'newton'} }).then(function(user) {
+  models.User.findOne({ where: { username: 'newton' } }).then(function (user) {
     let app = express();
     let env = app.get('env');
 
@@ -16,7 +16,7 @@ function getRoot(request, response) {
       environment: env,
       version: pkgJSON.version
     });
-  })
+  });
 }
 
 module.exports = getRoot;
