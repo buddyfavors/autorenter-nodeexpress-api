@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (sequelize, DataTypes) {
-  var Location = sequelize.define('Location', {
+module.exports = (sequelize, DataTypes) => {
+  const Location = sequelize.define('Location', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   }, {
     classMethods: {
-      associate: function (models) {
+      associate: models => {
         Location.belongsTo(models.State, {
           onDelete: 'RESTRICT',
           foreignKey: 'stateId'

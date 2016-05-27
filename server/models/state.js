@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (sequelize, DataTypes) {
-  var State = sequelize.define('State', {
+module.exports = (sequelize, DataTypes) => {
+  const State = sequelize.define('State', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -12,14 +12,16 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     stateCode: {
+      /* eslint-disable new-cap */
       type: DataTypes.CHAR(2),
+      /* eslint-enable new-cap */
       allowNull: false,
       unique: true
     }
   }, {
     timestamps: false,
     classMethods: {
-      associate: function (models) {
+      associate: models => {
         State.hasMany(models.Location, {
           foreignKey: 'stateId'
         });

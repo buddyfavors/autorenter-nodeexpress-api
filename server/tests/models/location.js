@@ -3,15 +3,14 @@ const models = require('../../models');
 const helpers = require('./helpers');
 
 describe('models/Location', () => {
-
-  let locationObject1 = {
+  const locationObject1 = {
     siteId: 'ZZ1',
     name: 'Test Location 1',
     city: 'Test City 1',
     stateId: 2
   };
 
-  let locationObject2 = {
+  const locationObject2 = {
     siteId: 'ZZ2',
     name: 'Test Location 2',
     city: 'Test City 2',
@@ -25,5 +24,4 @@ describe('models/Location', () => {
   helpers.testRequiredField(models, models.Location, locationObject1, 'stateId');
 
   helpers.testUniqueField(models, models.Location, locationObject1, locationObject2, 'siteId');
-
 });

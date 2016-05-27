@@ -14,8 +14,7 @@
     "test": "mocha \"server/tests/**/*.js\""
   },
   "pre-commit": [
-    "lint",
-    "jscs"
+    "lint"
   ],
   "repository": {
     "type": "git",
@@ -35,8 +34,9 @@
   },
   "devDependencies": {
     "chai": "3.5.0",
-    "eslint": "2.9.0",
-    "jscs": "3.0.3",
+    "eslint": "2.10.2",
+    "eslint-config-airbnb-base": "3.0.1",
+    "eslint-plugin-import": "1.8.1",
     "mocha": "2.4.5",
     "pre-commit": "1.1.2"
   }

@@ -1,6 +1,6 @@
 'use strict';
 
-let config = module.exports = {};
+const config = module.exports = {};
 
 config.server = {
   host: process.env.HOST || '0.0.0.0',
