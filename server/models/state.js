@@ -12,9 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     stateCode: {
-      /* eslint-disable new-cap */
-      type: DataTypes.CHAR(2),
-      /* eslint-enable new-cap */
+      type: DataTypes.CHAR(2), // eslint-disable-line new-cap
       allowNull: false,
       unique: true
     }
