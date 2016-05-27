@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (sequelize, DataTypes) {
-  var IncentiveGroup = sequelize.define('IncentiveGroup', {
+module.exports = (sequelize, DataTypes) => {
+  const IncentiveGroup = sequelize.define('IncentiveGroup', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   }, {
     classMethods: {
-      associate: function (models) {
+      associate: models => {
         IncentiveGroup.belongsTo(models.Location, {
           onDelete: 'RESTRICT',
           foreignKey: 'locationId'

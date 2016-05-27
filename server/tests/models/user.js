@@ -3,8 +3,7 @@ const models = require('../../models');
 const helpers = require('./helpers');
 
 describe('models/User', () => {
-
-  let userObject1 = {
+  const userObject1 = {
     username: 'testuser1',
     ldapEnabled: true,
     userAdmin: true,
@@ -12,7 +11,7 @@ describe('models/User', () => {
     brandAdmin: true
   };
 
-  let userObject2 = {
+  const userObject2 = {
     username: 'testuser2',
     ldapEnabled: false,
     userAdmin: false,
@@ -29,5 +28,4 @@ describe('models/User', () => {
   helpers.testRequiredField(models, models.User, userObject1, 'brandingAdmin');
 
   helpers.testUniqueField(models, models.User, userObject1, userObject2, 'username');
-
 });

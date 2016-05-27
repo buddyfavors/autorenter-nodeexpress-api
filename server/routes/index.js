@@ -2,7 +2,8 @@
 
 const api = require('../api');
 const express = require('express');
-const router = express.Router();
+
+const router = express.Router(); // eslint-disable-line new-cap
 
 router.get('/', api.getRoot);
 
