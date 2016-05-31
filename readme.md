@@ -4,7 +4,7 @@ An Express/Node.js based implementation of the AutoRenter API.
 
 ## Getting Started
 
-These instructions will cover usage information for the API and for the docker container
+These instructions will cover usage information for the API and for the docker container.
 
 ### Prerequisites
 
