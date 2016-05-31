@@ -10,7 +10,7 @@
   "scripts": {
     "init": "node bin/init",
     "lint": "eslint server/**/*.js",
-    "start": "env DEBUG=api,server,sql nodemon -L ./bin/start-server",
+    "start": "nodemon -L ./bin/start-server.js",
     "test": "mocha \"server/tests/**/*.js\""
   },
   "pre-commit": [
