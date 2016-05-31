@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+'use strict';
 
 const app = require('../server/app');
-const debug = require('debug')('server');
+const debug = require('debug')('api');
 const http = require('http');
 const config = require('../server/config');
 
