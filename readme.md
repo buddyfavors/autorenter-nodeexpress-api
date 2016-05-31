@@ -1,62 +1,103 @@
-# AutoRenter - Express/Node.js #
+# AutoRenter - Express/Node.js
 
 An Express/Node.js based implementation of the AutoRenter API.
 
-## Prerequisites ##
+## Getting Started
 
-Must have Docker engine 1.10 or higher:
+These instructions will cover usage information for the API and for the docker container
 
-- Mac: https://docs.docker.com/mac/
-- Windows: https://docs.docker.com/windows/
-- Linux: https://docs.docker.com/linux/
+### Prerequisites
 
-## Development Environment Setup ##
+In order to run this container you'll need Docker engine 1.10 or higher installed.
 
-### Initial build of the containers ###
+* [Windows](https://docs.docker.com/windows/started)
+* [OS X](https://docs.docker.com/mac/started/)
+* [Linux](https://docs.docker.com/linux/started/)
 
-Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands from the project's root directory:
+### Usage
 
+#### Container Parameters
+
+#### Environment Variables
+
+* `DEBUG` - Set the logging level to debug for the supplied arguments
+  * Examples:
+    * `api` - Sets debugging for API calls
+    * `server` - sets debugging for server messages
+    * `sql` - sets debugging for database calls
+* `HOME` - Sets the project's home directory
+* `POSTGRES_PASSWORD` - Sets the super admin password
+* `HOST` - Sets the API server host
+* `PORT` - Sets the API server port
+* `DATABASE_USER` - Sets API database user
+* `DATABASE_PASSWORD` - Sets the API database password
+* `DATABASE_HOST` - Sets the API database host
+* `DATABASE_DATABASE` - Sets the API database name
+* `DATABASE_DIALECT` - Sets the API database dialect
+* `DATABASE_LOGGING` - Sets the API database logging
+
+#### Volumes
+
+* `/home/api` - The project's home directory
+* `/var/lib/postgresql` - Data directory for DB
+
+#### Useful file locations
+
+* `/bin` - Collection of helper scripts
+* `/bin/build-server.sh` - Builds up and runs DB and API container
+* `/bin/rebuild-server.sh` - Rebuilds and runs DB and API container
+* `/bin/start-server.js` - Starts the express server
+* `/bin/init.js` - Initializes the DB
+* `/fixtures` - Sequalize test data
+* `/server` - API source
+
+#### Development Environment Setup
+
+##### Initial build of the containers
+
+Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands from the project's root directory:
+
+```bash
+./bin/build-server.sh
 ```
-./bin/build-server
+
+##### To rebuild the containers
+
+Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands from the project's root directory:
+
+```bash
+./bin/rebuild-server.sh
 ```
 
-### To rebuild the containers ###
+#### Running Tests
 
-Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands from the project's root directory:
+Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands:
 
-```
-./bin/rebuild-server
-```
-
-## Running Tests ##
-
-Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands:
-
-```
+```bash
 docker exec -t aur-api npm test
 ```
 
-## View the Database ##
+#### View the Database
 
-### Using the psql Command Line Interface ###
+##### Using the psql Command Line Interface
 
-Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* - to run the following commands:
+Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands:
 
-```
+```bash
 docker exec -it aur-db psql -U postgres
 ```
 
-NOTE: psql documentation is available at `https://www.postgresql.org/docs/9.3/static/app-psql.html`
+**NOTE: psql documentation is available at [https://www.postgresql.org/docs/9.3/static/app-psql.html](https://www.postgresql.org/docs/9.3/static/app-psql.html)**
 
-#### Example psql session ####
+###### Example psql session
 
 The following example:
 
- - Connects to the auto_renter database.
- - List all locations.
- - exits psql.
+* Connects to the auto_renter database.
+* List all locations.
+* exits psql.
 
-```
+```bash
 \connect auto_renter
 select * from "Locations";
 \q
@@ -75,3 +116,25 @@ We are currently experiencing problems running the containerized API on a Window
 ## Browse the App ##
 
 After performing a build and executing the run command you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
+## Contributing
+
+Please read the [CONTRIBUTING](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository]().
+
+## Authors
+
+* **Allen Buckley** - *Initial work* - [Allen Buckley](https://github.com/allensb)
+* **Ray Clanan** - *Initial work* - [Ray Clanan](https://github.com/rclanan)
+
+See also the list of [contributors]() who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgments
+
+* Fusion Alliance for the initiative to create a community of open source development within our ranks.
