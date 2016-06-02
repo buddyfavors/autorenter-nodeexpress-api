@@ -25,7 +25,7 @@ Before you create a new Issue:
 
 ## Pull Request (PR) Process
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
+1. Ensure any install or build dependencies that are no longer needed are removed before the end of the build.
 1. Update the README.md with details of changes to the interface or its usage. This includes new environment variables, exposed ports, useful file locations, and container parameters.
 1. Increase the version numbers in any example files and the README.md to the new version that this PR would represent. The versioning scheme we use is [SemVer](http://semver.org/).
 1. PRs must be approved before they can be merged.
