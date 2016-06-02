@@ -99,19 +99,19 @@ select * from "Locations";
 \q
 ```
 
-## Troubleshooting ##
+## Browse the App
 
-### API Doesn't Start ###
+After [re]building the containers, you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
+
+## Troubleshooting
+
+### API Doesn't Start
 
 We are currently experiencing problems running the containerized API on a Windows host. This is due to a problem with the volume (folder) sharing between the host and the container. As a workaround:
 
 * Remove the `-v $(pwd):/home/api` option from build-server.sh
 * Manually run `./bin/rebuild-server` after you make changes to the code.
   * This is necessary because the watch loop can't detect file changes with the folder sharing removed.
-
-## Browse the App ##
-
-After performing a build and executing the run command you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
 
 ## Contributing
 
@@ -123,9 +123,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Allen Buckley** - *Initial work* - [Allen Buckley](https://github.com/allensb)
-* **Ray Clanan** - *Initial work* - [Ray Clanan](https://github.com/rclanan)
-* **Jarred Keuch** - *Initial work* - [Jarred Keuch](https://github.com/jarredkeuch)
+* [**Allen Buckley**](https://github.com/allensb) - *Initial work*
+* [**Ray Clanan**](https://github.com/rclanan) - *Initial work*
+* [**Jarred Keuch**](https://github.com/jarredkeuch) - *Initial work*
 
 See also the list of [contributors]() who participated in this project.
 
