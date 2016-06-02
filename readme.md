@@ -29,12 +29,12 @@ In order to run this container you'll need Docker engine 1.10 or higher installe
 * `POSTGRES_PASSWORD` - Sets the super admin password
 * `HOST` - Sets the API server host
 * `PORT` - Sets the API server port
-* `DATABASE_USER` - Sets API database user
-* `DATABASE_PASSWORD` - Sets the API database password
-* `DATABASE_HOST` - Sets the API database host
-* `DATABASE_DATABASE` - Sets the API database name
-* `DATABASE_DIALECT` - Sets the API database dialect
-* `DATABASE_LOGGING` - Sets the API database logging
+* `DB_USER` - Sets API database user
+* `DB_PASSWORD` - Sets the API database password
+* `DB_HOST` - Sets the API database host
+* `DB_NAME` - Sets the API database name
+* `DB_DIALECT` - Sets the API database dialect
+* `DB_LOGGING` - Sets the API database logging
 
 #### Volumes
 
@@ -116,6 +116,7 @@ We are currently experiencing problems running the containerized API on a Window
 ## Browse the App ##
 
 After performing a build and executing the run command you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
+
 ## Contributing
 
 Please read the [CONTRIBUTING](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
