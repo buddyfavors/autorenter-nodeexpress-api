@@ -64,14 +64,13 @@ select * from "Locations";
 
 ## Troubleshooting ##
 
-### Permission Denied ###
+### API Doesn't Start ###
 
-If you get a "permissions denied" error when executing any of the setup scripts, you will need to assign `execute` permission to the related script file(s). This can be accomplished by executing the following commands from the project's root directory:
+We are currently experiencing problems running the containerized API on a Windows host. This is due to a problem with the volume (folder) sharing between the host and the container. As a workaround:
 
-```
-chmod u+x ./bin/build-server
-chmod u+x ./bin/rebuild-server
-```
+- Remove the `-v $(pwd):/home/api` option from build-server.sh
+- Manually run `./bin/rebuild-server` after you make changes to the code.
+  - This is necessary because the watch loop can't detect file changes with the folder sharing removed.
 
 ## Browse the App ##
 
