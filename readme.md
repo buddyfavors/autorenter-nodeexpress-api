@@ -44,10 +44,6 @@ In order to run this container you'll need Docker engine 1.10 or higher installe
 #### Useful file locations
 
 * `/bin` - Collection of helper scripts
-* `/bin/build-server.sh` - Builds up and runs DB and API container
-* `/bin/rebuild-server.sh` - Rebuilds and runs DB and API container
-* `/bin/start-server.js` - Starts the express server
-* `/bin/init.js` - Initializes the DB
 * `/fixtures` - Sequalize test data
 * `/server` - API source
 
@@ -109,9 +105,9 @@ select * from "Locations";
 
 We are currently experiencing problems running the containerized API on a Windows host. This is due to a problem with the volume (folder) sharing between the host and the container. As a workaround:
 
-- Remove the `-v $(pwd):/home/api` option from build-server.sh
-- Manually run `./bin/rebuild-server` after you make changes to the code.
-  - This is necessary because the watch loop can't detect file changes with the folder sharing removed.
+* Remove the `-v $(pwd):/home/api` option from build-server.sh
+* Manually run `./bin/rebuild-server` after you make changes to the code.
+  * This is necessary because the watch loop can't detect file changes with the folder sharing removed.
 
 ## Browse the App ##
 
