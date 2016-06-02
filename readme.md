@@ -128,6 +128,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Allen Buckley** - *Initial work* - [Allen Buckley](https://github.com/allensb)
 * **Ray Clanan** - *Initial work* - [Ray Clanan](https://github.com/rclanan)
+* **Jarred Keuch** - *Initial work* - [Jarred Keuch](https://github.com/jarredkeuch)
 
 See also the list of [contributors]() who participated in this project.
 
