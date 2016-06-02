@@ -2,7 +2,7 @@
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change. 
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
+Please note we have a code of conduct; please follow it in all your interactions with the project.
 
 ## Creating an Issue
 
@@ -10,25 +10,29 @@ Before you create a new Issue:
 
 * Check the [Issues](https://jira.fusionalliance.com/browse/AUT) on Jira to ensure one doesn't already exist.
 * Clearly describe the issue, including the steps to reproduce the issue.
-* If it's a new feature, enhancement, or restructure, explain your reasoning on why your think it should be, as well as a particular use case.
+* If it's a new feature, enhancement, or restructure, explain your reasoning on why your think it should be implemented, and also provide a supporting use case.
 
 ## Making changes
 
-* Create a feature branch from the master branch
-* Check for unnecessary whitespace/changes with `git diff --check` before committing
-  * Also check that your code is formatted properly with spaces (hint: Use [.editorconfig](http://editorconfig.org/))
-* Keep git commit messages clear and appropriate
+* Create a feature branch from the master branch.
+* Check for unnecessary whitespace/changes with `git diff --check` before committing.
+  * Also check that your code is formatted properly with spaces (hint: Use [.editorconfig](http://editorconfig.org/)).
+* Keep git commit messages clear and appropriate.
 * Make sure you have added any tests necessary to test your code.
   * Run __all__ the tests to ensure nothing else was accidentally broken.
   * Don't rely on the existing tests to see if you've broken code elsewhere; test the changes you made in a browser too!
-* Update the documentation to go along with any changes in functionality/improvements
+* Update the documentation to go along with any changes in functionality/improvements.
 
-## Pull Request Process
+## Pull Request (PR) Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-2. Update the README.md with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.
-3. Increase the version numbers in any example files and the README.md to the new version that this Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+1. Update the README.md with details of changes to the interface or its usage. This includes new environment variables, exposed ports, useful file locations, and container parameters.
+1. Increase the version numbers in any example files and the README.md to the new version that this PR would represent. The versioning scheme we use is [SemVer](http://semver.org/).
+1. PRs must be approved before they can be merged.
+  * Merging of approved PRs to the master branch will be performed by the Product Owner.
+  * Merging of approved PRs to a feature branch will typically be performed by the branch's creator.
+
+    > **Example**: Jon creates a PR for a new feature. To fix some problems he found in Jon's branch while reviewing Jon's PR, Dave creates a new branch from Jon's branch and opens a new PR. After getting necessary approval, Dave merges his PR into Jon's branch. Then, after Jon's PR has been approved, the Product Owner merges Jon's PR into the master branch.
 
 ## Contributor Covenant Code of Conduct
 
