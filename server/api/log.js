@@ -1,29 +1,24 @@
 'use strict';
+const expect = require('chai').expect;
+const models = require('../models');
+const debug = require('debug')('sql');
+//Level : {error:  warn:  info }
 
-const express = require('express');
-
-const pkgJSON = require('../../package.json');
-var sequelize = require('sequelize');
-var config = require('../config.js');
-var sequelize = new Sequelize(config.database.database, config.database.username, config.database.password, config.database);
-var db = {};
-
-function addLogs(level,username,logmessage) { 
-
-var sqlInsert = "INSERT INTO Autorenter_logs " + " (level, UserName, Message) VALUES (level,username,logmessage)";
- //log entry
+module.exports = (UserName, Level, Message) => {
+let objLogging = {     
+    UserName: UserName,   
+    Level: Level,
+    Message: Message
+  };
 
 
-sequelize.query(sqlInsert)
-//TO Do: On success add in file
-.onsuccess(function(result) {
- console.log(result);
-  })
-.catch(function(err){
-    
-  //  winston.log('error', "Log not added  :" + err);
-    //TO Do: remove this after verification :Temperory code
-   console.log(err);
-  })
-}
-module.exports = addLogs;
+
+ models.AutoRenter_Log.create(objLogging)
+
+ .error(function(err){
+   debug('Error occured while adding logs :' + err);;
+})
+ .finally(() => {  	debug('Please check AutoRenter_Log for log entry.'); }
+ 	);
+
+};
