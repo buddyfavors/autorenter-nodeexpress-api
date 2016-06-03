@@ -7,15 +7,15 @@ describe('models/AutoRenter_Log', () => {
   let logging1 = {
    
     UserName: 'Devashri',
-    Level: 'Test City 1',
-    Message: 'Error'
+    Level: 'Info',
+    Message: 'Database testing'
   };
 
   let logging2 = {
    
      UserName: 'Ray',
-    city: 'Test City 2',
-    Message: 'Error'
+    city: 'Info',
+    Message: 'Database testing'
   };
 
   helpers.testCanSave(models, models.AutoRenter_Log, logging1);
