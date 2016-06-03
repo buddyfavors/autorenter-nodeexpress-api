@@ -12,7 +12,7 @@ Must have Docker engine 1.10 or higher:
 
 ## Database Environment Setup ##
 Execute this script in Pgadmin
-
+```
 CREATE TABLE public."AutoRenterLogs"
 (
   id integer NOT NULL DEFAULT nextval('"AutoRenterLogs_id_seq"'::regclass),
@@ -27,12 +27,15 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE public."AutoRenterLogs" OWNER TO auto_renter;
-
+```
 ## Logging setup ##
-run following command
-npm install winston
-npm install winston-postgre
 
+run following command
+```
+npm install winston
+
+npm install winston-postgre
+```
 ## Development Environment Setup ##
 
 ### Initial build of the containers ###
