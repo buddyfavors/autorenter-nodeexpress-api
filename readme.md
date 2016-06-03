@@ -10,6 +10,29 @@ Must have Docker engine 1.10 or higher:
 - Windows: https://docs.docker.com/windows/
 - Linux: https://docs.docker.com/linux/
 
+## Database Environment Setup ##
+Execute this script in Pgadmin
+
+CREATE TABLE public."AutoRenterLogs"
+(
+  id integer NOT NULL DEFAULT nextval('"AutoRenterLogs_id_seq"'::regclass),
+  "UserName" character varying(255) NOT NULL,
+  "Timestamp" timestamp with time zone NOT NULL,
+  "Level" integer NOT NULL,
+  "Message" character varying(255) NOT NULL,
+  "createdAt" timestamp with time zone NOT NULL,
+  CONSTRAINT "AutoRenterLogs_pkey" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public."AutoRenterLogs" OWNER TO auto_renter;
+
+## Logging setup ##
+run following command
+npm install winston
+npm install winston-postgre
+
 ## Development Environment Setup ##
 
 ### Initial build of the containers ###
@@ -19,6 +42,9 @@ Use a terminal - *must be the Docker Quickstart Terminal if on Windows or Mac* -
 ```
 ./bin/build-server
 ```
+
+
+
 
 ### To rebuild the containers ###
 
