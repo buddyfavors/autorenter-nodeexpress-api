@@ -15,7 +15,7 @@ Execute this script in Pgadmin
 ```
 CREATE TABLE public."AutoRenterLogs"
 (
-  id integer NOT NULL DEFAULT nextval('"AutoRenterLogs_id_seq"'::regclass),
+  id serial primary key,
   "UserName" character varying(255) NOT NULL,
   "Timestamp" timestamp with time zone NOT NULL,
   "Level" integer NOT NULL,
