@@ -2,11 +2,11 @@
 
 
 const getRoot = require('./getRoot');
-const log = require('./log');
-log('Auro Renter','Info','Api request begin');
+const log = require('./postLog');
+// TO DO : It should be username 
+log('Auto Renter','Info','Api request begin');
 module.exports = {
   getRoot
-};
-// TO DO : It should be username 
 
-log('Auro Renter','Info','Api request end');
+};
+log('Auto Renter','Info','Api request end');
