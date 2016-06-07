@@ -2,8 +2,8 @@
 
 module.exports = function (sequelize, DataTypes) {
   var AutoRenter_Log = sequelize.define('AutoRenter_Log', {
-    ID: {
-      type: DataTypes.INTEGER, 
+    id: {
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },

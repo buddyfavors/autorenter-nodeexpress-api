@@ -16,7 +16,7 @@ function getRoot(request, response) {
       environment: env,
       version: pkgJSON.version
     });
-  })
+  });
 }
 
 module.exports = getRoot;
