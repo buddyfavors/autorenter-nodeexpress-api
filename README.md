@@ -73,11 +73,19 @@ Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac**
 docker exec -t aur-api npm test
 ```
 
+#### Linting the code
+
+With the aur-api container running, use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands:
+
+```bash
+docker exec -t aur-api npm run lint
+```
+
 #### View the Database
 
 ##### Using the psql Command Line Interface
 
-Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands:
+With the postgres container running, use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands:
 
 ```bash
 docker exec -it aur-db psql -U postgres
