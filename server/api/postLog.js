@@ -16,7 +16,8 @@ function postLog(request, response) {
  models.AutoRenter_Log.create(objLogging).then(function(AutoRenter_Log)
  {
  	response.status(201).json({
-      
+          message: 'Log Added sucessfully!'
+    
     });
  })
  
