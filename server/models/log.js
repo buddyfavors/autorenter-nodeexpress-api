@@ -1,32 +1,32 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  var AutoRenter_Log = sequelize.define('AutoRenter_Log', {
+  var Log = sequelize.define('Log', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    UserName: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    Timestamp: {
+    timestamp: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: sequelize.literal("(now() at time zone 'utc')")
     },
-    Level: {
+    level: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    Message: {
+    message: {
       type: DataTypes.STRING,
       allowNull: false
     }
       });
 
-  return AutoRenter_Log;
+  return Log;
 };
 
 

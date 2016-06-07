@@ -6,9 +6,9 @@ const supertest = require('supertest')(app);
 //const models = require('../../server/models');
 
 let postData = {
-  'UserName': 'Devashri',
-  'Level':'Info',
-  'Message':'API Test case'
+  'username': 'Auto Renter',
+  'level':'Info',
+  'message':'API Test case'
 };
 
 describe('/api/log', function() {
