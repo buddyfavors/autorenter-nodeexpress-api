@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
     timestamp: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: sequelize.literal("(now() at time zone 'utc')")
+      defaultValue: sequelize.literal('(now() at time zone \'utc\')')
     },
     level: {
       type: DataTypes.STRING,
@@ -24,10 +24,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-      });
+  });
 
   return Log;
 };
-
-
-

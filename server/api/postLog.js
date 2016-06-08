@@ -12,7 +12,7 @@ function postLog(request, response) {
     message: request.body.message
   };
 
-  models.Log.create(objLogging).then(function(log) {
+  models.Log.create(objLogging).then(function() {
     response.status(201).json({ message: 'Log Added sucessfully!' });
   })
   .error(function(err){
