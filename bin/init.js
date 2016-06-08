@@ -1,10 +1,11 @@
 ﻿#!/usr/bin/env node
 'use strict';
 
-var config = require('../server/config.js');
-var Sequelize = require('sequelize');
+const config = require('../server/config.js');
+const Sequelize = require('sequelize');
 const models = require('../server/models');
-var Promise = require('bluebird');
+const Promise = require('bluebird');
+const debug = require('debug')('sql');
 
 function initDatabase() {
 
@@ -29,7 +30,7 @@ function initDatabase() {
 }
 
 function error(error) {
-  console.error(error);
+  debug(error);
   process.exit(1);
 }
 
@@ -108,16 +109,6 @@ function loadVehicle(vehicle) {
     thumbnail: vehicle.thumbnail
   })
     .catch(error);
-}
-
-function dropTables() {
-  return models.Vehicle.drop()
-    .then(() => { return models.IncentiveGroup.drop(); })
-    .then(() => { return models.Location.drop(); })
-    .then(() => { return models.State.drop(); })
-    .then(() => { return models.Setting.drop(); })
-    .then(() => { return models.ActivityLog.drop(); })
-    .then(() => { return models.User.drop(); })
 }
 
 initDatabase()
