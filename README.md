@@ -2,11 +2,11 @@
 
 An Express/Node.js based implementation of the AutoRenter API.
 
-## Getting Started
+## Overview
 
-These instructions will cover usage information for the API and for the docker container.
+These instructions will cover usage information for the API and for the associated docker containers.
 
-### Prerequisites
+## Prerequisites
 
 In order to run this container you'll need Docker engine 1.10 or higher installed.
 
@@ -14,9 +14,118 @@ In order to run this container you'll need Docker engine 1.10 or higher installe
 * [OS X](https://docs.docker.com/mac/started/)
 * [Linux](https://docs.docker.com/linux/started/)
 
-### Usage
+## How To
 
-#### Container Parameters
+**Unless otherwise noted, all terminal commands must be issued from the project's root directory. You must use the Docker Quickstart Terminal if on Windows or Mac.**
+
+### [Re]build and start the containers
+
+```bash
+./bin/rebuild-server.sh
+```
+
+### Lint the code
+
+Note that the aur-api container must be running to lint the code.
+
+```bash
+docker exec -t aur-api npm run lint
+```
+
+### Run tests
+
+Note that the aur-api container must be running to run the tests.
+
+```bash
+docker exec -t aur-api npm test
+```
+
+### View the database
+
+#### Using the psql Command Line Interface
+
+Note that the postgres container must be running to interact with the database.
+
+```bash
+docker exec -it aur-db psql -U postgres
+```
+
+For additional information, psql documentation is available at [https://www.postgresql.org/docs/9.3/static/app-psql.html](https://www.postgresql.org/docs/9.3/static/app-psql.html).
+
+##### Example psql session
+
+The following example:
+
+* Connects to the auto_renter database from within the psql shell.
+* List all locations.
+* Exits psql.
+
+```bash
+\connect auto_renter
+select * from "Locations";
+\q
+```
+
+### Browse the app
+
+After successfully [re]building the containers, you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
+
+## Recommended Development Workflow
+
+The following steps describe the recommended development workflow.
+
+1. Pull from Master.
+1. Build the containers.
+1. Browse the app.
+
+>If you encounter problems with any of this, please see the Troubleshooting section, below.
+
+If you are implementing a new feature, in addition to the previous steps you should:
+
+1. Create a feature branch by branching off of Master.
+1. Implement your feature. *Note that during this process you should regularly (at least 1x/day) merge the Master branch into your feature branch to ensure your code is staying current with work being done by the rest of the team.*
+	1. Develop
+		1. Make changes to code, scripts, etc.
+		1. Lint your code.
+		1. Run the tests.
+		1. Browse the app.
+		1. Repeat until you have something meaningful to commit to your feature branch.
+	1. Commit changes to your feature branch.
+	1. Repeat these feature implementation steps until the feature is ready to review.
+1. Open a pull request to merge your feature branch into Master.
+
+## Troubleshooting
+
+### API Doesn't Start
+
+We are currently experiencing problems running the containerized API on a Windows host. This is due to a problem with the volume (folder) sharing between the host and the container. As a workaround:
+
+* Remove the `-v $(pwd):/home/api` option from *build-server.sh*.
+* Manually run `./bin/rebuild-server` after you make changes to the code.
+  * This is necessary because the watch loop can't detect file changes with the folder sharing removed.
+
+### Linting Command Doesn't Work
+
+We've had problems with npm not reliably installing all of the required dependencies. If you experience problems with the linting command in the *Lint the code* section, above, open a shell in the API docker container and run `npm install` as follows:
+
+```bash
+# Enter into a shell inside of the api container:
+docker exec -it aur-api /bin/sh
+
+# You are now at a prompt inside the api container. Now run npm install:
+/home/api # npm install
+
+# Exit the container:
+/home/api # exit
+```
+
+At this point you should be able to successfully run the lint command described in *Lint the code*.
+
+## Additional Information
+
+This section contains additional information about the development environment.
+
+### Container Parameters
 
 #### Environment Variables
 
@@ -41,85 +150,11 @@ In order to run this container you'll need Docker engine 1.10 or higher installe
 * `/home/api` - The project's home directory
 * `/var/lib/postgresql` - Data directory for DB
 
-#### Useful file locations
+### Useful File Locations
 
 * `/bin` - Collection of helper scripts
 * `/fixtures` - Sequalize test data
 * `/server` - API source
-
-#### Development Environment Setup
-
-##### Initial build of the containers
-
-Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands from the project's root directory:
-
-```bash
-./bin/build-server.sh
-```
-
-##### To rebuild the containers
-
-Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands from the project's root directory:
-
-```bash
-./bin/rebuild-server.sh
-```
-
-#### Running Tests
-
-Use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands:
-
-```bash
-docker exec -t aur-api npm test
-```
-
-#### Linting the code
-
-With the aur-api container running, use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands:
-
-```bash
-docker exec -t aur-api npm run lint
-```
-
-#### View the Database
-
-##### Using the psql Command Line Interface
-
-With the postgres container running, use a terminal - **must be the Docker Quickstart Terminal if on Windows or Mac** - to run the following commands:
-
-```bash
-docker exec -it aur-db psql -U postgres
-```
-
-**NOTE: psql documentation is available at [https://www.postgresql.org/docs/9.3/static/app-psql.html](https://www.postgresql.org/docs/9.3/static/app-psql.html)**
-
-###### Example psql session
-
-The following example:
-
-* Connects to the auto_renter database.
-* List all locations.
-* exits psql.
-
-```bash
-\connect auto_renter
-select * from "Locations";
-\q
-```
-
-## Browse the App
-
-After [re]building the containers, you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
-
-## Troubleshooting
-
-### API Doesn't Start
-
-We are currently experiencing problems running the containerized API on a Windows host. This is due to a problem with the volume (folder) sharing between the host and the container. As a workaround:
-
-* Remove the `-v $(pwd):/home/api` option from build-server.sh
-* Manually run `./bin/rebuild-server` after you make changes to the code.
-  * This is necessary because the watch loop can't detect file changes with the folder sharing removed.
 
 ## Contributing
 

@@ -43,6 +43,7 @@ npm-debug.log
 
 .bashrc
 .bash_history
+.ash_history
 .cache
 .config
 .node-gyp
