@@ -3,8 +3,10 @@ FROM mhart/alpine-node:6.1.0
 
 MAINTAINER Fusion Alliance <code@fusionalliance.com>
 
-RUN mkdir -p /home/api
+ENV DEBUG=api,server,sql
 ENV HOME=/home/api
+
+RUN mkdir -p $HOME
 WORKDIR $HOME
 
 COPY package.json $HOME/package.json

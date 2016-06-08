@@ -17,4 +17,4 @@ then
 fi
 
 # Build and run containers
-source ./bin/build-server
+source ./bin/build-server.sh
