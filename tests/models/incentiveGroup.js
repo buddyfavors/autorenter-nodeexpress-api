@@ -3,8 +3,7 @@ const models = require('../../server/models');
 const helpers = require('./helpers');
 
 describe('models/IncentiveGroup', () => {
-
-  let incentiveGroupObject1 = {
+  const incentiveGroupObject1 = {
     locationId: 1,
     priority: 2,
     name: 'Silver',
@@ -17,7 +16,4 @@ describe('models/IncentiveGroup', () => {
   helpers.testRequiredField(models, models.IncentiveGroup, incentiveGroupObject1, 'name');
   helpers.testRequiredField(models, models.IncentiveGroup, incentiveGroupObject1, 'priority');
   helpers.testRequiredField(models, models.IncentiveGroup, incentiveGroupObject1, 'locationId');
-
-  // TODO Test relations?
-
 });

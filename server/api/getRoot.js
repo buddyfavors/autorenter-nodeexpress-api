@@ -5,10 +5,9 @@ const models = require('../models');
 const pkgJSON = require('../../package.json');
 
 function getRoot(request, response) {
-
-  models.User.findOne({ where: {username: 'newton'} }).then(function(user) {
-    let app = express();
-    let env = app.get('env');
+  models.User.findOne({ where: { username: 'newton' } }).then(user => {
+    const app = express();
+    const env = app.get('env');
 
     response.status(200).json({
       user: user.username,

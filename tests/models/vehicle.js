@@ -3,8 +3,7 @@ const models = require('../../server/models');
 const helpers = require('./helpers');
 
 describe('models/Vehicle', () => {
-
-  let vehicleObject1 = {
+  const vehicleObject1 = {
     vin: '1FM5K7AR8DGA89041',
     make: 'Test1',
     model: 'Bubble',
@@ -14,7 +13,7 @@ describe('models/Vehicle', () => {
     rentToOwn: false
   };
 
-  let vehicleObject2 = {
+  const vehicleObject2 = {
     vin: '1GTEC14TXYE362553',
     make: 'Test2',
     model: 'Batmobile',
@@ -33,5 +32,4 @@ describe('models/Vehicle', () => {
   helpers.testRequiredField(models, models.Vehicle, vehicleObject1, 'rentToOwn');
 
   helpers.testUniqueField(models, models.Vehicle, vehicleObject1, vehicleObject2, 'vin');
-
 });
