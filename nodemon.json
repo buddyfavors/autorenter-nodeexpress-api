@@ -1,0 +1,5 @@
+{
+  "events": {
+    "restart": "parallelshell 'npm run test' 'npm run lint'"
+  }
+}

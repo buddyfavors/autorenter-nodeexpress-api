@@ -14,13 +14,25 @@
     "test": "mocha \"server/tests/**/*.js\""
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "repository": {
     "type": "git",
     "url": "ssh://git@stash.fusionalliance.com:7999/fusadip/autorenter_nodeexpress_api.git"
   },
   "author": "Fusion Alliance",
+  "contributors": [
+    {
+      "name": "Allen Buckley <allensb@gmail.com>"
+    },
+    {
+      "name": "Ray Clanan <rclanan@utopianconcept.com>"
+    },
+    {
+      "name": "Jarred Keuch <jkeuch@fusionalliance.com>"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "bluebird": "3.4.0",
@@ -38,6 +50,7 @@
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-import": "1.8.1",
     "mocha": "2.4.5",
-    "pre-commit": "1.1.2"
+    "pre-commit": "1.1.2",
+    "parallelshell": "2.0.0"
   }
 }
