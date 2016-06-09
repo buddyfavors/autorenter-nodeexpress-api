@@ -3,7 +3,7 @@
 const models = require('../models');
 const debug = require('debug')('sql');
 
-function logError(username, level, message) {
+function logDetail(username, level, message) {
    let objLogging = {
     username: username,
     level: level,
@@ -18,4 +18,4 @@ function logError(username, level, message) {
   });
 }
 
-module.exports = logError;
+module.exports = logDetail;
