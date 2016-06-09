@@ -2,24 +2,17 @@
 
 const models = require('../models');
 const debug = require('debug')('sql');
+const postLogDB = require('../services/postLogDB');
 
 //Level : {error:  warn:  info }
 function postLog(request, response) {
+ return postLogDB(request.body.username,request.body.level,request.body.message)
+.then(function(finalVal) {
+     return  response.status(201).json({ message: 'Log Added sucessfully!' });
+}, function(error) {
+     return  response.status(500).json({ message: 'Log Added sucessfully!' });
+});
 
-  let objLogging = {
-    username: request.body.username,
-    level: request.body.level,
-    message: request.body.message
-  };
-
-  models.Log.create(objLogging).then(function() {
-    response.status(201).json({ message: 'Log Added sucessfully!' });
-  })
-  .error(function(err){
-    debug('Error occured while adding logs :' + err);
-    response.status(500).json({});
-  })
-  .finally(() => {  	debug('Please check Log table for log entry.'); });
 }
 
 module.exports = postLog;
