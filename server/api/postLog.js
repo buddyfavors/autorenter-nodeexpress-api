@@ -16,4 +16,4 @@ function postLog(request, response) {
     });
 }
 
-module.exports = postLog;
+module.exports = logDetail;
