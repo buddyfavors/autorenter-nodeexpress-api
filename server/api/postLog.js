@@ -3,7 +3,6 @@
 const models = require('../models');
 const debug = require('debug')('sql');
 const logError = require('../services/logError');
-const Promise = require("bluebird");
 
 //Level : {error:  warn:  info }
 function postLog(request, response) {
