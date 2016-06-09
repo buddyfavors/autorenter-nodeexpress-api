@@ -20,3 +20,5 @@ else
   echo '=> Found non-running api container with id $API_ID'
   echo '=> Restarting api' && docker start $API_ID
 fi
+
+docker logs -f aur-api

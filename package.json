@@ -11,8 +11,7 @@
     "init": "node bin/init",
     "lint": "eslint server/**/*.js",
     "start": "nodemon -L ./bin/start-server.js",
-    "test": "mocha \"server/tests/**/*.js\"",
-    "dev": "onchange 'server/**/*.js' -v -- parallelshell 'npm run test' 'npm run lint'"
+    "test": "mocha \"server/tests/**/*.js\""
   },
   "pre-commit": [
     "lint",
