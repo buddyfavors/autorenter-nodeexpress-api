@@ -9,14 +9,7 @@ describe('models/Log', () => {
     message: 'Database testing'
   };
 
-  const logging2 = {
-    username: 'Auto Renter2',
-    level: 'Info',
-    message: 'Database testing'
-  };
-
   helpers.testCanSave(models, models.Log, logging1);
-  helpers.testCanSave(models, models.Log, logging2);
   helpers.testRequiredField(models, models.Log, logging1, 'username');
   helpers.testRequiredField(models, models.Log, logging1, 'level');
   helpers.testRequiredField(models, models.Log, logging1, 'message');

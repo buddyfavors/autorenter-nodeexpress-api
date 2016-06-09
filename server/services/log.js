@@ -1,7 +1,7 @@
 'use strict';
 
 const models = require('../models');
-const debug = require('debug')('sql');
+const debug = require('debug')('api');
 
 function logDetail(username, level, message) {
   const objLogging = { username, level, message };
