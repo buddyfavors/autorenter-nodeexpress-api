@@ -3,7 +3,7 @@
 const models = require('../models');
 const debug = require('debug')('sql');
 
-function postLogDB(username, level, message) {
+function logError(username, level, message) {
    let objLogging = {
     username: username,
     level: level,
@@ -18,4 +18,4 @@ function postLogDB(username, level, message) {
   });
 }
 
-module.exports = postLogDB;
+module.exports = logError;

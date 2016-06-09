@@ -2,12 +2,12 @@
 
 const models = require('../models');
 const debug = require('debug')('sql');
-const postLogDB = require('../services/postLogDB');
+const logError = require('../services/logError');
 const Promise = require("bluebird");
 
 //Level : {error:  warn:  info }
 function postLog(request, response) {
-  return postLogDB(request.body.username,request.body.level,request.body.message)
+  return logError(request.body.username,request.body.level,request.body.message)
     .then(() => {
       return response.status(201).json({ message: 'Log Added sucessfully!' });
     })
