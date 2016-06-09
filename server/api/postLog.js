@@ -2,8 +2,6 @@
 
 const logDetail = require('../services/log');
 
-// Level: {error,  warn,  info }
-
 function postLog(request, response) {
   return logDetail(request.body.username, request.body.level, request.body.message)
     .then(() => response.status(201).json({ message: 'Log added successfully!' }))
