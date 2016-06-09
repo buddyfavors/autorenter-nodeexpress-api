@@ -2,14 +2,14 @@
 const app = require('../../server/app');
 const supertest = require('supertest')(app);
 
-let postData = {
-  'username': 'Auto Renter',
-  'level':'Info',
-  'message':'API Test case'
+const postData = {
+  username: 'Auto Renter',
+  level: 'Info',
+  message: 'API Test case'
 };
 
-describe('/api/log', function() {
-  it('should return 201', function(done) {
+describe('/api/log', () => {
+  it('should return 201', (done) => {
     supertest
       .post('/api/log')
       .set('Accept', 'application/json')

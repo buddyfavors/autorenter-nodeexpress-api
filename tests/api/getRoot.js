@@ -3,13 +3,13 @@ const expect = require('chai').expect;
 const app = require('../../server/app');
 const supertest = require('supertest')(app);
 
-describe('(api root) /', function() {
-  it('respond with json', function(done) {
+describe('(api root) /', () => {
+  it('respond with json', (done) => {
     supertest
       .get('/')
       .set('Accept', 'application/json')
       .expect(200)
-      .end(function(err, res) {
+      .end((err, res) => {
         expect(res.body).to.have.property('user');
         expect(res.body.user).to.not.equal(null);
         expect(res.body).to.have.property('title');
