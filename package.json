@@ -14,7 +14,8 @@
     "test": "mocha \"tests/**/*.js\""
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "repository": {
     "type": "git",
