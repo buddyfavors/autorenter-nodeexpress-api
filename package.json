@@ -51,6 +51,7 @@
     "eslint-plugin-import": "1.8.1",
     "mocha": "2.4.5",
     "pre-commit": "1.1.2",
-    "parallelshell": "2.0.0"
+    "parallelshell": "2.0.0",
+    "supertest": "1.2.0"
   }
 }
