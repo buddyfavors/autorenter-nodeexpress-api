@@ -1,8 +1,6 @@
 'use strict';
 
-const logDetail = require('../services/log');
-
-// Level: {error,  warn,  info }
+const logDetail = require('../services/logDetail');
 
 function postLog(request, response) {
   return logDetail(request.body.username, request.body.level, request.body.message)

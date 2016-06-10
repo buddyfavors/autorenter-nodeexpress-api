@@ -4,8 +4,8 @@ const models = require('../models');
 const debug = require('debug')('api');
 
 function logDetail(username, level, message) {
-  const objLogging = { username, level, message };
-  return models.Log.create(objLogging).then(() => {
+  const logData = { username, level, message };
+  return models.Log.create(logData).then(() => {
     debug('Log added');
   })
     .error((err) => {
