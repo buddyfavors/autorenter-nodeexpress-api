@@ -10,7 +10,7 @@
   "scripts": {
     "init": "node bin/init",
     "start": "nodemon -L ./bin/start-server.js",
-    "lint": "eslint **/*.js",
+    "lint": "eslint '**/*/*.js' --ignore-pattern 'node_modules/*'",
     "test": "mocha \"tests/**/*.js\""
   },
   "pre-commit": [
