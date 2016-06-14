@@ -18,6 +18,7 @@ describe('(api root) /', () => {
         expect(res.body.environment).to.not.equal(null);
         expect(res.body).to.have.property('version');
         expect(res.body.version).to.not.equal(null);
+        if (err) return done(err);
         done();
       });
   });
