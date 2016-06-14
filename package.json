@@ -10,7 +10,7 @@
   "scripts": {
     "init": "node bin/init",
     "start": "parallelshell 'npm run test' 'npm run lint' && nodemon -L ./bin/start-server.js",
-    "lint": "eslint '**/*/*.js' --ignore-pattern 'node_modules/*'",
+    "lint": "eslint **/*/*.js",
     "test": "mocha \"tests/**/*.js\""
   },
   "pre-commit": [
