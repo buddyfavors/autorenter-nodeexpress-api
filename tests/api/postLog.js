@@ -8,16 +8,17 @@ const expect = chai.expect;
 
 describe('/api/log', () => {
   chai.use(chaiHttp);
-  it('should return 201', (done) => {
+  it('should return 201', () => {
     chai
       .request(app)
       .post(path)
       .set('Accept', 'application/json')
       .send(postData)
-      .end((err, res) => {
-        if (err) done(err);
+      .then((res) => {
         expect(res).to.have.status(201);
-        done();
+      })
+      .catch((err) => {
+        throw err;
       });
   });
 });

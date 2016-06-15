@@ -6,13 +6,12 @@ const chaiHttp = require('chai-http');
 
 describe('(api root) /', () => {
   chai.use(chaiHttp);
-  it('respond with json', (done) => {
+  it('respond with json', () => {
     chai
       .request(app)
       .get('/')
       .set('Accept', 'application/json')
-      .end((err, res) => {
-        if (err) done(err);
+      .then((res) => {
         expect(res).to.have.status(200);
         expect(res.body).to.have.property('user');
         expect(res.body.user).to.not.equal(null);
@@ -22,7 +21,9 @@ describe('(api root) /', () => {
         expect(res.body.environment).to.not.equal(null);
         expect(res.body).to.have.property('version');
         expect(res.body.version).to.not.equal(null);
-        done();
+      })
+      .catch((err) => {
+        throw err;
       });
   });
 });
