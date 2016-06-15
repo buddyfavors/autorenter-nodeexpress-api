@@ -1,16 +1,19 @@
 'use strict';
-const expect = require('chai').expect;
 const app = require('../../server/app');
-const supertest = require('supertest')(app);
+const chai = require('chai');
+const expect = require('chai').expect;
+const chaiHttp = require('chai-http');
 
 describe('(api root) /', () => {
+  chai.use(chaiHttp);
   it('respond with json', (done) => {
-    supertest
+    chai
+      .request(app)
       .get('/')
       .set('Accept', 'application/json')
-      .expect(200)
       .end((err, res) => {
         if (err) done(err);
+        expect(res).to.have.status(200);
         expect(res.body).to.have.property('user');
         expect(res.body.user).to.not.equal(null);
         expect(res.body).to.have.property('title');

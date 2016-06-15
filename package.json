@@ -40,6 +40,8 @@
   "dependencies": {
     "bluebird": "3.4.0",
     "body-parser": "1.15.1",
+    "chai": "3.5.0",
+    "chai-http": "3.0.0",
     "cors": "2.7.1",
     "debug": "2.2.0",
     "express": "^4.13.4",
@@ -53,8 +55,8 @@
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-import": "1.8.1",
     "mocha": "2.4.5",
-    "pre-commit": "1.1.2",
     "parallelshell": "2.0.0",
+    "pre-commit": "1.1.2",
     "supertest": "1.2.0"
   }
 }
