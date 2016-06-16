@@ -4,21 +4,20 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const postData = { username: 'Auto Renter', level: 'Info', message: 'API Test case' };
 const path = '/api/log';
-const expect = chai.expect;
+
+chai.use(chaiHttp);
+chai.should();
 
 describe('/api/log', () => {
-  chai.use(chaiHttp);
-  it('should return 201', () => {
+  it('should return 201', (done) => {
     chai
       .request(app)
       .post(path)
       .set('Accept', 'application/json')
       .send(postData)
-      .then((res) => {
-        expect(res).to.have.status(201);
-      })
-      .catch((err) => {
-        throw err;
+      .end((err, res) => {
+        res.should.have.status(201);
+        done();
       });
   });
 });

@@ -1,29 +1,29 @@
 'use strict';
 const app = require('../../server/app');
 const chai = require('chai');
-const expect = require('chai').expect;
 const chaiHttp = require('chai-http');
 
+chai.use(chaiHttp);
+chai.should();
+
 describe('(api root) /', () => {
-  chai.use(chaiHttp);
-  it('respond with json', () => {
+  it('respond with json', (done) => {
     chai
       .request(app)
       .get('/')
       .set('Accept', 'application/json')
-      .then((res) => {
-        expect(res).to.have.status(200);
-        expect(res.body).to.have.property('user');
-        expect(res.body.user).to.not.equal(null);
-        expect(res.body).to.have.property('title');
-        expect(res.body.title).to.not.equal(null);
-        expect(res.body).to.have.property('environment');
-        expect(res.body.environment).to.not.equal(null);
-        expect(res.body).to.have.property('version');
-        expect(res.body.version).to.not.equal(null);
-      })
-      .catch((err) => {
-        throw err;
+      .end((err, res) => {
+        const body = res.body;
+        res.should.have.status(200);
+        body.should.have.property('user');
+        body.user.should.equal('newton');
+        body.should.have.property('title');
+        body.title.should.equal('AutoRenter API');
+        body.should.have.property('environment');
+        body.environment.length.should.not.equal(0);
+        body.should.have.property('version');
+        body.version.length.should.not.equal(0);
+        done();
       });
   });
 });
