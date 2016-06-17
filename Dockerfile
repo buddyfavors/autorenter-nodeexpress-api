@@ -9,14 +9,8 @@ ENV HOME=/home/api
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
-ADD package.json $HOME/package.json
-ADD .version $HOME/.version
-RUN npm install -g nodemon; npm install
-
-ADD . $HOME
+RUN npm install -g nodemon
 
 EXPOSE 3000
-
-RUN npm run init
 
 CMD ["npm", "start"]
