@@ -9,9 +9,9 @@
   "main": "app.js",
   "scripts": {
     "init": "node bin/init",
-    "lint": "eslint server/**/*.js",
-    "start": "nodemon -L ./bin/start-server.js",
-    "test": "mocha \"server/tests/**/*.js\""
+    "start": "npm install && npm run init && parallelshell 'npm run test' 'npm run lint' && nodemon -L ./bin/start-server.js",
+    "lint": "eslint '**/*.js'",
+    "test": "mocha \"tests/**/*.js\""
   },
   "pre-commit": [
     "lint",
@@ -31,6 +31,9 @@
     },
     {
       "name": "Jarred Keuch <jkeuch@fusionalliance.com>"
+    },
+    {
+      "name": "Devashri Oza <doza@fusionalliance.com>"
     }
   ],
   "license": "MIT",
@@ -46,11 +49,12 @@
   },
   "devDependencies": {
     "chai": "3.5.0",
+    "chai-http": "3.0.0",
     "eslint": "2.10.2",
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-import": "1.8.1",
     "mocha": "2.4.5",
-    "pre-commit": "1.1.2",
-    "parallelshell": "2.0.0"
+    "parallelshell": "2.0.0",
+    "pre-commit": "1.1.2"    
   }
 }

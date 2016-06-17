@@ -104,9 +104,9 @@ We are currently experiencing problems running the containerized API on a Window
 * Manually run `./bin/rebuild-server` after you make changes to the code.
   * This is necessary because the watch loop can't detect file changes with the folder sharing removed.
 
-### Linting Command Doesn't Work
+### Linting / Test Commands Don't Work Due To Missing Dependencies
 
-We've had problems with npm not reliably installing all of the required dependencies. If you experience problems with the linting command in the *Lint the code* section, above, open a shell in the API docker container and run `npm install` as follows:
+We've had problems with npm not reliably installing all of the required dependencies into the API container. If you experience problems with the linting and/or test commands in the *Lint the code* or *Run tests* section, above, open a shell in the API docker container and run `npm install` as follows:
 
 ```bash
 # Enter into a shell inside of the api container:
@@ -119,7 +119,7 @@ docker exec -it aur-api /bin/sh
 /home/api # exit
 ```
 
-At this point you should be able to successfully run the lint command described in *Lint the code*.
+At this point you should be able to successfully run the commands.
 
 ## Additional Information
 
@@ -169,7 +169,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * [**Allen Buckley**](https://github.com/allensb) - *Initial work*
 * [**Ray Clanan**](https://github.com/rclanan) - *Initial work*
 * [**Jarred Keuch**](https://github.com/jarredkeuch) - *Initial work*
-
+* [**Devashri Oza**](https://github.com/Devashri) - *Initial work*
 See also the list of [contributors]() who participated in this project.
 
 ## License

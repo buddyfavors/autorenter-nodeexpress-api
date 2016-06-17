@@ -1,5 +1,5 @@
 ﻿'use strict';
-const models = require('../../models');
+const models = require('../../server/models');
 const helpers = require('./helpers');
 
 describe('models/Location', () => {

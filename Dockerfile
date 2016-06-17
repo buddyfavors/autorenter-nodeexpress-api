@@ -9,13 +9,8 @@ ENV HOME=/home/api
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
-COPY package.json $HOME/package.json
-RUN npm install -g nodemon; npm install
-
-COPY . $HOME/
+RUN npm install -g nodemon
 
 EXPOSE 3000
-
-RUN npm run init
 
 CMD ["npm", "start"]

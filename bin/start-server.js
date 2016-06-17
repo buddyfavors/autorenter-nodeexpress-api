@@ -7,12 +7,12 @@ const http = require('http');
 const config = require('../server/config');
 
 debug('Starting Express application.');
-let port = config.server.port;
+const port = config.server.port;
 app.set('port', port);
 
-let server = http.createServer(app);
+const server = http.createServer(app);
 server.listen(port);
 
-process.on('uncaughtException', function(err) {
+process.on('uncaughtException', err => {
   debug(err);
 });
