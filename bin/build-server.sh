@@ -11,6 +11,9 @@ else
   echo '=> Restarting db' && docker start $DB_ID
 fi
 
+# Cache Busting
+echo $(date +%s) > .version;
+
 API_ID=$(docker ps -a --filter=name=aur-api -q)
 if [ -z $API_ID ]
 then
