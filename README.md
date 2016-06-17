@@ -130,7 +130,7 @@ Sometimes you just need to completely clean your development environment before 
 rm -rf node_modules
 
 # Kill all containers, and remove all containers and images:
-clear-all-images.sh 
+./bin/clear-all-images.sh 
 ```
 
 ## Additional Information
