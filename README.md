@@ -121,6 +121,18 @@ docker exec -it aur-api /bin/sh
 
 At this point you should be able to successfully run the commands.
 
+### Everything Is Hosed!
+
+Sometimes you just need to completely clean your development environment before starting over from the beginning. The following commands will help you start from a "clean slate":
+
+```bash
+# Blow away the node_modules folder:
+rm -rf node_modules
+
+# Kill all containers, and remove all containers and images:
+clear-all-images.sh 
+```
+
 ## Additional Information
 
 This section contains additional information about the development environment.
