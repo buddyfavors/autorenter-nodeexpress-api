@@ -9,7 +9,7 @@
   "main": "app.js",
   "scripts": {
     "init": "node bin/init",
-    "start": "npm install --no-bin-links && npm run init && parallelshell 'npm run test' 'npm run lint' && nodemon -L ./bin/start-server.js",
+    "start": "npm install --no-bin-links && npm run init && nodemon -L ./bin/start-server.js",
     "lint": "eslint '**/*.js'",
     "test": "mocha \"tests/**/*.js\""
   },

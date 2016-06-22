@@ -18,7 +18,7 @@ API_ID=$(docker ps -a --filter=name=aur-api -q)
 if [ -z $API_ID ]
 then
   echo '=> Building api' && docker build -t aur-api-image:latest .
-  echo '=> Starting api' && docker run -d -p 3000:3000 -v $(pwd)://home/api --link aur-db:postgres --name aur-api aur-api-image
+  echo '=> Starting api' && docker run -d -p 3000:3000 -v $(pwd):/home/api --link aur-db:postgres --name aur-api aur-api-image
 else
   echo '=> Found non-running api container with id $API_ID'
   echo '=> Restarting api' && docker start $API_ID
