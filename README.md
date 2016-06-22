@@ -8,11 +8,9 @@ These instructions will cover usage information for the API and for the associat
 
 ## Prerequisites
 
-In order to run this container you'll need Docker engine 1.10 or higher installed.
+In order to run this containerized application you'll need Docker engine 1.10 or higher installed via the Docker Toolbox, available [here](https://www.docker.com/products/docker-toolbox) for download.
 
-* [Windows](https://docs.docker.com/windows/started)
-* [OS X](https://docs.docker.com/mac/started/)
-* [Linux](https://docs.docker.com/linux/started/)
+	Docker Native is currently in Beta and somewhat unstable, so at this point we don't support it. It's the future, however, so look for this position to change.
 
 ## How To
 
