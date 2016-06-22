@@ -9,7 +9,7 @@
   "main": "app.js",
   "scripts": {
     "init": "node bin/init",
-    "start": "npm install && npm run init && parallelshell 'npm run test' 'npm run lint' && nodemon -L ./bin/start-server.js",
+    "start": "npm install --no-bin-links && npm run init && parallelshell 'npm run test' 'npm run lint' && nodemon -L ./bin/start-server.js",
     "lint": "eslint '**/*.js'",
     "test": "mocha \"tests/**/*.js\""
   },
@@ -55,6 +55,6 @@
     "eslint-plugin-import": "1.8.1",
     "mocha": "2.4.5",
     "parallelshell": "2.0.0",
-    "pre-commit": "1.1.2"    
+    "pre-commit": "1.1.2"
   }
 }
