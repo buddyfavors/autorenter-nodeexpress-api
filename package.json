@@ -9,9 +9,10 @@
   "main": "app.js",
   "scripts": {
     "init": "node bin/init",
-    "start": "npm install --no-bin-links && npm run init && parallelshell 'npm run test' 'npm run lint' && nodemon -L ./bin/start-server.js",
+    "start": "npm install --no-bin-links && npm run init && parallelshell 'npm run test:coverage' 'npm run lint' && nodemon -L ./bin/start-server.js",
     "lint": "eslint '**/*.js'",
-    "test": "mocha \"tests/**/*.js\""
+    "test": "mocha \"tests/**/*.js\"",
+    "test:coverage": "istanbul cover --dir coverage node_modules/mocha/bin/_mocha tests/**/*.js -- "
   },
   "pre-commit": [
     "lint",
@@ -53,6 +54,7 @@
     "eslint": "2.10.2",
     "eslint-config-airbnb-base": "3.0.1",
     "eslint-plugin-import": "1.8.1",
+    "istanbul": "0.4.4",
     "mocha": "2.4.5",
     "parallelshell": "2.0.0",
     "pre-commit": "1.1.2"
