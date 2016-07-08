@@ -9,10 +9,10 @@
   "main": "app.js",
   "scripts": {
     "init": "node bin/init",
-    "start": "npm install --no-bin-links && npm run init && parallelshell 'npm run test:coverage' 'npm run lint' && nodemon -L ./bin/start-server.js",
-    "lint": "eslint '**/*.js'",
-    "test": "mocha \"tests/**/*.js\"",
-    "test:coverage": "istanbul cover --dir coverage node_modules/mocha/bin/_mocha tests/**/*.js -- "
+    "start": "npm install --no-bin-links && npm run init && node ./node_modules/parallelshell/index.js 'npm run test:coverage' 'npm run lint' && node ./node_modules/nodemon/bin/nodemon.js -L ./bin/start-server.js",
+    "lint": "node ./node_modules/eslint/bin/eslint.js '**/*.js'",
+    "test": "node ./node_modules/mocha/bin/mocha \"tests/**/*.js\"",
+    "test:coverage": "node ./node_modules/istanbul/lib/cli.js cover --dir coverage node_modules/mocha/bin/_mocha tests/**/*.js -- "
   },
   "pre-commit": [
     "lint",
@@ -45,6 +45,7 @@
     "debug": "2.2.0",
     "express": "^4.13.4",
     "lodash": "4.12.0",
+    "nodemon": "1.9.2",
     "pg": "4.5.5",
     "sequelize": "3.23.2"
   },

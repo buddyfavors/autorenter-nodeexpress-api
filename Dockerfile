@@ -9,8 +9,6 @@ ENV HOME=/home/api
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
-RUN npm install -g nodemon eslint-config-airbnb-base eslint-plugin-import eslint mocha parallelshell istanbul
-
 EXPOSE 3000
 
 CMD ["npm", "start"]
