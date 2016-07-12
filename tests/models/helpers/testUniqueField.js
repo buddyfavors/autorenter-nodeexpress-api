@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 const expect = require('chai').expect;
 
 module.exports = (models, model, obj1, obj2, uniqueFieldName) => {
