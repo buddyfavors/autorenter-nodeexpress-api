@@ -2,7 +2,7 @@
 const app = require('../../server/app');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const postData = { username: 'Auto Renter', level: 'Info', message: 'API Test case' };
+const postData = { level: 'info', message: 'API Test case' };
 const path = '/api/log';
 
 chai.use(chaiHttp);

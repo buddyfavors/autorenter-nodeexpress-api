@@ -5,7 +5,7 @@ const helpers = require('./helpers');
 describe('models/Log', () => {
   const logging1 = {
     username: 'Auto Renter1',
-    level: 'Info',
+    level: 'info',
     message: 'Database testing'
   };
 
