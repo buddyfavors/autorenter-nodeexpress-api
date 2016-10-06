@@ -8,9 +8,14 @@ These instructions will cover usage information for the API and for the associat
 
 ## Prerequisites
 
-In order to run this containerized application you'll need Docker engine 1.10 or higher installed via the Docker Toolbox, available [here](https://www.docker.com/products/docker-toolbox) for download.
+- In order to run this containerized application you'll need Docker engine 1.10 or higher installed via the Docker Toolbox, available [here](https://www.docker.com/products/docker-toolbox) for download.
+- On Windows, you must enable VT-X or AMD-v in your BIOS for Docker to run.
 
-	Docker Native is currently in Beta and somewhat unstable, so at this point we don't support it. It's the future, however, so look for this position to change.
+<!-- This comment ends the list. -->
+
+    Docker Native is currently in Beta and somewhat unstable, so at this point we don't support it. It's the future, however, so look for this position to change.
+
+
 
 ## How To
 
