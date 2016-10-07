@@ -9,13 +9,16 @@ These instructions will cover usage information for the API and for the associat
 ## Prerequisites
 
 - In order to run this containerized application you'll need Docker engine 1.10 or higher installed via the Docker Toolbox, available [here](https://www.docker.com/products/docker-toolbox) for download.
-- On Windows, you must enable VT-X or AMD-v in your BIOS for Docker to run.
-
-<!-- This comment ends the list. -->
 
     Docker Native is currently in Beta and somewhat unstable, so at this point we don't support it. It's the future, however, so look for this position to change.
 
+### Windows-Only setup notes
 
+-   You must enable VT-X or AMD-v in your BIOS for Docker Toolbar to work.
+
+-   As a workaround for current limitations Docker Toolbar for Windows, you must
+    clone this project into your user directory so that it has the following
+    path: `/Users/<username>/autorenter_nodeexpress_api`
 
 ## How To
 
