@@ -16,7 +16,7 @@ These instructions will cover usage information for the API and for the associat
 
 -   You must enable VT-X or AMD-v in your BIOS for Docker Toolbar to work.
 
--   As a workaround for current limitations Docker Toolbar for Windows, you must
+-   As a workaround for current limitations in Docker Toolbox for Windows, you must
     clone this project into your user directory so that it has the following
     path: `/Users/<username>/autorenter_nodeexpress_api`
 
