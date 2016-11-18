@@ -80,16 +80,16 @@ After successfully [re]building the containers, you should be able to run the ap
 
 The following steps describe the recommended development workflow.
 
-1. Pull from Master.
-1. Build the containers.
+1. Pull from the Development branch.
+1. [Re]build and start the containers, as described above.
 1. Browse the app.
 
 >If you encounter problems with any of this, please see the Troubleshooting section, below.
 
 If you are implementing a new feature, in addition to the previous steps you should:
 
-1. Create a feature branch by branching off of Master.
-1. Implement your feature. *Note that during this process you should regularly (at least 1x/day) merge the Master branch into your feature branch to ensure your code is staying current with work being done by the rest of the team.*
+1. Create a feature branch by branching off of Development.
+1. Implement your feature. *Note that during this process you should regularly (at least 1x/day) merge the Development branch into your feature branch to ensure your code is staying current with work being done by the rest of the team.*
 	1. Develop
 		1. Make changes to code, scripts, etc.
 		1. Lint your code.
@@ -98,7 +98,7 @@ If you are implementing a new feature, in addition to the previous steps you sho
 		1. Repeat until you have something meaningful to commit to your feature branch.
 	1. Commit changes to your feature branch.
 	1. Repeat these feature implementation steps until the feature is ready to review.
-1. Open a pull request to merge your feature branch into Master.
+1. Open a pull request to merge your feature branch into Development.
 
 ## Troubleshooting
 
