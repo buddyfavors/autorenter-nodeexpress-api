@@ -17,7 +17,7 @@ function getRoot(request, response, next) {
         version: pkgJSON.version
       });
     })
-    .catch((err) => next(err));
+    .catch(next);
 }
 
 module.exports = getRoot;

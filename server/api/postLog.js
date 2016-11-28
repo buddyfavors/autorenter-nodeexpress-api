@@ -9,7 +9,7 @@ function postLog(request, response, next) {
   return logDetail.execute(dummyAuthTokenToRemoveWhenAuthIsImplemented.username,
       request.body.level, request.body.message)
     .then(() => response.status(201).json({ message: 'Log added successfully!' }))
-    .catch((err) => next(err));
+    .catch(next);
 }
 
 module.exports = postLog;
