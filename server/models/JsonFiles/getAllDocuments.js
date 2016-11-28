@@ -8,7 +8,7 @@ const path = require('path');
 function getAllDocuments(pathname) {
   try {
     return fs.readdirSync(pathname)
-      .filter(filename => (/^[1-9]+[0-9]*\.json$/).test(filename))
+      .filter(filename => (/.\.json$/).test(filename))
       .map(filename => path.join(pathname, filename))
       .map(filename => fs.readFileSync(filename, 'utf8'))
       .map(JSON.parse);
