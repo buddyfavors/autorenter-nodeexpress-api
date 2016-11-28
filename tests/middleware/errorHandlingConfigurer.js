@@ -44,18 +44,18 @@ describe('errorHandlingConfigurer', () => {
       };
     });
 
+    it('calls next with correct argument if headers have been sent', () => {
+      response.headersSent = true;
+      errorHandlingConfigurer.logErrors(error, request, response, next);
+      actualArgPassedToNext.should.equal(error);
+    });
+
     describe('if log-related', () => {
       beforeEach(() => {
         error.customType = 'fa.logError';
       });
 
-      it('calls next with correct argument if headers have been sent', () => {
-        response.headersSent = true;
-        errorHandlingConfigurer.logErrors(error, request, response, next);
-        actualArgPassedToNext.should.equal(error);
-      });
-
-      it('sets response status code if headers have not been sent', () => {
+      it('sets response status code', () => {
         const statusSpy = sinon.spy(response, 'status');
         errorHandlingConfigurer.logErrors(error, request, response, next);
 
@@ -64,7 +64,7 @@ describe('errorHandlingConfigurer', () => {
         /* eslint-enable no-unused-expressions */
       });
 
-      it('sets json response if headers have not been sent', () => {
+      it('sets json response', () => {
         const jsonSpy = sinon.spy(response, 'json');
         const expectedArg = {
           message: 'The system failed to write to the error log.',
