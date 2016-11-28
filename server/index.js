@@ -1,12 +1,11 @@
-#!/usr/bin/env node
 'use strict';
 
-const app = require('../server/app');
+const app = require('./app');
 const debug = require('debug')('api');
 const http = require('http');
-const config = require('../server/config');
+const config = require('./config');
 
-debug('Starting Express application.');
+debug('Starting AutoRenter Node-Express API.');
 const port = config.server.port;
 app.set('port', port);
 

@@ -1,40 +1,39 @@
 {
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "script"
+  },
   "rules": {
     "comma-dangle": [
-      2,
+      "error",
       "only-multiline"
     ],
     "indent": [
-      2,
+      "error",
       2
     ],
     "linebreak-style": [
-      2,
+      "error",
       "unix"
     ],
     "no-use-before-define": [
-      2,
+      "error",
       {
         "functions": false,
         "classes": true
       }
     ],
     "quotes": [
-      2,
+      "error",
       "single"
     ],
     "semi": [
-      2,
+      "error",
       "always"
     ]
-  },
-  "env": {
-    "es6": true,
-    "node": true,
-    "mocha": true
-  },
-  "parserOptions": {
-    "sourceType": "script"
-  },
-  "extends": "airbnb-base"
+  }
 }
