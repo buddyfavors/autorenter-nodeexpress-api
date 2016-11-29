@@ -12,6 +12,6 @@ app.set('port', port);
 const server = http.createServer(app);
 server.listen(port);
 
-process.on('uncaughtException', err => {
+process.on('uncaughtException', (err) => {
   debug(err);
 });

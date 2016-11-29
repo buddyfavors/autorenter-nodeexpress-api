@@ -1,4 +1,9 @@
 'use strict';
 
+module.exports = createLocationModel();
+
 const JsonFiles = require('./JsonFiles');
-module.exports = new JsonFiles('locations');
+
+function createLocationModel() {
+  return new JsonFiles('locations');
+}

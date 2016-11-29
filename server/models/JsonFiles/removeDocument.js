@@ -5,8 +5,8 @@ module.exports = removeDocument;
 const fs = require('fs');
 const path = require('path');
 
-function removeDocument(pathname, id) {
-  const filename = path.join(pathname, `${id}.json`);
+function removeDocument(id) {
+  const filename = path.join(this.pathname, `${id}.json`);
 
   try {
     const contents = fs.readFileSync(filename, 'utf8');

@@ -3,37 +3,25 @@
     "es6": true,
     "node": true
   },
+
   "extends": "eslint:recommended",
+
   "parserOptions": {
     "sourceType": "script"
   },
+
   "rules": {
-    "comma-dangle": [
-      "error",
-      "only-multiline"
-    ],
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "no-use-before-define": [
-      "error",
+    "arrow-parens": ["error", "always"],
+    "comma-dangle": ["error", "only-multiline"],
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "no-use-before-define": ["error",
       {
         "functions": false,
         "classes": true
       }
     ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ]
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"]
   }
 }

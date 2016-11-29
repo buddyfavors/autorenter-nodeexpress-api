@@ -1,4 +1,9 @@
 'use strict';
 
+module.exports = createVehicleModel();
+
 const JsonFiles = require('./JsonFiles');
-module.exports = new JsonFiles('vehicles');
+
+function createVehicleModel() {
+  return new JsonFiles('vehicles');
+}

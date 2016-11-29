@@ -1,7 +1,14 @@
 'use strict';
 
-const express = require('express');
-const router = module.exports = express.Router();  // eslint-disable-line new-cap
+module.exports = createAppRouter();
 
-router.use(require('./locations'));
-router.use(require('./vehicles'));
+const express = require('express');
+
+function createAppRouter() {
+  const router = express.Router();
+
+  router.use(require('./locations'));
+  router.use(require('./vehicles'));
+
+  return router;
+}
