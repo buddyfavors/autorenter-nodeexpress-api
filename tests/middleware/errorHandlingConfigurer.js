@@ -2,7 +2,6 @@
 
 const chai = require('chai');
 const express = require('express');
-const Promise = require('bluebird');
 const sinon = require('sinon');
 
 const errorHandlingConfigurer = require('../../server/middleware/errorHandlingConfigurer');
@@ -81,7 +80,8 @@ describe('errorHandlingConfigurer', () => {
       let logDetailStub;
 
       beforeEach(() => {
-        logDetailStub = sinon.stub(logDetail, 'execute', () => Promise.resolve({}));
+        logDetailStub = sinon.stub(logDetail, 'execute',
+          () => new Promise((resolve) => resolve({})));
       });
 
       afterEach(() => {
