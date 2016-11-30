@@ -2,7 +2,7 @@
 
 module.exports = getAllLocations;
 
-const Location = require('../models').Location;
+const Location = require('../../models').Location;
 
 function getAllLocations(request, response) {
   const data = Location.getAllDocuments();

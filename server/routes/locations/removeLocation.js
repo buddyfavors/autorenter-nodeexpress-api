@@ -2,7 +2,7 @@
 
 module.exports = removeLocation;
 
-const Location = require('../models').Location;
+const Location = require('../../models').Location;
 
 function removeLocation(request, response) {
   const id = request.params.id;

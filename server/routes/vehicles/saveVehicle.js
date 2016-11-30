@@ -2,7 +2,7 @@
 
 module.exports = saveVehicle;
 
-const Vehicle = require('../models').Vehicle;
+const Vehicle = require('../../models').Vehicle;
 
 function saveVehicle(request, response) {
   const data = request.body;

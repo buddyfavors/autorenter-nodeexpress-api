@@ -2,7 +2,7 @@
 
 module.exports = createLocation;
 
-const Location = require('../models').Location;
+const Location = require('../../models').Location;
 
 function createLocation(request, response) {
   const data = request.body;

@@ -1,14 +1,9 @@
 'use strict';
 
-module.exports = createAppRouter();
-
 const express = require('express');
+const router = express.Router();
 
-function createAppRouter() {
-  const router = express.Router();
+module.exports = router;
 
-  router.use(require('./locations'));
-  router.use(require('./vehicles'));
-
-  return router;
-}
+router.use(require('./locations'));
+router.use(require('./vehicles'));

@@ -2,7 +2,7 @@
 
 module.exports = getAllVehicles;
 
-const Vehicle = require('../models').Vehicle;
+const Vehicle = require('../../models').Vehicle;
 
 function getAllVehicles(request, response) {
   const data = Vehicle.getAllDocuments();

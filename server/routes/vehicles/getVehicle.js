@@ -2,7 +2,7 @@
 
 module.exports = getVehicle;
 
-const Vehicle = require('../models').Vehicle;
+const Vehicle = require('../../models').Vehicle;
 
 function getVehicle(request, response) {
   const id = request.params.id;

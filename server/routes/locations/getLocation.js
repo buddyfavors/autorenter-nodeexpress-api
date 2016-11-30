@@ -2,7 +2,7 @@
 
 module.exports = getLocation;
 
-const Location = require('../models').Location;
+const Location = require('../../models').Location;
 
 function getLocation(request, response) {
   const id = request.params.id;
