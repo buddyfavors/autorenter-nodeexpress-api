@@ -8,10 +8,14 @@ function logDetail(username, level, message) {
   return models.Log.create(logData).then(() => {
     debug('Log added');
   })
-    .error((err) => {
-      debug(`Error occured while adding logs: ${err}`);
-      throw err;
-    });
+  .catch((err) => {
+    /* eslint-disable no-console */
+    console.error(`The following error prevented writing the log object to the database: ${err}.`);
+    console.error(
+      `Here is the data that could not be logged to the database ${JSON.stringify(logData)}.`);
+    err.customType = 'fa.logError'; // eslint-disable-line no-param-reassign
+    throw err;
+  });
 }
 
-module.exports = logDetail;
+module.exports.execute = logDetail;
