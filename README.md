@@ -30,16 +30,10 @@ From the project's root directory:
 vagrant up && vagrant ssh
 ```
 
-When you see the "Welcome to Ubuntu" message:
-
-```bash
-cd /vagrant
-```
-
 ### Install project libraries
 
 ```bash
-npm install
+npm install --no-bin-links
 ```
 
 ### Lint the code
@@ -86,7 +80,7 @@ The following steps describe the recommended development workflow.
   3. Start the API.
 3. Browse the API.
 
->If you encounter problems with any of this, please see the Troubleshooting section, below.
+**If you encounter problems with any of this, please see the Troubleshooting section, below.**
 
 If you are implementing a new feature, in addition to the previous steps you should:
 
@@ -106,7 +100,17 @@ If you are implementing a new feature, in addition to the previous steps you sho
 
 ### API or Test Commands Don't Work Due To Missing Dependencies
 
-* Re-run `npm install` to verify that your dependencies are up to date.
+* Re-run `npm install --no-bin-links` to verify that your dependencies are up to date.
+
+### Installing Project Libraries Fails
+
+If you see an error like this:
+
+```
+EPROTO: protocol error, symlink '../acorn/bin/acorn' -> '/vagrant/node_modules/.bin/acorn'
+```
+
+Remember to install libraries with `npm install --no-bin-links` instead of just `npm install`.
 
 ### Too Many Debug messages
 
@@ -148,7 +152,6 @@ This section contains additional information about the development environment.
 
 * `/fixtures` - Sample test data
 * `/server` - API source
-* `/server/data` - Persistance-layer data in JSON format
 
 ## Contributing
 
@@ -164,6 +167,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * [**Ray Clanan**](https://github.com/rclanan) - *Initial work*
 * [**Jarred Keuch**](https://github.com/jarredkeuch) - *Initial work*
 * [**Devashri Oza**](https://github.com/Devashri) - *Initial work*
+
 See also the list of [contributors]() who participated in this project.
 
 ## License
