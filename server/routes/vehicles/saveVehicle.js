@@ -15,5 +15,6 @@ function saveVehicle(request, response) {
   }
 
   response.setHeader('Content-Type', 'application/json');
-  response.send(data);
+  response.location(`/api/vehicles/${id}`);
+  response.status(200).send();
 }
