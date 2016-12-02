@@ -132,6 +132,14 @@ rm -rf node_modules
 vagrant destroy
 ```
 
+### Machine already provisioned
+
+If you receive the message 'Machine already provisioned when running `vagrant up && vagrant ssh` run:
+
+```bash
+vagrant up --provision && vagrant ssh
+```
+
 ## Additional Information
 
 This section contains additional information about the development environment.
