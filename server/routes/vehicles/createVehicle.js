@@ -7,7 +7,7 @@ const Vehicle = require('../../models').Vehicle;
 function createVehicle(request, response) {
   const data = request.body;
   data.locationId = request.params.locationId;
-  const id = Location.generateId(data);
+  const id = Vehicle.generateId(data);
 
   data.id = id;
   Vehicle.saveDocument(id, data);
