@@ -1,5 +1,6 @@
 'use strict';
 
+const apiPrefix = '/api/';
 const express = require('express');
 const app = module.exports = express();
 
@@ -10,4 +11,4 @@ const routes = require('./routes');
 configureBodyParser(app);
 configureCors(app);
 
-app.use(routes);
+app.use(apiPrefix, routes);

@@ -5,9 +5,11 @@ module.exports = createLocation;
 const Location = require('../../models').Location;
 
 function createLocation(request, response) {
-  const data = request.body;
+  let data = request.body;
+  const id = Location.generateId(data);
 
-  Location.saveDocument(null, data);
+  data.id = id;
+  Location.saveDocument(id, data);
 
   response.setHeader('Content-Type', 'application/json');
   response.send(data);
