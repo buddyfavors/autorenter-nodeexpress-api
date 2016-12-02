@@ -66,8 +66,10 @@ node server
 
 ### Browse the app
 
-After successfully starting the API app, you should be able to view data by browsing to (http://192.168.99.100:3000/locations).
-For more in-depth testing, use a web debugging tool such as [Fiddler](https://www.telerik.com/download/fiddler).
+After successfully starting the API app, you should be able to view data by browsing to (http://192.168.99.100:3000/api/locations).
+For more in-depth testing, use a web debugging tool such as [Fiddler](https://www.telerik.com/download/fiddler) or [Postman](https://www.getpostman.com/).
+
+[Postman collection](https://www.getpostman.com/collections/5530fbffa46505020891)
 
 ## Recommended Development Workflow
 
