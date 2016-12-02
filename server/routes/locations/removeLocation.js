@@ -13,5 +13,5 @@ function removeLocation(request, response) {
   }
 
   response.setHeader('Content-Type', 'application/json');
-  response.send(data);
+  response.status(204).send();
 }
