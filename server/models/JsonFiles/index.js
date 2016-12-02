@@ -3,9 +3,10 @@
 module.exports = JsonFiles;
 
 const path = require('path');
+const config = require('../../config');
 
 function JsonFiles(name) {
-  this.pathname = path.resolve(__dirname, '../../data', name);
+  this.pathname = path.resolve(config.server.jsonFilesBasePath, name);
 }
 
 JsonFiles.prototype.getAllDocuments = require('./getAllDocuments');
