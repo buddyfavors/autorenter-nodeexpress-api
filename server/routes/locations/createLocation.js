@@ -12,6 +12,6 @@ function createLocation(request, response) {
   Location.saveDocument(id, data);
 
   response.setHeader('Content-Type', 'application/json');
-  response.location(`/api/locations/${id}`);
+  response.location(`${request.getUrl()}/${id}`);
   response.status(201).send();
 }
