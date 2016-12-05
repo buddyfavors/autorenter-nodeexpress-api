@@ -27,6 +27,12 @@ describe('models/JsonFiles/removeDocument', () => {
   afterEach(() => unlinkSyncStub.restore());
 
   it.skip('removes a document', () => {
+    assert(false);
+  });
 
+  it.skip('quiets eslint until the tests are written', () => {
+    assert.equal(mockModel, false);
+    assert.equal(path, false);
+    assert.equal(readFileSyncStub, false);
   });
 });

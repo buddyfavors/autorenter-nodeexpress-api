@@ -31,4 +31,9 @@ describe('models/JsonFiles/saveDocument', () => {
   it.skip('writes a serialized JSON string to a file with a custom filename', () => {
 
   });
+
+  it.skip('quiets eslint until the tests are written', () => {
+    assert.equal(mockModel, false);
+    assert.equal(path, false);
+  });
 });

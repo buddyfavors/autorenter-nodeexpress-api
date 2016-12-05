@@ -34,4 +34,9 @@ describe('models/JsonFiles/getAllDocuments', () => {
     assert(false);
   });
 
+  it.skip('quiets eslint until the tests are written', () => {
+    assert.equal(mockModel, false);
+    assert.equal(path, false);
+  });
+
 });
