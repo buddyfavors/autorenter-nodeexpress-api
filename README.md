@@ -8,19 +8,10 @@ These instructions will cover usage information for the API and the optional dev
 
 ## Prerequisites
 
-- If you don't want to install Node.js natively on your development machine, you will need to install a virtualization environment.
-
-    The currently supported virtualization tools are [VirtualBox](https://www.virtualbox.org/wiki/Downloads) with [Vagrant](https://www.vagrantup.com/downloads.html). If you're new to Node.js development, you should go install these now.
+- The supported dev environment is to run this environment through Vagrant for virtualization.  [(download)](https://www.vagrantup.com/downloads.html)
+- Alternatively you can opt to install NodeJS on your host workstation and run AutoRenter with no virtualization. However, this No-Vagrant option is not being supported, and is the use-at-your-own risk option.
 
 ## How To
-
-**If you are running Node.js natively:**
-
-- Unless otherwise noted, all terminal commands must be issued from the project's root directory.
-
-**If you are using a virtual machine:**
-
-- Unless otherwise noted, all terminal commands must be issued from the `/vagrant` directory in the VM.
 
 ### Start the virtual machine and log in
 
@@ -31,10 +22,12 @@ vagrant up
 vagrant ssh
 ```
 
+- Unless otherwise noted, all terminal commands must be issued from the project's root directory. On the Vagrant VM, this is the `/vagrant` directory.
+
 ### Install project libraries
 
 ```bash
-npm install --no-bin-links
+npm install
 ```
 
 ### Lint the code
@@ -120,7 +113,7 @@ Remember to install libraries with `npm install --no-bin-links` instead of just 
 When starting the API with `npm start`, all log messages will be displayed. To fine tune logging, set a specific logging level using the `DEBUG` environment variable:
 
 ```bash
-DEBUG="api,server" node server 
+DEBUG="api,server" node server
 ```
 
 ### Everything Is Hosed!
