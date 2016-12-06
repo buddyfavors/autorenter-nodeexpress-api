@@ -5,42 +5,41 @@ If you are running AutoRenter Express/Node.js on a Windows environment, there ar
 
 ## Enable Symbolic Links in PowerShell
 
-Enable all four evaluations of Symbolic Links.
+1) Enable all four evaluations of Symbolic Links.
 
-```PowerShell
-fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1
-```
+    ```PowerShell
+	fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1
+	```
 
-Verify that all Symlink evaluations are now set to `enabled`:
+2) Verify that all Symlink evaluations are now set to `enabled`:
 
-```PowerShell
-fsutil behavior query SymlinkEvaluation
+    ```PowerShell
+    fsutil behavior query SymlinkEvaluation
 
-# Should return:
-Local to local symbolic links are enabled.
-Local to remote symbolic links are enabled.
-Remote to local symbolic links are enabled.
-Remote to remote symbolic links are enabled.
-```
+    # Should return:
+    Local to local symbolic links are enabled.
+    Local to remote symbolic links are enabled.
+    Remote to local symbolic links are enabled.
+    Remote to remote symbolic links are enabled.
+    ```
 
 ## Add Vagrant directories to your environment's PATH.
 
-This document assumes that your install path for Git is `C:\Program Files\Git`.
-
 1) Launch the Environment Variables dialog
 
-```PowerShell
-rundll32 sysdm.cpl,EditEnvironmentVariables
-```
+    ```PowerShell
+    rundll32 sysdm.cpl,EditEnvironmentVariables
+    ```
+
 2) In the `System Variables` list of the Environment Variables dialog, scroll down to `Path` and click `Edit`.
 
-3) In the `Edit environment variable` dialog, add the following paths (Clicking "New" to add each path):
+3) In the `Edit environment variable` dialog, click "new" and add each of these paths. *Your Git installation's path is assumed to be `C:\Program Files\Git`*
 
-  - C:\Program Files\Git\bin
+    * C:\Program Files\Git\bin
 
-  - C:\Program Files\Git\cmd
+    * C:\Program Files\Git\cmd
 
-  - C:\Program Files\Git\usr\bin
+    * C:\Program Files\Git\usr\bin
 
 4) Close and reopen any running instances of PowerShell so that the new path variables are registered.
 
