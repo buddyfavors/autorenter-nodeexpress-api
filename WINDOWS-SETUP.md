@@ -25,6 +25,8 @@ Remote to remote symbolic links are enabled.
 
 ## Add Vagrant directories to your environment's PATH.
 
+This document assumes that your install path for Git is `C:\Program Files\Git`.
+
 1) Launch the Environment Variables dialog
 
 ```Powershell
@@ -34,9 +36,11 @@ rundll32 sysdm.cpl,EditEnvironmentVariables
 
 3) In the `Edit environment variable` dialog, add the following paths (Clicking "New" to add each path):
 
-```
+  - C:\Program Files\Git\bin
 
-```
+  - C:\Program Files\Git\cmd
+
+  - C:\Program Files\Git\usr\bin
 
 4) Close and reopen any running instances of Powershell so that the new path variables are registered.
 
