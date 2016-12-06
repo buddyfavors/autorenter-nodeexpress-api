@@ -13,7 +13,11 @@ These instructions will cover usage information for the API and the optional dev
 
 ## How To
 
+- Unless otherwise noted, all terminal commands must be issued from the project's root directory. Once logged into the Vagrant VM, this is the `/vagrant` directory.
+
 ### Start the virtual machine and log in
+
+On Linux or MacOS, run these steps from your standard terminal. On Windows, run these steps from Powershell in Administrator mode.
 
 From the project's root directory:
 
@@ -21,8 +25,6 @@ From the project's root directory:
 vagrant up
 vagrant ssh
 ```
-
-- Unless otherwise noted, all terminal commands must be issued from the project's root directory. On the Vagrant VM, this is the `/vagrant` directory.
 
 ### Install project libraries
 
