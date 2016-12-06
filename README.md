@@ -27,7 +27,8 @@ These instructions will cover usage information for the API and the optional dev
 From the project's root directory:
 
 ```bash
-vagrant up && vagrant ssh
+vagrant up
+vagrant ssh
 ```
 
 ### Install project libraries
