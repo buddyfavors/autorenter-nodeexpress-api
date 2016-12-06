@@ -6,6 +6,10 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3000, host: 3000
   config.vm.network "private_network", ip: "192.168.99.100"
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
+  end
+
   config.vm.provision "shell", inline: "echo 'cd /vagrant' >> /home/ubuntu/.bashrc"
   config.vm.provision "shell", inline: "curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -"
   config.vm.provision "shell", inline: "apt-get install -y nodejs build-essential"
