@@ -12,6 +12,12 @@ These instructions will cover usage information for the API and the optional dev
 - Install [Vagrant](https://www.vagrantup.com/downloads.html) for virtualization.
   - An unsupported, use-at-your-own risk alternative to virtualization is installing NodeJS on your host. All documentation assumes you are running Vagrant.
 
+### Windows-Specific setup
+
+If you are running AutoRenter Express/Node.js on a Windows environment, there are additional steps you must take to ensure the virtual environment is compatible with your host.
+
+[WINDOWS SETUP](./WINDOWS-SETUP.md)
+
 ## How To
 
 - Unless otherwise noted, all terminal commands must be issued from the project's root directory. Once logged into the Vagrant VM, this is the `/vagrant` directory.
