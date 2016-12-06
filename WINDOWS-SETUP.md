@@ -5,11 +5,14 @@ If you are running AutoRenter Express/Node.js on a Windows environment, there ar
 
 ## Enable Symbolic Links in PowerShell
 
+Security note: There is an ongoing team discussion around the security risks of enabling remote symlinks in Windows. Proceed with caution.
+https://www.virtualbox.org/ticket/10085
+
 1) Enable all four evaluations of Symbolic Links.
 
     ```PowerShell
-	fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1
-	```
+    fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1
+    ```
 
 2) Verify that all Symlink evaluations are now set to `enabled`:
 
