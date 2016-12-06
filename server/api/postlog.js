@@ -1,9 +1,16 @@
 'use strict';
 
-function postLog(request, response) {
-  console.log(request.body.level, request.body.message) /*eslint no-console: 0 */
-    .then(() => response.status(201).json({ message: 'Log added successfully!' }))
-    .catch(() => response.status(500).json({ message: 'Error adding log!' }));
+function postLog(req, res) {
+  /*eslint no-console: 0 */
+  if(!req.body.message){
+    res.status(500).json({ message: 'Error adding log!' });
+    console.log('Error adding log!'); 
+  }
+  else{
+    res.status(201).json({ message: 'Log added successfully!' });
+    console.log(req.body.level); 
+    console.log(req.body.message); 
+  }
 }
 
 module.exports = postLog;

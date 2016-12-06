@@ -1,9 +1,8 @@
 'use strict';
 
-//const getRoot = require('./getRoot');
-const postLog = require('./postLog');
+const express = require('express');
+const router = express.Router();
 
-module.exports = {
-  //getRoot,
-  postLog
-};
+module.exports = router;
+
+router.post('/log', require('./postlog'));
