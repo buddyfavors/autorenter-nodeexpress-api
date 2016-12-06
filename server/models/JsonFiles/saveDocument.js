@@ -7,9 +7,9 @@ const generateId = require('./generateId');
 const path = require('path');
 
 function saveDocument(id, data) {
+  id = id || generateId(data);
   const contents = JSON.stringify(data);
   const filename = path.join(this.pathname, `${id}.json`);
-  id = id || generateId(data);
   fs.writeFileSync(filename, contents, 'utf8');
   return data;
 }
