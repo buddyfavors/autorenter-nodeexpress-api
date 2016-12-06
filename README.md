@@ -24,11 +24,15 @@ If you are running AutoRenter Express/Node.js on a Windows environment, there ar
 
 ### Start the virtual machine and log in
 
-On Linux or MacOS, run these steps from your standard terminal. On Windows, run these steps from Powershell in Administrator mode.
-
-From the project's root directory:
+On Linux or MacOS, run this from your standard terminal in the project's root directory:
 
 ```bash
+vagrant up && vagrant ssh
+```
+
+On Windows, run these steps from Powershell in Administrator mode in the project's root directory:
+
+```Powershell
 vagrant up
 vagrant ssh
 ```
