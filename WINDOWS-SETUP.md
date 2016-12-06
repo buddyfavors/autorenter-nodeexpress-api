@@ -1,19 +1,19 @@
 # Express/Node.js - Windows Setup
 If you are running AutoRenter Express/Node.js on a Windows environment, there are additional steps you must take to ensure the virtual environment is compatible with your host.
 
-- All commands must be run from a Powershell launched in Administrator mode.
+- All commands must be run from a PowerShell launched in Administrator mode.
 
-## Enable Symbolic Links in Powershell
+## Enable Symbolic Links in PowerShell
 
 Enable all four evaluations of Symbolic Links.
 
-```Powershell
+```PowerShell
 fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1
 ```
 
 Verify that all Symlink evaluations are now set to `enabled`:
 
-```Powershell
+```PowerShell
 fsutil behavior query SymlinkEvaluation
 
 # Should return:
@@ -29,7 +29,7 @@ This document assumes that your install path for Git is `C:\Program Files\Git`.
 
 1) Launch the Environment Variables dialog
 
-```Powershell
+```PowerShell
 rundll32 sysdm.cpl,EditEnvironmentVariables
 ```
 2) In the `System Variables` list of the Environment Variables dialog, scroll down to `Path` and click `Edit`.
@@ -42,9 +42,9 @@ rundll32 sysdm.cpl,EditEnvironmentVariables
 
   - C:\Program Files\Git\usr\bin
 
-4) Close and reopen any running instances of Powershell so that the new path variables are registered.
+4) Close and reopen any running instances of PowerShell so that the new path variables are registered.
 
-## Use Powershell to launch Vagrant
+## Use PowerShell to launch Vagrant
 
-- You must use Powershell, launched in Administrator mode, to launch Vagrant.
+- You must use PowerShell, launched in Administrator mode, to launch Vagrant.
 - Cygwin, Git Bash, and other GNU ports are untested and unsupported.

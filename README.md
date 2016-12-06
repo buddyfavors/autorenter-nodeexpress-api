@@ -30,9 +30,9 @@ On Linux or MacOS, run this from your standard terminal in the project's root di
 vagrant up && vagrant ssh
 ```
 
-On Windows, run these steps from Powershell in Administrator mode in the project's root directory:
+On Windows, run these steps from PowerShell in Administrator mode in the project's root directory:
 
-```Powershell
+```PowerShell
 vagrant up
 vagrant ssh
 ```
