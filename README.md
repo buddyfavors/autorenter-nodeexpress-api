@@ -10,6 +10,7 @@ These instructions will cover usage information for the API and the optional dev
 
 - The supported dev environment is to run this environment through Vagrant for virtualization.  [(download)](https://www.vagrantup.com/downloads.html)
 - Alternatively you can opt to install NodeJS on your host workstation and run AutoRenter with no virtualization. However, this No-Vagrant option is not being supported, and is the use-at-your-own risk option.
+- Install [Git](https://git-scm.com/downloads).
 
 ## How To
 
