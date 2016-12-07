@@ -7,6 +7,6 @@ module.exports = router;
 
 router.get('/vehicles', require('./getAllVehicles'));
 router.get('/vehicles/:id', require('./getVehicle'));
-router.post('/locations/:locationId/vehicles', require('./createVehicle'));
-router.put('/vehicles/:id', require('./saveVehicle'));
-router.delete('/vehicles/:id', require('./removeVehicle'));
+router.post('/locations/:locationId/vehicles', require('./postVehicle'));
+router.put('/vehicles/:id', require('./putVehicle'));
+router.delete('/vehicles/:id', require('./deleteVehicle'));
