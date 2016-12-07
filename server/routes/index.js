@@ -8,5 +8,5 @@ module.exports = router;
 
 router.use(require('./locations'));
 router.use(require('./vehicles'));
-router.use(require('../api'));
+router.use(require('./logging'));
 
