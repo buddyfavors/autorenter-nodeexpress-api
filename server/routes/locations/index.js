@@ -7,6 +7,6 @@ module.exports = router;
 
 router.get('/locations', require('./getAllLocations'));
 router.get('/locations/:id', require('./getLocation'));
-router.post('/locations', require('./createLocation'));
-router.put('/locations/:id', require('./saveLocation'));
-router.delete('/locations/:id', require('./removeLocation'));
+router.post('/locations', require('./postLocation'));
+router.put('/locations/:id', require('./putLocation'));
+router.delete('/locations/:id', require('./deleteLocation'));
