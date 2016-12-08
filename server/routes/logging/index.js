@@ -5,4 +5,4 @@ const router = express.Router();
 
 module.exports = router;
 
-router.post('/log', require('./postlog'));
+router.post('/log', require('./postLog'));
