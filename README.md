@@ -4,7 +4,7 @@ An Express/Node.js based implementation of the AutoRenter API.
 
 ## Overview
 
-These instructions will cover usage information for the API and the optional development virtual machine.
+These instructions will cover usage information for the API.
 
 ## Prerequisites
 
