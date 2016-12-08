@@ -9,33 +9,11 @@ These instructions will cover usage information for the API and the optional dev
 ## Prerequisites
 
 - Install [Git](https://git-scm.com/downloads).
-- Install [Vagrant](https://www.vagrantup.com/downloads.html) for virtualization.
-  - An unsupported, use-at-your-own risk alternative to virtualization is installing NodeJS on your host. All documentation assumes you are running Vagrant.
-
-### Windows-Specific setup
-
-If you are running AutoRenter Express/Node.js on a Windows environment, there are additional steps you must take to ensure the virtual environment is compatible with your host.
-
-[WINDOWS SETUP](./WINDOWS-SETUP.md)
+- Install [Node](https://nodejs.org/en/download/)
 
 ## How To
 
-- Unless otherwise noted, all terminal commands must be issued from the project's root directory. Once logged into the Vagrant VM, this is the `/vagrant` directory.
-
-### Start the virtual machine and log in
-
-On Linux or MacOS, run this from your standard terminal in the project's root directory:
-
-```bash
-vagrant up && vagrant ssh
-```
-
-On Windows, run these steps from PowerShell in Administrator mode in the project's root directory:
-
-```PowerShell
-vagrant up
-vagrant ssh
-```
+- Unless otherwise noted, all terminal commands must be issued from the project's root directory.
 
 ### Install project libraries
 
@@ -73,7 +51,7 @@ node server
 
 ### Browse the app
 
-After successfully starting the API app, you should be able to view data by browsing to (http://192.168.99.100:3000/api/locations).
+After successfully starting the API app, you should be able to view data by browsing to (localhost/api/locations).
 For more in-depth testing, use a web debugging tool such as [Fiddler](https://www.telerik.com/download/fiddler) or [Postman](https://www.getpostman.com/).
 
 [Postman collection](https://www.getpostman.com/collections/5530fbffa46505020891)
@@ -109,17 +87,8 @@ If you are implementing a new feature, in addition to the previous steps you sho
 
 ### API or Test Commands Don't Work Due To Missing Dependencies
 
-* Re-run `npm install --no-bin-links` to verify that your dependencies are up to date.
+* Re-run `npm install` to verify that your dependencies are up to date.
 
-### Installing Project Libraries Fails
-
-If you see an error like this:
-
-```
-EPROTO: protocol error, symlink '../acorn/bin/acorn' -> '/vagrant/node_modules/.bin/acorn'
-```
-
-Remember to install libraries with `npm install --no-bin-links` instead of just `npm install`.
 
 ### Too Many Debug messages
 
@@ -137,17 +106,8 @@ Sometimes you just need to completely clean your development environment before 
 # Blow away the node_modules folder:
 rm -rf node_modules
 
-# Destroy your virtual machine:
-vagrant destroy
 ```
 
-### Machine already provisioned
-
-If you receive the message 'Machine already provisioned when running `vagrant up && vagrant ssh` run:
-
-```bash
-vagrant up --provision && vagrant ssh
-```
 
 ## Additional Information
 
