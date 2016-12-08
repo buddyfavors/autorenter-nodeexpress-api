@@ -10,7 +10,7 @@
   "scripts": {
     "start": "DEBUG=* node server",
     "lint": "eslint 'server/**/*.js' 'tests/**/*.js'",
-    "test": "npm run lint && mocha 'tests/**/*.js'"
+    "test": "npm run lint && mocha \"tests/**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -41,8 +41,8 @@
   "devDependencies": {
     "chai": "3.5.0",
     "chai-http": "3.0.0",
-    "eslint": "^3.11.1",
-    "mocha": "^3.2.0",
+    "eslint": "3.11.1",
+    "mocha": "3.2.0",
     "sinon": "1.17.5"
   }
 }
