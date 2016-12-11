@@ -1,15 +1,19 @@
 'use strict';
 
-function postLog(req, res) {
-  /*eslint no-console: 0 */
-  if(!req.body.message){
-    res.status(500).json({ message: 'Error adding log!' });
-    console.log('Error adding log!'); 
+const logDetail = require('../../services/logDetail');
+
+function postLog(request, response) {
+  const dummyAuthTokenToRemoveWhenAuthIsImplemented = {
+    username: 'jdoe'
+  };
+
+  try {
+    logDetail(dummyAuthTokenToRemoveWhenAuthIsImplemented.username,
+      request.body.level, request.body.message);
+    response.status(201).json();
   }
-  else{
-    res.status(201).json({ message: 'Log added successfully!' });
-    console.log(req.body.level); 
-    console.log(req.body.message); 
+  catch(error) {
+    response.status(500).json({ message: 'Error adding log!' });
   }
 }
 
