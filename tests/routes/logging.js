@@ -15,7 +15,7 @@ describe('routes/logging', () => {
   });
 
   describe('raise-error', () => {
-    it.skip('should return correct response', () => {
+    it('should return correct response', () => {
       const expectedMessage = 'Error: An API-originated error for testing purposes.';
       return chai
         .request(app)
