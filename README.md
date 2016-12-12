@@ -55,27 +55,27 @@ For more in-depth testing, use a web debugging tool such as [Fiddler](https://ww
 The following steps describe the recommended development workflow.
 
 1. Pull from the `development` branch.
-2. As described above:
+1. As described above:
   1. Install project libraries.
-  2. Run tests.
-  3. Start the API.
-3. Browse the API.
+  1. Run tests.
+  1. Start the API.
+1. Browse the API.
 
 **If you encounter problems with any of this, please see the Troubleshooting section, below.**
 
 If you are implementing a new feature, in addition to the previous steps you should:
 
 1. Create a feature branch by branching off of `development`.
-2. Implement your feature. *Note that during this process you should regularly (at least 1x/day) merge the `development` branch into your feature branch to ensure your code is staying current with work being done by the rest of the team.*
+1. Implement your feature. *Note that during this process you should regularly (at least 1x/day) merge the `development` branch into your feature branch to ensure your code is staying current with work being done by the rest of the team.*
 	1. Develop
 		1. Make changes to code, scripts, unit tests, etc.
-		2. Lint your code.
-		3. Run the tests.
-		4. Browse the API.
-		5. Repeat until you have something meaningful to commit to your feature branch.
-	2. Commit changes to your feature branch.
-	3. Repeat these feature implementation steps until the feature is ready to review.
-3. Open a pull request to merge your feature branch into `development`.
+		1. Lint your code.
+		1. Run the tests.
+		1. Browse the API.
+		1. Repeat until you have something meaningful to commit to your feature branch.
+	1. Commit changes to your feature branch.
+	1. Repeat these feature implementation steps until the feature is ready to review.
+1. Open a pull request to merge your feature branch into `development`.
 
 ## Troubleshooting
 
