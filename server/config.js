@@ -7,4 +7,5 @@ config.server = {
   host: process.env.HOST || '0.0.0.0',
   port: process.env.PORT || 3000,
   jsonFilesBasePath: path.resolve(__dirname, './data'),
+  loggerLevel: process.env.LOGGER_LEVEL || 'debug'
 };

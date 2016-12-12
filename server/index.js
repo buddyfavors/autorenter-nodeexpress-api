@@ -1,11 +1,11 @@
 'use strict';
 
 const app = require('./app');
-const debug = require('debug')('api');
 const http = require('http');
 const config = require('./config');
+const logger = require('./services/logger');
 
-debug('Starting AutoRenter Node-Express API.');
+logger.info('Starting AutoRenter Node-Express API.');
 const port = config.server.port;
 app.set('port', port);
 
@@ -13,5 +13,5 @@ const server = http.createServer(app);
 server.listen(port);
 
 process.on('uncaughtException', (err) => {
-  debug(err);
+  logger.error(err);
 });

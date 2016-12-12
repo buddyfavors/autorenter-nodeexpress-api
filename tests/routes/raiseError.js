@@ -9,7 +9,7 @@ const app = require('../../server/app');
 chai.use(chaiHttp);
 chai.should();
 
-describe('/api/raise-error', () => {
+describe('routes/raise-error', () => {
   beforeEach(() => {
     sinon.stub(console, 'error');
   });

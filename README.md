@@ -43,12 +43,6 @@ To start the API with all debug logging enabled (recommended):
 npm start
 ```
 
-To start the API with no debug logging:
-
-```bash
-node server
-```
-
 ### Browse the app
 
 After successfully starting the API app, you should be able to view data by browsing to (localhost:3000/api/locations).
@@ -92,10 +86,18 @@ If you are implementing a new feature, in addition to the previous steps you sho
 
 ### Too Many Debug messages
 
-When starting the API with `npm start`, all log messages will be displayed. To fine tune logging, set a specific logging level using the `DEBUG` environment variable:
+When starting the API with `npm start`, all log messages will be displayed. To fine tune logging, set a specific logging level using the `LOGGER_LEVEL` environment variable or config value:
 
+#### Using environment variables
+In non-window environments:
 ```bash
-DEBUG="api,server" node server
+LOGGER_LEVEL="warn" node server
+```
+
+In windows:
+```bash
+set LOGGER_LEVEL="warn"
+node server
 ```
 
 ### Everything Is Hosed!
@@ -117,11 +119,14 @@ This section contains additional information about the development environment.
 
 #### Environment Variables
 
-* `DEBUG` - Set the logging level to debug for the supplied arguments
+* `LOGGER_LEVEL` - Set the logging level
   * Examples:
-    * `api` - Sets debugging for API calls
-    * `server` - sets debugging for server messages
-    * `sql` - sets debugging for database calls
+    * `error`
+    * `warn`
+    * `info`
+    * `verbose`
+    * `debug`
+    * `silly`
 * `HOST` - Sets the API server host
 * `PORT` - Sets the API server port
 
