@@ -9,7 +9,7 @@
   "main": "server/app.js",
   "scripts": {
     "start": "DEBUG=* node server",
-    "lint": "eslint 'server/**/*.js' 'tests/**/*.js'",
+    "lint": "eslint \"server/**/*.js\" \"tests/**/*.js\"",
     "test": "npm run lint && mocha \"tests/**/*.js\" || true"
   },
   "repository": {
