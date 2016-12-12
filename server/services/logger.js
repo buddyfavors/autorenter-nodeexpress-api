@@ -19,7 +19,7 @@ const logger = new (winston.Logger)({
 });
 
 logger.stream = {
-  write: function(message, encoding){
+  write: function(message){
     logger.info(message);
   }
 };
