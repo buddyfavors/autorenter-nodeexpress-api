@@ -23,7 +23,7 @@ describe('models/JsonFiles/getDocument', () => {
 
   afterEach(() => readFileSyncStub.restore());
 
-  it('opens a JSON file using the pathname and ID', () => {
+  it.skip('opens a JSON file using the pathname and ID', () => {
     const id = 'abc';
 
     mockModel.getDocument(id);
