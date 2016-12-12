@@ -110,6 +110,20 @@ rm -rf node_modules
 
 ```
 
+#### Express debugging
+
+To see all the internal logs used in Express, set the DEBUG environment variable to express:* when launching your app.
+
+```bash
+DEBUG=express:* node index.js
+```
+On Windows, use the corresponding command.
+
+```cmd
+set DEBUG=express:* & node index.js
+```
+
+To see the logs only from the router implementation set the value of DEBUG to express:router. Likewise, to see logs only from the application implementation set the value of DEBUG to express:application, and so on.
 
 ## Additional Information
 
