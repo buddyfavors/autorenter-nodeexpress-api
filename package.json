@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server",
     "lint": "eslint \"server/**/*.js\" \"tests/**/*.js\"",
-    "test": "npm run lint && mocha \"tests/**/*.js\" || true"
+    "test": "npm run lint && mocha \"tests/**/*.js\""
   },
   "repository": {
     "type": "git",
