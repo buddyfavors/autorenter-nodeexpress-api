@@ -2,19 +2,15 @@
 
 const logDetail = require('../../services/logDetail');
 
-function postLog(request, response) {
+function postLog(request, response, next) {
   const dummyAuthTokenToRemoveWhenAuthIsImplemented = {
     username: 'jdoe'
   };
 
-  try {
-    logDetail(dummyAuthTokenToRemoveWhenAuthIsImplemented.username,
-      request.body.level, request.body.message);
-    response.status(201).json();
-  }
-  catch(error) {
-    response.status(500).json({ message: 'Error adding log!' });
-  }
+  logDetail.execute(dummyAuthTokenToRemoveWhenAuthIsImplemented.username,
+    request.body.level, request.body.message)
+    .then(() => response.status(201).json())
+    .catch(next);
 }
 
 module.exports = postLog;
