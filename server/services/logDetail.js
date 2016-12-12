@@ -4,8 +4,7 @@ const logger = require('./logger');
 
 function logDetail(username, level, message) {
   const logData = { username, level, message };
-
-  return new Promise(function(resolve, reject) {
+  const log = new Promise(function(resolve, reject) {
     if(!logData.message){
       const err = new Error('Log message was empty');
       logger.error(`The following error prevented writing the log object: ${err.message}.`);
@@ -19,6 +18,13 @@ function logDetail(username, level, message) {
       resolve();
     }
   });
+
+  return log.then(() => {
+    logger.debug('Log added');
+  })
+    .catch((err) => {
+      throw err;
+    });
 }
 
 module.exports.execute = logDetail;
