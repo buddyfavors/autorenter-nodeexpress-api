@@ -4,7 +4,7 @@ const cors = require('cors');
 
 function configureCors(app) {
   app.use(cors({
-    origin: ['http://192.168.99.100:3000', 'http://192.168.99.100'],
+    origin: ['http://127.0.0.1:3000', 'http://127.0.0.1'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
     preflightContinue: true

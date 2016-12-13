@@ -4,130 +4,101 @@ An Express/Node.js based implementation of the AutoRenter API.
 
 ## Overview
 
-These instructions will cover usage information for the API and for the associated docker containers.
+These instructions will cover usage information for the API.
 
 ## Prerequisites
 
-- In order to run this containerized application you'll need Docker engine 1.10 or higher installed via the Docker Toolbox, available [here](https://www.docker.com/products/docker-toolbox) for download.
-
-    Docker Native is currently in Beta and somewhat unstable, so at this point we don't support it. It's the future, however, so look for this position to change.
-
-### Windows-Only setup notes
-
--   You must enable VT-X or AMD-v in your BIOS for Docker Toolbar to work.
-
--   As a workaround for current limitations in Docker Toolbox for Windows, you must
-    clone this project into your user directory so that it has the following
-    path: `/Users/<username>/autorenter_nodeexpress_api`
+- Install [Git](https://git-scm.com/downloads).
+- Install [Node](https://nodejs.org/en/download/) (tested on version 6.2.2)
 
 ## How To
 
-**Unless otherwise noted, all terminal commands must be issued from the project's root directory. You must use the Docker Quickstart Terminal if on Windows or Mac.**
+- Unless otherwise noted, all terminal commands must be issued from the project's root directory.
 
-### [Re]build and start the containers
+### Install project libraries
 
 ```bash
-./bin/rebuild-server.sh
+npm install
 ```
 
 ### Lint the code
 
-Note that the aur-api container must be running to lint the code.
-
 ```bash
-docker exec -t aur-api npm run lint
+npm run lint
 ```
 
 ### Run tests
 
-Note that the aur-api container must be running to run the tests.
+Note that this will lint the code before running tests. No tests will run if lint errors are found.
 
 ```bash
-docker exec -t aur-api npm test
+npm test
 ```
 
-### View the database
+### Start the API app
 
-#### Using the psql Command Line Interface
-
-Note that the postgres container must be running to interact with the database.
+To start the API with all debug logging enabled (recommended):
 
 ```bash
-docker exec -it aur-db psql -U postgres
-```
-
-For additional information, psql documentation is available at [https://www.postgresql.org/docs/9.3/static/app-psql.html](https://www.postgresql.org/docs/9.3/static/app-psql.html).
-
-##### Example psql session
-
-The following example:
-
-* Connects to the auto_renter database from within the psql shell.
-* List all locations.
-* Exits psql.
-
-```bash
-\connect auto_renter
-select * from "Locations";
-\q
+npm start
 ```
 
 ### Browse the app
 
-After successfully [re]building the containers, you should be able to run the application by browsing to `http://192.168.99.100:3000/`.
+After successfully starting the API app, you should be able to view data by browsing to (localhost:3000/api/locations).
+For more in-depth testing, use a web debugging tool such as [Fiddler](https://www.telerik.com/download/fiddler) or [Postman](https://www.getpostman.com/).
+
+[Postman collection](https://www.getpostman.com/collections/5530fbffa46505020891)
 
 ## Recommended Development Workflow
 
 The following steps describe the recommended development workflow.
 
-1. Pull from the Development branch.
-1. [Re]build and start the containers, as described above.
-1. Browse the app.
+1. Pull from the `development` branch.
+1. As described above:
+  1. Install project libraries.
+  1. Run tests.
+  1. Start the API.
+1. Browse the API.
 
->If you encounter problems with any of this, please see the Troubleshooting section, below.
+**If you encounter problems with any of this, please see the Troubleshooting section, below.**
 
 If you are implementing a new feature, in addition to the previous steps you should:
 
-1. Create a feature branch by branching off of Development.
-1. Implement your feature. *Note that during this process you should regularly (at least 1x/day) merge the Development branch into your feature branch to ensure your code is staying current with work being done by the rest of the team.*
+1. Create a feature branch by branching off of `development`.
+1. Implement your feature. *Note that during this process you should regularly (at least 1x/day) merge the `development` branch into your feature branch to ensure your code is staying current with work being done by the rest of the team.*
 	1. Develop
-		1. Make changes to code, scripts, etc.
+		1. Make changes to code, scripts, unit tests, etc.
 		1. Lint your code.
 		1. Run the tests.
-		1. Browse the app.
+		1. Browse the API.
 		1. Repeat until you have something meaningful to commit to your feature branch.
 	1. Commit changes to your feature branch.
 	1. Repeat these feature implementation steps until the feature is ready to review.
-1. Open a pull request to merge your feature branch into Development.
+1. Open a pull request to merge your feature branch into `development`.
 
 ## Troubleshooting
 
-### API Doesn't Start
+### API or Test Commands Don't Work Due To Missing Dependencies
 
-We are currently experiencing problems running the containerized API on a Windows host. This is due to a problem with the volume (folder) sharing between the host and the container. As a workaround:
+* Re-run `npm install` to verify that your dependencies are up to date.
 
-* Remove the `-v $(pwd):/home/api` option from *build-server.sh*.
-* Manually run `./bin/rebuild-server` after you make changes to the code.
-  * This is necessary because the watch loop can't detect file changes with the folder sharing removed.
 
-If this doesn't resolve the error, it might be helpful to completely delete the project directory (`rm -rf autorenter_nodeexpress_api/`) and re-clone the project onto your machine.
+### Too Many Debug messages
 
-### Linting / Test Commands Don't Work Due To Missing Dependencies
+When starting the API with `npm start`, all log messages will be displayed. To fine tune logging, set a specific logging level using the `LOGGER_LEVEL` environment variable or config value:
 
-We've had problems with npm not reliably installing all of the required dependencies into the API container. If you experience problems with the linting and/or test commands in the *Lint the code* or *Run tests* section, above, open a shell in the API docker container and run `npm install` as follows:
-
+#### Using environment variables
+In non-window environments:
 ```bash
-# Enter into a shell inside of the api container:
-docker exec -it aur-api /bin/sh
-
-# You are now at a prompt inside the api container. Now run npm install:
-/home/api # npm install
-
-# Exit the container:
-/home/api # exit
+LOGGER_LEVEL="warn" node server
 ```
 
-At this point you should be able to successfully run the commands.
+In windows:
+```bash
+set LOGGER_LEVEL="warn"
+node server
+```
 
 ### Everything Is Hosed!
 
@@ -137,9 +108,22 @@ Sometimes you just need to completely clean your development environment before 
 # Blow away the node_modules folder:
 rm -rf node_modules
 
-# Kill all containers, and remove all containers and images:
-./bin/clear-all-images.sh 
 ```
+
+#### Express debugging
+
+To see all the internal logs used in Express, set the DEBUG environment variable to express:* when launching your app.
+
+```bash
+DEBUG=express:* node index.js
+```
+On Windows, use the corresponding command.
+
+```cmd
+set DEBUG=express:* & node index.js
+```
+
+To see the logs only from the router implementation set the value of DEBUG to express:router. Likewise, to see logs only from the application implementation set the value of DEBUG to express:application, and so on.
 
 ## Additional Information
 
@@ -149,32 +133,21 @@ This section contains additional information about the development environment.
 
 #### Environment Variables
 
-* `DEBUG` - Set the logging level to debug for the supplied arguments
+* `LOGGER_LEVEL` - Set the logging level
   * Examples:
-    * `api` - Sets debugging for API calls
-    * `server` - sets debugging for server messages
-    * `sql` - sets debugging for database calls
-* `HOME` - Sets the project's home directory
-* `POSTGRES_PASSWORD` - Sets the super admin password
+    * `error`
+    * `warn`
+    * `info`
+    * `verbose`
+    * `debug`
+    * `silly`
 * `HOST` - Sets the API server host
 * `PORT` - Sets the API server port
-* `DB_USER` - Sets API database user
-* `DB_PASSWORD` - Sets the API database password
-* `DB_HOST` - Sets the API database host
-* `DB_NAME` - Sets the API database name
-* `DB_DIALECT` - Sets the API database dialect
-* `DB_LOGGING` - Sets the API database logging
-
-#### Volumes
-
-* `/home/api` - The project's home directory
-* `/var/lib/postgresql` - Data directory for DB
 
 ### Useful File Locations
 
-* `/bin` - Collection of helper scripts
-* `/fixtures` - Sequalize test data
 * `/server` - API source
+* `/tests` - Test source
 
 ## Contributing
 
@@ -190,6 +163,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * [**Ray Clanan**](https://github.com/rclanan) - *Initial work*
 * [**Jarred Keuch**](https://github.com/jarredkeuch) - *Initial work*
 * [**Devashri Oza**](https://github.com/Devashri) - *Initial work*
+
 See also the list of [contributors]() who participated in this project.
 
 ## License

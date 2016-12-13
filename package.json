@@ -6,21 +6,15 @@
   "version": "0.0.1",
   "description": "AutoRenter API",
   "private": true,
-  "main": "app.js",
+  "main": "server/app.js",
   "scripts": {
-    "init": "node bin/init",
-    "start": "npm install --no-bin-links && npm run init && node ./node_modules/parallelshell/index.js 'npm run test:coverage' 'npm run lint' && node ./node_modules/nodemon/bin/nodemon.js -L ./bin/start-server.js",
-    "lint": "node ./node_modules/eslint/bin/eslint.js '**/*.js'",
-    "test": "node ./node_modules/mocha/bin/mocha \"tests/**/*.js\"",
-    "test:coverage": "node ./node_modules/istanbul/lib/cli.js cover --dir coverage node_modules/mocha/bin/_mocha tests/**/*.js -- "
+    "start": "node server",
+    "lint": "eslint \"server/**/*.js\" \"tests/**/*.js\"",
+    "test": "npm run lint && mocha \"tests/**/*.js\""
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
   "repository": {
     "type": "git",
-    "url": "ssh://git@stash.fusionalliance.com:7999/fusadip/autorenter_nodeexpress_api.git"
+    "url": "ssh://git@bitbucket.fusionalliance.com:7999/fusadip/autorenter_nodeexpress_api.git"
   },
   "author": "Fusion Alliance",
   "contributors": [
@@ -39,26 +33,17 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "bluebird": "3.4.0",
     "body-parser": "1.15.1",
     "cors": "2.7.1",
-    "debug": "2.2.0",
     "express": "4.13.4",
-    "lodash": "4.12.0",
-    "nodemon": "1.9.2",
-    "pg": "4.5.5",
-    "sequelize": "3.23.2"
+    "morgan": "1.7.0",
+    "winston": "2.3.0"
   },
   "devDependencies": {
     "chai": "3.5.0",
     "chai-http": "3.0.0",
-    "eslint": "2.10.2",
-    "eslint-config-airbnb-base": "3.0.1",
-    "eslint-plugin-import": "1.8.1",
-    "istanbul": "0.4.4",
-    "mocha": "2.4.5",
-    "parallelshell": "2.0.0",
-    "pre-commit": "1.1.2",
+    "eslint": "3.11.1",
+    "mocha": "3.2.0",
     "sinon": "1.17.5"
   }
 }

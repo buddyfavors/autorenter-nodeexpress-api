@@ -1,5 +1,0 @@
-{
-  "events": {
-    "restart": "node ./node_modules/parallelshell 'npm run test:coverage' 'npm run lint'"
-  }
-}

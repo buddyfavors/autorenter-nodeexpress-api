@@ -1,21 +1,18 @@
 'use strict';
 
+const apiPrefix = '/api/';
 const express = require('express');
+const app = module.exports = express();
 
+const configureLogger = require('./middleware/configureLogger');
 const configureBodyParser = require('./middleware/configureBodyParser');
 const configureCors = require('./middleware/configureCors');
-const errorHandlingConfigurer = require('./middleware/errorHandlingConfigurer');
-const routes = require('./routes/index');
+const configureRequestUrl = require('./middleware/configureRequestUrl');
+const routes = require('./routes');
 
-const app = express();
-
+configureLogger(app);
 configureBodyParser(app);
 configureCors(app);
+configureRequestUrl(app);
 
-app.use(routes);
-
-// Note: this must go LAST, after the other handlers/routes have been configured.
-// Please see https://expressjs.com/en/guide/error-handling.html for details.
-errorHandlingConfigurer.configureErrorHandling(app);
-
-module.exports = app;
+app.use(apiPrefix, routes);
