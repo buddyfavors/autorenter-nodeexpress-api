@@ -146,7 +146,6 @@ This section contains additional information about the development environment.
 
 ### Useful File Locations
 
-* `/fixtures` - Sample test data
 * `/server` - API source
 * `/tests` - Test source
 
