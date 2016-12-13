@@ -8,6 +8,7 @@ These instructions will cover usage information for the API.
 
 ## Prerequisites
 
+- Make sure the project is at a location with minimal file path length (this is especially important in a Windows environment!). For this project we strongly recommend `c:/aur/api` as the project root.
 - Install [Git](https://git-scm.com/downloads).
 - Install [Node](https://nodejs.org/en/download/) (tested on version 6.2.2)
 
