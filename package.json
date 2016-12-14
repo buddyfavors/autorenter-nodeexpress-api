@@ -8,7 +8,7 @@
   "private": true,
   "main": "server/app.js",
   "scripts": {
-    "start": "node server",
+    "start": "nodemon server --ignore \"tests/**/*.js\"",
     "lint": "eslint \"server/**/*.js\" \"tests/**/*.js\"",
     "test": "npm run lint && mocha \"tests/**/*.js\""
   },
@@ -37,6 +37,7 @@
     "cors": "2.7.1",
     "express": "4.13.4",
     "morgan": "1.7.0",
+    "nodemon": "1.11.0",
     "winston": "2.3.0"
   },
   "devDependencies": {
