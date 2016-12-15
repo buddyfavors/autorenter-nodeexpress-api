@@ -4,10 +4,8 @@ module.exports = postVehicle;
 
 const vehicleService = require('../../services/vehicleService');
 const locationService = require('../../services/locationService');
-const logger = require('../../services/logger');
-const errorTypes = require('../../models/errorTypes');
 
-function postVehicle(request, response) {
+function postVehicle(request, response, next) {
   const data = request.body;
   const locationId = request.params.locationId;
 
@@ -20,14 +18,5 @@ function postVehicle(request, response) {
       response.location(`${request.getUrl()}${vehicle.id}`);
       response.status(201).send();
     })
-    .catch((error) => {
-      logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
-
-      response.setHeader('x-status-reason', error.errorMessage);
-      if(errorTypes.notFound === error.errorType) {
-        response.status(404).send();
-      } else {
-        response.status(500).send();
-      }
-    });
+    .catch(next);
 }
