@@ -4,7 +4,7 @@ const logger = require('./logger');
 
 function logDetail(username, level, message) {
   const logData = { username, level, message };
-  const log = new Promise(function(resolve, reject) {
+  const log = new Promise((resolve, reject) => {
     if(!logData.message){
       const err = new Error('Log message was empty');
       reject(err);

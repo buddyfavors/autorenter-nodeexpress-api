@@ -53,9 +53,9 @@ function build() {
 
   function getVehicles(locationId) {
     return new Promise(
-      function (resolve, reject) { // eslint-disable-line no-unused-vars
+      (resolve, reject) => { // eslint-disable-line no-unused-vars
         let vehiclesByLocation = [];
-        vehicles.forEach(function findVehicles(vehicleElement) {
+        vehicles.forEach((vehicleElement) => {
           if (vehicleElement.locationId === locationId) {
             vehiclesByLocation.push(vehicleElement);
           }
@@ -67,7 +67,7 @@ function build() {
 
   function addVehicle(locationId, vehicle) {
     return new Promise(
-      function (resolve, reject) { // eslint-disable-line no-unused-vars
+      (resolve, reject) => { // eslint-disable-line no-unused-vars
         vehicle.id = vehicle.id || uuid.v4();
         vehicle.locationId = locationId;
         vehicles.push(vehicle);
@@ -78,8 +78,8 @@ function build() {
 
   function getVehicle(vehicleId) {
     return new Promise(
-      function (resolve, reject) {
-        vehicles.forEach(function findVehicle(vehicleElement) {
+      (resolve, reject) => {
+        vehicles.forEach((vehicleElement) => {
           if (vehicleElement.id === vehicleId) {
             resolve(vehicleElement);
           }
@@ -92,14 +92,14 @@ function build() {
 
   function updateVehicle(vehicle) {
     return new Promise(
-      function (resolve, reject) {
+      (resolve, reject) => {
         getVehicle(vehicle.id)
-          .then(function updateInArray(result) {
+          .then((result) => {
             const indexToUpdate = vehicles.indexOf(result);
             vehicles[indexToUpdate] = vehicle;
             resolve();
           })
-          .catch(function (error) {
+          .catch((error) => {
             reject(error);
           });
       }
@@ -108,14 +108,14 @@ function build() {
 
   function deleteVehicle(vehicleId) {
     return new Promise(
-      function (resolve, reject) {
+      (resolve, reject) => {
         getVehicle(vehicleId)
-          .then(function removeFromArray(result) {
+          .then((result) => {
             const indexToRemove = vehicles.indexOf(result);
             vehicles.splice(indexToRemove, 1);
             resolve();
           })
-          .catch(function (error) {
+          .catch((error) => {
             reject(error);
           });
       }

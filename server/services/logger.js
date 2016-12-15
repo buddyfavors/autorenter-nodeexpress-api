@@ -19,7 +19,7 @@ const logger = new (winston.Logger)({
 });
 
 logger.stream = {
-  write: function(message){
+  write: (message) => {
     // This is used by morgan to log incoming requests
     logger.info(message);
   }

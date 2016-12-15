@@ -23,14 +23,14 @@ function build() {
 
   function getLocations() {
     return new Promise(
-      function (resolve, reject) { // eslint-disable-line no-unused-vars
+      (resolve, reject) => { // eslint-disable-line no-unused-vars
         resolve(locations);
       });
   }
 
   function addLocation(location) {
     return new Promise(
-      function (resolve, reject) { // eslint-disable-line no-unused-vars
+      (resolve, reject) => { // eslint-disable-line no-unused-vars
         location.id = location.id || uuid.v4();
         locations.push(location);
         resolve(location);
@@ -40,8 +40,8 @@ function build() {
 
   function getLocation(locationId) {
     return new Promise(
-      function (resolve, reject) {
-        locations.forEach(function findLocation(locationElement) {
+      (resolve, reject) => {
+        locations.forEach((locationElement) => {
           if (locationElement.id === locationId) {
             resolve(locationElement);
           }
@@ -54,14 +54,14 @@ function build() {
 
   function updateLocation(location) {
     return new Promise(
-      function (resolve, reject) {
+      (resolve, reject) => {
         getLocation(location.id)
-          .then(function updateInArray(result) {
+          .then((result) => {
             const indexToUpdate = locations.indexOf(result);
             locations[indexToUpdate] = location;
             resolve();
           })
-          .catch(function (error) {
+          .catch((error) => {
             reject(error);
           });
       }
@@ -70,14 +70,14 @@ function build() {
 
   function deleteLocation(locationId) {
     return new Promise(
-      function (resolve, reject) {
+      (resolve, reject) => {
         getLocation(locationId)
-          .then(function removeFromArray(result) {
+          .then((result) => {
             const indexToRemove = locations.indexOf(result);
             locations.splice(indexToRemove, 1);
             resolve();
           })
-          .catch(function (error) {
+          .catch((error) => {
             reject(error);
           });
       }
