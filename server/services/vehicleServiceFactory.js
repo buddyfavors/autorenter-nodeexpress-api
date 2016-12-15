@@ -85,7 +85,7 @@ function build() {
           }
         });
 
-        reject({ errorMessage: `No vehicle was found with the unique identifier '${vehicleId}'.`, errorType: errorTypes.noVehicleFound });
+        reject({ id: vehicleId, errorMessage: `No vehicle was found with the unique identifier '${vehicleId}'.`, errorType: errorTypes.noVehicleFound });
       }
     );
   }
