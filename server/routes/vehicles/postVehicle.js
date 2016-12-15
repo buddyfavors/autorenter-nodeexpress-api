@@ -3,23 +3,24 @@
 module.exports = postVehicle;
 
 const vehicleService = require('../../services/vehicleService');
+const locationService = require('../../services/locationService');
 const logger = require('../../services/logger');
+const errorTypes = require('../../models/errorTypes');
 
 function postVehicle(request, response) {
   const data = request.body;
   const locationId = request.params.locationId;
 
   locationService.getLocation(locationId)
-    .then(function(location) {
+    .then((location) => {
       return Promise.all([location, vehicleService.addVehicle(location.id, data)]);
     })
-    .then(function(results) {
-      let vehicle = results[1];
+    .then(([location, vehicle]) => {
       response.setHeader('Content-Type', 'application/json');
       response.location(`${request.getUrl()}${vehicle.id}`);
       response.status(201).send();
     })
-    .catch(function(error) {
+    .catch((error) => {
       logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
 
       response.setHeader('x-status-reason', error.errorMessage);
