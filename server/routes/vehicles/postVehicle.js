@@ -1,18 +1,22 @@
 'use strict';
 
-module.exports = createVehicle;
+module.exports = postVehicle;
 
-const Vehicle = require('../../models').Vehicle;
+const vehicleService = require('../../services/vehicleService');
+const locationService = require('../../services/locationService');
 
-function createVehicle(request, response) {
+function postVehicle(request, response, next) {
   const data = request.body;
-  data.locationId = request.params.locationId;
-  const id = Vehicle.generateId(data);
+  const locationId = request.params.locationId;
 
-  data.id = id;
-  Vehicle.saveDocument(id, data);
-
-  response.setHeader('Content-Type', 'application/json');
-  response.location(`${request.getUrl()}/${id}`);
-  response.status(201).send();
+  locationService.getLocation(locationId)
+    .then((location) => {
+      return Promise.all([location, vehicleService.addVehicle(location.id, data)]);
+    })
+    .then(([location, vehicle]) => { // eslint-disable-line no-unused-vars
+      response.setHeader('Content-Type', 'application/json');
+      response.location(`${request.getUrl()}${vehicle.id}`);
+      response.status(201).send();
+    })
+    .catch(next);
 }

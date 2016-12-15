@@ -1,17 +1,16 @@
 'use strict';
 
-module.exports = removeVehicle;
+module.exports = deleteVehicle;
 
-const Vehicle = require('../../models').Vehicle;
+const vehicleService = require('../../services/vehicleService');
 
-function removeVehicle(request, response) {
+function deleteVehicle(request, response, next) {
   const id = request.params.id;
 
-  const data = Vehicle.removeDocument(id);
-  if (!data) {
-    response.status(404);
-  }
-
-  response.setHeader('Content-Type', 'application/json');
-  response.status(204).send();
+  vehicleService.deleteVehicle(id)
+    .then(() => {
+      response.setHeader('Content-Type', 'application/json');
+      response.status(204).send();
+    })
+    .catch(next);
 }

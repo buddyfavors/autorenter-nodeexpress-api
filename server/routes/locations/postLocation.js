@@ -1,17 +1,17 @@
 'use strict';
 
-module.exports = createLocation;
+module.exports = postLocation;
 
-const Location = require('../../models').Location;
+const locationService = require('../../services/locationService');
 
-function createLocation(request, response) {
+function postLocation(request, response, next) {
   let data = request.body;
-  const id = Location.generateId(data);
 
-  data.id = id;
-  Location.saveDocument(id, data);
-
-  response.setHeader('Content-Type', 'application/json');
-  response.location(`${request.getUrl()}/${id}`);
-  response.status(201).send();
+  locationService.addLocation(data)
+    .then((location) => {
+      response.setHeader('Content-Type', 'application/json');
+      response.location(`${request.getUrl()}${location.id}`);
+      response.status(201).send();
+    })
+    .catch(next);
 }

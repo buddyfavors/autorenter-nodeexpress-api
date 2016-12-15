@@ -1,20 +1,23 @@
 'use strict';
 
-module.exports = saveLocation;
+module.exports = putLocation;
 
-const Location = require('../../models').Location;
+const locationService = require('../../services/locationService');
 
-function saveLocation(request, response) {
+function putLocation(request, response, next) {
   const data = request.body;
   const id = request.params.id;
 
   if (data.id === id) {
-    Location.saveDocument(id, data);
+    locationService.updateLocation(data)
+      .then(() => {
+        response.setHeader('Content-Type', 'application/json');
+        response.location(`${request.getUrl()}${id}`);
+        response.status(200).send();
+      })
+      .catch(next);
   } else {
-    response.status(400);
+    response.setHeader('x-status-reason', 'Request id does not match the resource id.');
+    response.status(400).send();
   }
-
-  response.setHeader('Content-Type', 'application/json');
-  response.location(`${request.getUrl()}/${id}`);
-  response.status(200).send();
 }

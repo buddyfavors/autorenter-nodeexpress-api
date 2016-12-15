@@ -2,11 +2,20 @@
 
 module.exports = getAllVehicles;
 
-const Vehicle = require('../../models').Vehicle;
+const vehicleService = require('../../services/vehicleService');
+const locationService = require('../../services/locationService');
 
-function getAllVehicles(request, response) {
-  const data = Vehicle.getAllDocuments();
+function getAllVehicles(request, response, next) {
+  const locationId = request.params.locationId;
 
-  response.setHeader('Content-Type', 'application/json');
-  response.status(200).send({ 'data': data });
+  locationService.getLocation(locationId)
+    .then((location) => {
+      return Promise.all([location, vehicleService.getVehicles(location.id)]);
+    })
+    .then(([location, vehicles]) => { // eslint-disable-line no-unused-vars
+      response.setHeader('Content-Type', 'application/json');
+      response.setHeader('x-total-count', vehicles.length);
+      response.status(200).send({'vehicles': vehicles});
+    })
+    .catch(next);
 }

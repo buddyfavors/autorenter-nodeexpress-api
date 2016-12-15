@@ -2,16 +2,15 @@
 
 module.exports = getVehicle;
 
-const Vehicle = require('../../models').Vehicle;
+const vehicleService = require('../../services/vehicleService');
 
-function getVehicle(request, response) {
+function getVehicle(request, response, next) {
   const id = request.params.id;
 
-  const data = Vehicle.getDocument(id);
-  if (!data) {
-    response.status(404);
-  }
-
-  response.setHeader('Content-Type', 'application/json');
-  response.status(200).send({ 'data': data });
+  vehicleService.getVehicle(id)
+    .then((vehicle) => {
+      response.setHeader('Content-Type', 'application/json');
+      response.status(200).send({'vehicle': vehicle});
+    })
+    .catch(next);
 }
