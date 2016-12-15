@@ -23,7 +23,7 @@ function getAllVehicles(request, response) {
       logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
 
       response.setHeader('x-status-reason', error.errorMessage);
-      if(errorTypes.noLocationFound === error.errorType) {
+      if(errorTypes.notFound === error.errorType) {
         response.status(404).send();
       } else {
         response.status(500).send();
