@@ -2,11 +2,11 @@
 
 module.exports = getAllLocations;
 
-const Location = require('../../models').Location;
+const locationService = require('../../services/locationService');
 
 function getAllLocations(request, response) {
-  const data = Location.getAllDocuments();
-
-  response.setHeader('Content-Type', 'application/json');
-  response.status(200).send({ 'data': data });
+  locationService.getLocations().then(function(locations) {
+    response.setHeader('Content-Type', 'application/json');
+    response.status(200).send({'locations': locations});
+  });
 }

@@ -1,17 +1,27 @@
 'use strict';
 
-module.exports = removeLocation;
+module.exports = deleteLocation;
 
-const Location = require('../../models').Location;
+const locationService = require('../../services/locationService');
+const logger = require('../../services/logger');
+const errorTypes = require('../../models/errorTypes');
 
-function removeLocation(request, response) {
+function deleteLocation(request, response) {
   const id = request.params.id;
 
-  const data = Location.removeDocument(id);
-  if (!data) {
-    response.status(404);
-  }
+  locationService.deleteLocation(id)
+    .then(function() {
+      response.setHeader('Content-Type', 'application/json');
+      response.status(204).send();
+    })
+    .catch(function(error) {
+      logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
 
-  response.setHeader('Content-Type', 'application/json');
-  response.status(204).send();
+      response.setHeader('x-status-reason', error.errorMessage);
+      if(errorTypes.noLocationFound === error.errorType) {
+        response.status(404).send();
+      } else {
+        response.status(500).send();
+      }
+    });
 }

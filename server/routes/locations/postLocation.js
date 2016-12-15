@@ -1,17 +1,24 @@
 'use strict';
 
-module.exports = createLocation;
+module.exports = postLocation;
 
-const Location = require('../../models').Location;
+const locationService = require('../../services/locationService');
+const logger = require('../../services/logger');
+const errorTypes = require('../../models/errorTypes');
 
-function createLocation(request, response) {
+function postLocation(request, response) {
   let data = request.body;
-  const id = Location.generateId(data);
 
-  data.id = id;
-  Location.saveDocument(id, data);
+  locationService.addLocation(data)
+    .then(function(location) {
+      response.setHeader('Content-Type', 'application/json');
+      response.location(`${request.getUrl()}/${location.id}`);
+      response.status(201).send();
+    })
+    .catch(function(error) {
+      logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
 
-  response.setHeader('Content-Type', 'application/json');
-  response.location(`${request.getUrl()}/${id}`);
-  response.status(201).send();
+      response.setHeader('x-status-reason', error.errorMessage);
+      response.status(500).send();
+    });
 }
