@@ -9,10 +9,12 @@ function postVehicle(request, response) {
   const data = request.body;
   const locationId = request.params.locationId;
 
-  // TODO: validate location id links to valid location (Separate PR)
-
-  vehicleService.addVehicle(locationId, data)
-    .then(function(vehicle) {
+  locationService.getLocation(locationId)
+    .then(function(location) {
+      return Promise.all([location, vehicleService.addVehicle(location.id, data)]);
+    })
+    .then(function(results) {
+      let vehicle = results[1];
       response.setHeader('Content-Type', 'application/json');
       response.location(`${request.getUrl()}${vehicle.id}`);
       response.status(201).send();
@@ -21,6 +23,10 @@ function postVehicle(request, response) {
       logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
 
       response.setHeader('x-status-reason', error.errorMessage);
-      response.status(500).send();
+      if(errorTypes.noLocationFound === error.errorType) {
+        response.status(404).send();
+      } else {
+        response.status(500).send();
+      }
     });
 }
