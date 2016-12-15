@@ -11,16 +11,15 @@ function getAllVehicles(request, response) {
   const locationId = request.params.locationId;
 
   locationService.getLocation(locationId)
-    .then(function(location) {
+    .then((location) => {
       return Promise.all([location, vehicleService.getVehicles(location.id)]);
     })
-    .then(function(results) {
-      let vehicles = results[1];
+    .then(([location, vehicles]) => {
       response.setHeader('Content-Type', 'application/json');
       response.setHeader('x-total-count', vehicles.length);
       response.status(200).send({'vehicles': vehicles});
     })
-    .catch(function(error) {
+    .catch((error) => {
       logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
 
       response.setHeader('x-status-reason', error.errorMessage);
