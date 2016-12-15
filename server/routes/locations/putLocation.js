@@ -4,7 +4,6 @@ module.exports = putLocation;
 
 const locationService = require('../../services/locationService');
 const logger = require('../../services/logger');
-const errorTypes = require('../../models/errorTypes');
 
 function putLocation(request, response) {
   const data = request.body;
@@ -14,7 +13,7 @@ function putLocation(request, response) {
     locationService.updateLocation(data)
       .then(function() {
         response.setHeader('Content-Type', 'application/json');
-        response.location(`${request.getUrl()}/${id}`);
+        response.location(`${request.getUrl()}${id}`);
         response.status(200).send();
       })
       .catch(function(error) {

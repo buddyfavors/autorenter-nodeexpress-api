@@ -9,7 +9,6 @@ function build() {
       id: 'c0b694ec-3352-43e3-9f22-77c87fe83d48',
       siteId: 'ind',
       name: 'Indianapolis International Airport',
-      vehicleCount: 255,
       city: 'Indianapolis',
       stateCode: 'IN'
     },
@@ -17,7 +16,6 @@ function build() {
       id: 'dc95a8f9-713f-4aed-bf5e-4e5567c4dd9f',
       siteId: 'ord',
       name: 'Chicago O\'Hare Airport',
-      vehicleCount: 515,
       city: 'Chicago',
       stateCode: 'IL'
     }
@@ -25,14 +23,14 @@ function build() {
 
   function getLocations() {
     return new Promise(
-      function (resolve, reject) {
-        resolve(locations)
+      function (resolve, reject) { // eslint-disable-line no-unused-vars
+        resolve(locations);
       });
   }
 
   function addLocation(location) {
     return new Promise(
-      function (resolve, reject) {
+      function (resolve, reject) { // eslint-disable-line no-unused-vars
         location.id = location.id || uuid.v4();
         locations.push(location);
         resolve(location);
@@ -61,8 +59,11 @@ function build() {
           .then(function updateInArray(result) {
             const indexToUpdate = locations.indexOf(result);
             locations[indexToUpdate] = location;
+            resolve();
+          })
+          .catch(function (error) {
+            reject(error);
           });
-        resolve();
       }
     );
   }

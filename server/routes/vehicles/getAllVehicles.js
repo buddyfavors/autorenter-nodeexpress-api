@@ -2,11 +2,19 @@
 
 module.exports = getAllVehicles;
 
-const Vehicle = require('../../models').Vehicle;
+const vehicleService = require('../../services/vehicleService');
+const logger = require('../../services/logger');
 
 function getAllVehicles(request, response) {
-  const data = Vehicle.getAllDocuments();
+  const locationId = request.params.locationId;
 
-  response.setHeader('Content-Type', 'application/json');
-  response.status(200).send({ 'data': data });
+  // TODO: validate location id links to valid location (Separate PR)
+
+  vehicleService.getVehicles(locationId)
+    .then(function(vehicles) {
+      logger.info(vehicles);
+      response.setHeader('Content-Type', 'application/json');
+      response.setHeader('x-total-count', vehicles.length);
+      response.status(200).send({'vehicles': vehicles});
+    });
 }

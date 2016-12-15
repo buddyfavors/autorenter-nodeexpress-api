@@ -1,18 +1,26 @@
 'use strict';
 
-module.exports = createVehicle;
+module.exports = postVehicle;
 
-const Vehicle = require('../../models').Vehicle;
+const vehicleService = require('../../services/vehicleService');
+const logger = require('../../services/logger');
 
-function createVehicle(request, response) {
+function postVehicle(request, response) {
   const data = request.body;
-  data.locationId = request.params.locationId;
-  const id = Vehicle.generateId(data);
+  const locationId = request.params.locationId;
 
-  data.id = id;
-  Vehicle.saveDocument(id, data);
+  // TODO: validate location id links to valid location (Separate PR)
 
-  response.setHeader('Content-Type', 'application/json');
-  response.location(`${request.getUrl()}/${id}`);
-  response.status(201).send();
+  vehicleService.addVehicle(locationId, data)
+    .then(function(vehicle) {
+      response.setHeader('Content-Type', 'application/json');
+      response.location(`${request.getUrl()}${vehicle.id}`);
+      response.status(201).send();
+    })
+    .catch(function(error) {
+      logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
+
+      response.setHeader('x-status-reason', error.errorMessage);
+      response.status(500).send();
+    });
 }

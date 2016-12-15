@@ -3,6 +3,7 @@
 module.exports = getLocation;
 
 const locationService = require('../../services/locationService');
+const vehicleService = require('../../services/vehicleService');
 const logger = require('../../services/logger');
 const errorTypes = require('../../models/errorTypes');
 
@@ -11,8 +12,18 @@ function getLocation(request, response) {
 
   locationService.getLocation(id)
     .then(function(location) {
-      response.setHeader('Content-Type', 'application/json');
-      response.status(200).send({'location': location});
+      let getVehicleCount = function() {
+        return vehicleService.getVehicles(location.id)
+          .then(function(vehicles) {
+            location.vehicleCount = vehicles.length;
+          });
+      };
+
+      Promise.all([getVehicleCount])
+        .then(function() {
+          response.setHeader('Content-Type', 'application/json');
+          response.status(200).send({'location': location});
+        });
     })
     .catch(function(error) {
       logger.info(`(${Symbol.keyFor(error.errorType)}) - ${error.errorMessage}`);
