@@ -1,8 +1,8 @@
 'use strict';
 
 function configureRequestUrl(app) {
-  app.use(function(request, response, next) {
-    request.getUrl = function() {
+  app.use((request, response, next) => {
+    request.getUrl = () => {
       return `${request.protocol}://${request.get('host')}${request.originalUrl}`;
     };
 
@@ -11,6 +11,3 @@ function configureRequestUrl(app) {
 }
 
 module.exports = configureRequestUrl;
-
-
-

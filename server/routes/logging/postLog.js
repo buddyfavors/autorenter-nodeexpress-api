@@ -9,7 +9,9 @@ function postLog(request, response, next) {
 
   logDetail.execute(dummyAuthTokenToRemoveWhenAuthIsImplemented.username,
     request.body.level, request.body.message)
-    .then(() => response.status(201).json())
+    .then(() => {
+      response.status(201).json();
+    })
     .catch(next);
 }
 

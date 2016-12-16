@@ -9,9 +9,8 @@ function postLocation(request, response, next) {
 
   locationService.addLocation(data)
     .then((location) => {
-      response.setHeader('Content-Type', 'application/json');
       response.location(`${request.getUrl()}${location.id}`);
-      response.status(201).send();
+      response.status(201).json();
     })
     .catch(next);
 }

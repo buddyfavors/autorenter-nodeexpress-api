@@ -9,8 +9,7 @@ function getVehicle(request, response, next) {
 
   vehicleService.getVehicle(id)
     .then((vehicle) => {
-      response.setHeader('Content-Type', 'application/json');
-      response.status(200).send({'vehicle': vehicle});
+      response.status(200).json({'vehicle': vehicle});
     })
     .catch(next);
 }

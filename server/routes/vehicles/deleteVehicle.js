@@ -9,8 +9,7 @@ function deleteVehicle(request, response, next) {
 
   vehicleService.deleteVehicle(id)
     .then(() => {
-      response.setHeader('Content-Type', 'application/json');
-      response.status(204).send();
+      response.status(204).json();
     })
     .catch(next);
 }
