@@ -1,6 +1,6 @@
 'use strict';
 
-const uuid = require('node-uuid');
+const uuid = require('uuid/v4');
 const errorTypes = require('../models/errorTypes');
 
 function build() {
@@ -68,7 +68,7 @@ function build() {
   function addVehicle(locationId, vehicle) {
     return new Promise(
       (resolve, reject) => { // eslint-disable-line no-unused-vars
-        vehicle.id = vehicle.id || uuid.v4();
+        vehicle.id = vehicle.id || uuid();
         vehicle.locationId = locationId;
         vehicles.push(vehicle);
         resolve(vehicle);
