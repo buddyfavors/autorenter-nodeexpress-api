@@ -27,6 +27,7 @@ describe('errorHandlingConfigurer', () => {
     const dummyUsernameToRemoveWhenAuthIsImplemented = 'jdoe';
     let error;
     let request;
+    let status;
     let response;
     let next;
     let actualArgPassedToNext; // Necessary b/c can't spy on bare function.
@@ -34,9 +35,9 @@ describe('errorHandlingConfigurer', () => {
     beforeEach(() => {
       error = { message: 'oops' };
       request = {};
+      status = { json: (arg) => arg };
       response = {
-        status: (statusCode) => statusCode,
-        json: (arg) => arg
+        status: () => status
       };
       next = function nextImpl(arg) {
         actualArgPassedToNext = arg;
@@ -64,7 +65,7 @@ describe('errorHandlingConfigurer', () => {
       });
 
       it('sets json response', () => {
-        const jsonSpy = sinon.spy(response, 'json');
+        const jsonSpy = sinon.spy(status, 'json');
         const expectedArg = {
           message: 'The system failed to write to the error log.',
         };
