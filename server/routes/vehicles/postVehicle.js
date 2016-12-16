@@ -14,9 +14,8 @@ function postVehicle(request, response, next) {
       return Promise.all([location, vehicleService.addVehicle(location.id, data)]);
     })
     .then(([location, vehicle]) => { // eslint-disable-line no-unused-vars
-      response.setHeader('Content-Type', 'application/json');
       response.location(`${request.getUrl()}${vehicle.id}`);
-      response.status(201).send();
+      response.status(201).json();
     })
     .catch(next);
 }

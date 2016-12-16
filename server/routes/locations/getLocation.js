@@ -19,8 +19,7 @@ function getLocation(request, response, next) {
 
       Promise.all([getVehicleCount])
         .then(() => {
-          response.setHeader('Content-Type', 'application/json');
-          response.status(200).send({'location': location});
+          response.status(200).json({'location': location});
         });
     })
     .catch(next);

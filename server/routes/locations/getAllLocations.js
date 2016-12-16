@@ -17,9 +17,8 @@ function getAllLocations(request, response, next) {
 
       Promise.all(getVehicleCount)
         .then(() => {
-          response.setHeader('Content-Type', 'application/json');
           response.setHeader('x-total-count', locations.length);
-          response.status(200).send({'locations': locations});
+          response.status(200).json({'locations': locations});
         })
     .catch(next);
     });

@@ -8,8 +8,7 @@ function logErrors(error, request, response, next) {
     next(error);
   } else {
     if (error.customType === 'fa.logError') {
-      response.status(500);
-      response.json({ message: 'The system failed to write to the error log.' });
+      response.status(500).json({ message: 'The system failed to write to the error log.' });
     } else {
       logDetail.execute(dummyUsernameToRemoveWhenAuthIsImplemented, 'error', error.message)
         .catch(() => { /* It's already been handled in the logDetail method. */ });

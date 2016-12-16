@@ -11,13 +11,12 @@ function putLocation(request, response, next) {
   if (data.id === id) {
     locationService.updateLocation(data)
       .then(() => {
-        response.setHeader('Content-Type', 'application/json');
         response.location(`${request.getUrl()}${id}`);
-        response.status(200).send();
+        response.status(200).json();
       })
       .catch(next);
   } else {
     response.setHeader('x-status-reason', 'Request id does not match the resource id.');
-    response.status(400).send();
+    response.status(400).json();
   }
 }
