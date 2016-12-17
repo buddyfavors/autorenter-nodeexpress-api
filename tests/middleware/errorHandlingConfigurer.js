@@ -4,7 +4,8 @@ const chai = require('chai');
 const express = require('express');
 const sinon = require('sinon');
 
-const errorHandlingConfigurer = require('../../server/middleware/errorHandlingConfigurer');
+const errorHandlingConfigurer =
+  require('../../server/middleware/errorHandlingConfigurer');
 const logDetail = require('../../server/services/logDetail');
 
 const app = express();
@@ -33,9 +34,13 @@ describe('errorHandlingConfigurer', () => {
     let actualArgPassedToNext; // Necessary b/c can't spy on bare function.
 
     beforeEach(() => {
-      error = { message: 'oops' };
+      error = {
+        message: 'oops'
+      };
       request = {};
-      status = { json: (arg) => arg };
+      status = {
+        json: (arg) => arg
+      };
       response = {
         status: () => status
       };

@@ -11,7 +11,9 @@ function postVehicle(request, response, next) {
 
   locationService.getLocation(locationId)
     .then((location) => {
-      return Promise.all([location, vehicleService.addVehicle(location.id, data)]);
+      return Promise.all(
+        [location, vehicleService.addVehicle(location.id, data)]
+      );
     })
     .then(([location, vehicle]) => { // eslint-disable-line no-unused-vars
       response.location(`${request.getUrl()}${vehicle.id}`);

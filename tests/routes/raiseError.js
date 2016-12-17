@@ -15,14 +15,18 @@ describe('routes/raise-error', () => {
   });
 
   it('should return correct response', () => {
-    const expectedMessage = 'Error: An API-originated error for testing purposes.';
+    const expectedMessage =
+      'Error: An API-originated error for testing purposes.';
     return chai
       .request(app)
       .get('/api/raise-error')
       .set('Accept', 'application/json')
-      .then((res) => { throw res; })
+      .then((res) => {
+        throw res;
+      })
       .catch((err) => {
-        const actualMessage = err.response.error.text.substring(0, expectedMessage.length);
+        const actualMessage =
+          err.response.error.text.substring(0, expectedMessage.length);
         err.response.should.have.status(500);
         actualMessage.should.equal(expectedMessage);
       });
