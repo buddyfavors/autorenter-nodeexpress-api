@@ -16,7 +16,8 @@ function putVehicle(request, response, next) {
       })
       .catch(next);
   } else {
-    response.setHeader('x-status-reason', 'Request id does not match the resource id.');
+    const responseReason = 'Request id does not match the resource id.';
+    response.setHeader('x-status-reason', responseReason);
     response.status(400).json();
   }
 }

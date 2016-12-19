@@ -47,7 +47,13 @@ function build() {
           }
         });
 
-        reject({ id: locationId, errorMessage: `No location was found with the unique identifier '${locationId}'.`, errorType: errorTypes.noLocationFound });
+        const errorMessage =
+          `No location was found with the unique identifier '${locationId}'.`;
+        reject({
+          id: locationId,
+          errorMessage: errorMessage,
+          errorType: errorTypes.noLocationFound
+        });
       }
     );
   }
