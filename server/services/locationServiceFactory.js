@@ -52,7 +52,7 @@ function build() {
         reject({
           id: locationId,
           errorMessage: errorMessage,
-          errorType: errorTypes.noLocationFound
+          errorType: errorTypes.notFound
         });
       }
     );

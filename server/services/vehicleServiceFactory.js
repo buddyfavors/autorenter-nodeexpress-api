@@ -90,7 +90,7 @@ function build() {
         reject({
           id: vehicleId,
           errorMessage: errorMessage,
-          errorType: errorTypes.noVehicleFound
+          errorType: errorTypes.notFound
         });
       }
     );
