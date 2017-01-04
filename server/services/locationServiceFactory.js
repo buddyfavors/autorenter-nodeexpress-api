@@ -51,7 +51,7 @@ function build() {
           `No location was found with the unique identifier '${locationId}'.`;
         reject({
           id: locationId,
-          errorMessage: errorMessage,
+          message: errorMessage,
           errorType: errorTypes.notFound
         });
       }

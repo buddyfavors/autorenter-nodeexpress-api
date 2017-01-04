@@ -10,7 +10,7 @@ function logErrors(error, request, response, next) {
     if (error.errorType && error.errorType.toString() === 'Symbol(bad request)') {
       response
         .status(400)
-        .json({message: error.errorMessage});
+        .json({message: error.message});
     } else if (error.customType === 'fa.logError') {
       response
         .status(500)

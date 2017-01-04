@@ -59,7 +59,7 @@ function build() {
         if (lookupTypes.length === 0) {
           const errorMessage = 'Use query string vars to specify which types to fetch.';
           reject({
-            errorMessage: errorMessage,
+            message: errorMessage,
             errorType: errorTypes.badRequest
           });
         } else {
@@ -77,7 +77,7 @@ function build() {
           } else {
             const errorMessage = `The following lookup types do not exist: '${invalidTypes.toString()}'.`;
             reject({
-              errorMessage: errorMessage,
+              message: errorMessage,
               errorType: errorTypes.badRequest
             });
           }

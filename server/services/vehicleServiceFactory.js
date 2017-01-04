@@ -89,7 +89,7 @@ function build() {
           `No vehicle was found with the unique identifier '${vehicleId}'.`;
         reject({
           id: vehicleId,
-          errorMessage: errorMessage,
+          message: errorMessage,
           errorType: errorTypes.notFound
         });
       }
