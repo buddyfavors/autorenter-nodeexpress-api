@@ -12,7 +12,7 @@ function logErrors(error, request, response, next) {
       response
         .status(400)
         .json({message: error.message});
-    } else if (error.customType === 'fa.logError') {
+    } else if (error.errorType === errorTypes.loggingError) {
       response
         .status(500)
         .json({message: 'The system failed to write to the error log.'});

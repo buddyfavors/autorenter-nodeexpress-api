@@ -57,7 +57,7 @@ describe('errorHandlingConfigurer', () => {
 
     describe('if log-related', () => {
       beforeEach(() => {
-        error.customType = 'fa.logError';
+        error.errorType = errorTypes.loggingError;
       });
 
       it('sets response status code', () => {
