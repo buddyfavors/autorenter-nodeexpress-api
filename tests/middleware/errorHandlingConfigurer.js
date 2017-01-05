@@ -4,8 +4,8 @@ const chai = require('chai');
 const express = require('express');
 const sinon = require('sinon');
 
-const errorHandlingConfigurer =
-  require('../../server/middleware/errorHandlingConfigurer');
+const errorHandlingConfigurer = require('../../server/middleware/errorHandlingConfigurer');
+const errorTypes = require('../../server/models/errorTypes');
 const logDetail = require('../../server/services/logDetail');
 
 const app = express();
@@ -57,7 +57,7 @@ describe('errorHandlingConfigurer', () => {
 
     describe('if log-related', () => {
       beforeEach(() => {
-        error.customType = 'fa.logError';
+        error.errorType = errorTypes.loggingError;
       });
 
       it('sets response status code', () => {
@@ -82,7 +82,61 @@ describe('errorHandlingConfigurer', () => {
       });
     });
 
-    describe('if NOT log-related', () => {
+    describe('if bad request', () => {
+      beforeEach(() => {
+        error.errorType = errorTypes.badRequest;
+      });
+
+      it('sets response status code', () => {
+        const statusSpy = sinon.spy(response, 'status');
+        errorHandlingConfigurer.logErrors(error, request, response, next);
+
+        /* eslint-disable no-unused-expressions */
+        statusSpy.calledWith(400).should.be.true;
+        /* eslint-enable no-unused-expressions */
+      });
+
+      it('sets json response', () => {
+        const jsonSpy = sinon.spy(status, 'json');
+        const expectedArg = {
+          message: error.message,
+        };
+        errorHandlingConfigurer.logErrors(error, request, response, next);
+
+        /* eslint-disable no-unused-expressions */
+        jsonSpy.calledWith(expectedArg).should.be.true;
+        /* eslint-enable no-unused-expressions */
+      });
+    });
+
+    describe('if not found', () => {
+      beforeEach(() => {
+        error.errorType = errorTypes.notFound;
+      });
+
+      it('sets response status code', () => {
+        const statusSpy = sinon.spy(response, 'status');
+        errorHandlingConfigurer.logErrors(error, request, response, next);
+
+        /* eslint-disable no-unused-expressions */
+        statusSpy.calledWith(404).should.be.true;
+        /* eslint-enable no-unused-expressions */
+      });
+
+      it('sets json response', () => {
+        const jsonSpy = sinon.spy(status, 'json');
+        const expectedArg = {
+          message: error.message,
+        };
+        errorHandlingConfigurer.logErrors(error, request, response, next);
+
+        /* eslint-disable no-unused-expressions */
+        jsonSpy.calledWith(expectedArg).should.be.true;
+        /* eslint-enable no-unused-expressions */
+      });
+    });
+
+    describe('if NOT custom-handled', () => {
       let logDetailStub;
 
       beforeEach(() => {

@@ -1,5 +1,6 @@
 'use strict';
 
+const errorTypes = require('../models/errorTypes');
 const logger = require('./logger');
 
 function logDetail(username, level, message) {
@@ -28,7 +29,7 @@ function logDetail(username, level, message) {
     console.error(writeErrorMessage);
     console.error(dataErrorMessage);
     /* eslint-enable no-console */
-    err.customType = 'fa.logError'; // eslint-disable-line no-param-reassign
+    err.errorType = errorTypes.loggingError; // eslint-disable-line no-param-reassign
     throw err;
   });
 }

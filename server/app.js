@@ -7,6 +7,7 @@ const app = module.exports = express();
 const configureLogger = require('./middleware/configureLogger');
 const configureBodyParser = require('./middleware/configureBodyParser');
 const configureCors = require('./middleware/configureCors');
+const errorHandlingConfigurer = require('./middleware/errorHandlingConfigurer');
 const configureRequestUrl = require('./middleware/configureRequestUrl');
 const routes = require('./routes');
 
@@ -16,3 +17,7 @@ configureCors(app);
 configureRequestUrl(app);
 
 app.use(apiPrefix, routes);
+
+// Note: this must go LAST, after the other handlers/routes have been configured.
+// Please see https://expressjs.com/en/guide/error-handling.html for details.
+errorHandlingConfigurer.configureErrorHandling(app);
