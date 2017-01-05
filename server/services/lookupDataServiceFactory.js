@@ -3,8 +3,8 @@
 const errorTypes = require('../models/errorTypes');
 
 function build() {
-  let self = this; // eslint-disable-line no-invalid-this
-  self.states = [
+  let lookupData = {};
+  lookupData.states = [
     {
       stateCode: 'AL',
       name: 'Alabama'
@@ -30,7 +30,7 @@ function build() {
       name: 'West Virginia'
     }
   ];
-  self.colors = [
+  lookupData.colors = [
     {
       id: '1',
       value: 'Black'
@@ -66,8 +66,8 @@ function build() {
           let invalidTypes = [];
           let response = {};
           lookupTypes.forEach((lookupType) => {
-            if (self[lookupType]) {
-              response[lookupType] = self[lookupType];
+            if (lookupData[lookupType]) {
+              response[lookupType] = lookupData[lookupType];
             } else {
               invalidTypes.push(lookupType);
             }
@@ -85,9 +85,7 @@ function build() {
       });
   }
 
-  return {
-    getData: getData
-  };
+  return {getData};
 }
 
 module.exports = {build};

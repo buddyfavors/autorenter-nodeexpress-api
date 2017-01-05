@@ -1,5 +1,6 @@
 'use strict';
 
+const errorTypes = require('../models/errorTypes');
 const logDetail = require('../services/logDetail');
 const placeHolderUser = 'jdoe';
 
@@ -7,7 +8,7 @@ function logErrors(error, request, response, next) {
   if (response.headersSent) {
     next(error);
   } else {
-    if (error.errorType && error.errorType.toString() === 'Symbol(bad request)') {
+    if (error.errorType && error.errorType === errorTypes.badRequest) {
       response
         .status(400)
         .json({message: error.message});

@@ -15,7 +15,7 @@
     "comma-dangle": ["error", "only-multiline"],
     "indent": ["error", 2],
     "linebreak-style": [ "error", "unix" ],
-    "max-len": [2, 110, 2],
+    "max-len": ["error", 110, 2],
     "require-jsdoc": "off",
     "no-use-before-define": ["error",
       {
