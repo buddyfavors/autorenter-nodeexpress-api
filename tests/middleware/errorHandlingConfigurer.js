@@ -109,6 +109,33 @@ describe('errorHandlingConfigurer', () => {
       });
     });
 
+    describe('if not found', () => {
+      beforeEach(() => {
+        error.errorType = errorTypes.notFound;
+      });
+
+      it('sets response status code', () => {
+        const statusSpy = sinon.spy(response, 'status');
+        errorHandlingConfigurer.logErrors(error, request, response, next);
+
+        /* eslint-disable no-unused-expressions */
+        statusSpy.calledWith(404).should.be.true;
+        /* eslint-enable no-unused-expressions */
+      });
+
+      it('sets json response', () => {
+        const jsonSpy = sinon.spy(status, 'json');
+        const expectedArg = {
+          message: error.message,
+        };
+        errorHandlingConfigurer.logErrors(error, request, response, next);
+
+        /* eslint-disable no-unused-expressions */
+        jsonSpy.calledWith(expectedArg).should.be.true;
+        /* eslint-enable no-unused-expressions */
+      });
+    });
+
     describe('if NOT custom-handled', () => {
       let logDetailStub;
 

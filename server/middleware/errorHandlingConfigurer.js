@@ -8,9 +8,13 @@ function logErrors(error, request, response, next) {
   if (response.headersSent) {
     next(error);
   } else {
-    if (error.errorType && error.errorType === errorTypes.badRequest) {
+    if (error.errorType === errorTypes.badRequest) {
       response
         .status(400)
+        .json({message: error.message});
+    } else if (error.errorType === errorTypes.notFound) {
+      response
+        .status(404)
         .json({message: error.message});
     } else if (error.errorType === errorTypes.loggingError) {
       response
