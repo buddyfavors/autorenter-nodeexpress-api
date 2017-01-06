@@ -9,10 +9,49 @@ chai.should();
 
 describe('lookupDataService', () => {
   describe('getData', () => {
+    it('returns state data', () => {
+      return lookupDataService.getData(['states'])
+      .then((res) => {
+        res.states.should.have.length.of(5);
+        res.states.every((state) => {
+          return state.stateCode && state.name;
+        }).should.be.true;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    });
+
+    it('returns vehicle make data', () => {
+      return lookupDataService.getData(['makes'])
+      .then((res) => {
+        res.makes.should.have.length.of(3);
+        res.makes.every((make) => {
+          return make.id && make.name;
+        }).should.be.true;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    });
+
+    it('returns vehicle model data', () => {
+      return lookupDataService.getData(['models'])
+      .then((res) => {
+        res.models.should.have.length.of(5);
+        res.models.every((model) => {
+          return model.id && model.makeId && model.name;
+        }).should.be.true;
+      })
+      .catch((err) => {
+        throw err;
+      });
+    });
+
     it('returns color data', () => {
       return lookupDataService.getData(['colors'])
       .then((res) => {
-        res.colors.should.have.length.of(5);
+        res.colors.should.have.length.of(3);
         res.colors.every((color) => {
           return color.id && color.value;
         }).should.be.true;
@@ -22,12 +61,13 @@ describe('lookupDataService', () => {
       });
     });
 
-    it('returns state data', () => {
-      return lookupDataService.getData(['states'])
+    it('returns vehicle lookup data rules', () => {
+      return lookupDataService.getData(['vehicle_rules'])
       .then((res) => {
-        res.states.should.have.length.of(6);
-        res.states.every((state) => {
-          return state.stateCode && state.name;
+        res.vehicle_rules.should.have.length.of(19);
+        res.vehicle_rules.every((vehicleLookupDataRule) => {
+          return vehicleLookupDataRule.makeId && vehicleLookupDataRule.modelId &&
+            vehicleLookupDataRule.year && vehicleLookupDataRule.colorId;
         }).should.be.true;
       })
       .catch((err) => {
