@@ -1,15 +1,15 @@
 'use strict';
 
-module.exports = putVehicle;
+module.exports = putLocationVehicle;
 
-const vehicleService = require('../../services/vehicleService');
+const locationVehicleService = require('../../services/locationVehicleService');
 
-function putVehicle(request, response, next) {
+function putLocationVehicle(request, response, next) {
   const data = request.body;
   const id = request.params.id;
 
   if (data.id === id) {
-    vehicleService.updateVehicle(data)
+    locationVehicleService.updateLocationVehicle(data)
       .then(() => {
         response.location(`${request.getUrl()}${id}`);
         response.status(200).json();

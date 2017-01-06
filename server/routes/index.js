@@ -7,7 +7,7 @@ const router = new express.Router();
 module.exports = router;
 
 router.use(require('./locations'));
-router.use(require('./vehicles'));
+router.use(require('./locationVehicles'));
 router.use(require('./lookupData'));
 router.use(require('./logging'));
 router.use(require('./raiseError'));

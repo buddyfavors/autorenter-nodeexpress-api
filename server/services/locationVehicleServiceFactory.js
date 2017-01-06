@@ -4,7 +4,7 @@ const uuid = require('uuid/v4');
 const errorTypes = require('../models/errorTypes');
 
 function build() {
-  const vehicles = [
+  const locationVehicles = [
     {
       id: '0b68a1d6-4210-42e0-9647-3747da20a181',
       locationId: 'c0b694ec-3352-43e3-9f22-77c87fe83d48',
@@ -51,13 +51,13 @@ function build() {
     }
   ];
 
-  function getVehicles(locationId) {
+  function getLocationVehicles(locationId) {
     return new Promise(
       (resolve, reject) => { // eslint-disable-line no-unused-vars
         let vehiclesByLocation = [];
-        vehicles.forEach((vehicleElement) => {
-          if (vehicleElement.locationId === locationId) {
-            vehiclesByLocation.push(vehicleElement);
+        locationVehicles.forEach((locationVehicleElement) => {
+          if (locationVehicleElement.locationId === locationId) {
+            vehiclesByLocation.push(locationVehicleElement);
           }
         });
         resolve(vehiclesByLocation);
@@ -65,30 +65,30 @@ function build() {
     );
   }
 
-  function addVehicle(locationId, vehicle) {
+  function addLocationVehicle(locationId, locationVehicle) {
     return new Promise(
       (resolve, reject) => { // eslint-disable-line no-unused-vars
-        vehicle.id = vehicle.id || uuid();
-        vehicle.locationId = locationId;
-        vehicles.push(vehicle);
-        resolve(vehicle);
+        locationVehicle.id = locationVehicle.id || uuid();
+        locationVehicle.locationId = locationId;
+        locationVehicles.push(locationVehicle);
+        resolve(locationVehicle);
       }
     );
   }
 
-  function getVehicle(vehicleId) {
+  function getLocationVehicle(locationVehicleId) {
     return new Promise(
       (resolve, reject) => {
-        vehicles.forEach((vehicleElement) => {
-          if (vehicleElement.id === vehicleId) {
-            resolve(vehicleElement);
+        locationVehicles.forEach((locationVehicleElement) => {
+          if (locationVehicleElement.id === locationVehicleId) {
+            resolve(locationVehicleElement);
           }
         });
 
         const errorMessage =
-          `No vehicle was found with the unique identifier '${vehicleId}'.`;
+          `No vehicle was found with the unique identifier '${locationVehicleId}'.`;
         reject({
-          id: vehicleId,
+          id: locationVehicleId,
           message: errorMessage,
           errorType: errorTypes.notFound
         });
@@ -96,13 +96,13 @@ function build() {
     );
   }
 
-  function updateVehicle(vehicle) {
+  function updateLocationVehicle(locationVehicle) {
     return new Promise(
       (resolve, reject) => {
-        getVehicle(vehicle.id)
+        getLocationVehicle(locationVehicle.id)
           .then((result) => {
-            const indexToUpdate = vehicles.indexOf(result);
-            vehicles[indexToUpdate] = vehicle;
+            const indexToUpdate = locationVehicles.indexOf(result);
+            locationVehicles[indexToUpdate] = locationVehicle;
             resolve();
           })
           .catch((error) => {
@@ -112,13 +112,13 @@ function build() {
     );
   }
 
-  function deleteVehicle(vehicleId) {
+  function deleteLocationVehicle(locationVehicleId) {
     return new Promise(
       (resolve, reject) => {
-        getVehicle(vehicleId)
+        getLocationVehicle(locationVehicleId)
           .then((result) => {
-            const indexToRemove = vehicles.indexOf(result);
-            vehicles.splice(indexToRemove, 1);
+            const indexToRemove = locationVehicles.indexOf(result);
+            locationVehicles.splice(indexToRemove, 1);
             resolve();
           })
           .catch((error) => {
@@ -129,11 +129,11 @@ function build() {
   }
 
   return {
-    getVehicles: getVehicles,
-    addVehicle: addVehicle,
-    getVehicle: getVehicle,
-    updateVehicle: updateVehicle,
-    deleteVehicle: deleteVehicle
+    getLocationVehicles: getLocationVehicles,
+    addLocationVehicle: addLocationVehicle,
+    getLocationVehicle: getLocationVehicle,
+    updateLocationVehicle: updateLocationVehicle,
+    deleteLocationVehicle: deleteLocationVehicle
   };
 }
 
