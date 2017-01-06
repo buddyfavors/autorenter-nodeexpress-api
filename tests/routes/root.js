@@ -2,12 +2,47 @@
 
 const app = require('../../server/app');
 const chai = require('chai');
+const sinon = require('sinon');
 const chaiHttp = require('chai-http');
+
+let rewire = require('rewire');
 
 chai.use(chaiHttp);
 chai.should();
 
 describe('(api root) /', () => {
+  let rootCall;
+  let input;
+
+  beforeEach(() => {
+    input = {
+      environmentData: {
+        title: 'expectedTitle',
+        environment: 'expectedEnvironment',
+        version: 'expectedVersion',
+        build: 'expectedBuild'
+      }
+    };
+    input.environmentPromise = Promise.resolve(input.environmentData);
+    rootCall = rewire('../../server/routes/getRoot',
+      {'../enviornment/enviornment': input.environmentPromise});
+  });
+
+  it('should match given environment data', () => {
+    let statusReturnMock = {
+      json: sinon.spy()
+    };
+    let mockResponse = {
+      status: sinon.stub()
+    };
+
+    mockResponse.status.returns(statusReturnMock);
+
+    rootCall(undefined, mockResponse);
+
+    statusReturnMock.json.calledWithMatch(input.environmentData);
+  });
+
   it('respond with json', () => {
     chai
       .request(app)
@@ -17,11 +52,9 @@ describe('(api root) /', () => {
         const body = res.body;
         res.should.have.status(200);
         body.should.have.property('title');
-        body.title.should.equal('AutoRenter API');
         body.should.have.property('environment');
-        body.environment.length.should.not.equal(0);
         body.should.have.property('version');
-        body.version.length.should.not.equal(0);
+        body.should.have.property('build');
       });
   });
 });

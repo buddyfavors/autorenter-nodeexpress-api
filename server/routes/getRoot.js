@@ -1,17 +1,15 @@
 'use strict';
 
-const express = require('express');
-const pkgJSON = require('../../package.json');
+const enviornment = require('../enviornment/enviornment');
 
 function getRoot(request, response) {
-  const app = express();
-  const env = app.get('env');
-
-  response.status(200).json({
-    title: pkgJSON.description,
-    environment: env,
-    version: pkgJSON.version
-  });
+  enviornment.then((env) =>
+    response.status(200).json({
+      title: env.title,
+      environment: env.environment,
+      version: env.version,
+      build: env.build
+    }));
 }
 
 module.exports = getRoot;
