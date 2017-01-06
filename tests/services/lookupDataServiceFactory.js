@@ -1,11 +1,13 @@
 ﻿'use strict';
 
 const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
 
 const lookupDataService = require('../../server/services/lookupDataService');
 const errorTypes = require('../../server/models/errorTypes');
 
 chai.should();
+chai.use(chaiAsPromised);
 
 describe('lookupDataService', () => {
   describe('getData', () => {
@@ -87,33 +89,23 @@ describe('lookupDataService', () => {
     });
 
     it('throws error if no lookup types are specified', () => {
+      const err = {
+        message: 'Use query string vars to specify which types to fetch.',
+        errorType: errorTypes.badRequest
+      };
       return lookupDataService.getData([])
-      .then(() => {
-        // TODO: Figure out why test failure is not reported...
-        console.error('should not be here!'); // eslint-disable-line no-console
-        throw new Error('should not be here!');
-      })
-      .catch((err) => {
-        err.should.eql({
-          message: 'Use query string vars to specify which types to fetch.',
-          errorType: errorTypes.badRequest
-        });
-      });
+        .should.eventually.be.rejectedWith(err.message)
+        .and.have.property('errorType', err.errorType);
     });
 
     it('throws error if invalid type is specified', () => {
+      const err = {
+        message: 'The following lookup types do not exist: \'foobar\'.',
+        errorType: errorTypes.badRequest
+      };
       return lookupDataService.getData(['foobar'])
-      .then(() => {
-        // TODO: Figure out why test failure is not reported...
-        console.error('should not be here!'); // eslint-disable-line no-console
-        throw new Error('should not be here!');
-      })
-      .catch((err) => {
-        err.should.eql({
-          message: 'The following lookup types do not exist: \'foobar\'.',
-          errorType: errorTypes.badRequest
-        });
-      });
+        .should.eventually.be.rejectedWith(err.message)
+        .and.have.property('errorType', err.errorType);
     });
   });
 });
