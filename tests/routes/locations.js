@@ -22,10 +22,10 @@ describe('routes/locations', () => {
           },
           {
             'id': 'dc95a8f9-713f-4aed-bf5e-4e5567c4dd9f',
-            'siteId': 'ord',
-            'name': 'Chicago O\'Hare Airport',
-            'city': 'Chicago',
-            'stateCode': 'IL',
+            'siteId': 'lax',
+            'name': 'Los Angelas International Airport',
+            'city': 'Los Angelas',
+            'stateCode': 'CA',
             'vehicleCount': 2
           }
         ]

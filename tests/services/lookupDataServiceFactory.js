@@ -42,7 +42,7 @@ describe('lookupDataService', () => {
       .then((res) => {
         res.models.should.have.length.of(5);
         res.models.every((model) => {
-          return model.id && model.makeId && model.name;
+          return model.id && model.name;
         }).should.be.true;
       })
       .catch((err) => {
@@ -53,23 +53,20 @@ describe('lookupDataService', () => {
     it('returns color data', () => {
       return lookupDataService.getData(['colors'])
       .then((res) => {
-        res.colors.should.have.length.of(3);
-        res.colors.every((color) => {
-          return color.id && color.value;
-        }).should.be.true;
+        res.colors.should.deep.equal(['Black', 'Red', 'Silver']);
       })
       .catch((err) => {
         throw err;
       });
     });
 
-    it('returns vehicle lookup data rules', () => {
-      return lookupDataService.getData(['vehicle_rules'])
+    it('returns vehicles', () => {
+      return lookupDataService.getData(['vehicles'])
       .then((res) => {
-        res.vehicle_rules.should.have.length.of(19);
-        res.vehicle_rules.every((vehicleLookupDataRule) => {
-          return vehicleLookupDataRule.makeId && vehicleLookupDataRule.modelId &&
-            vehicleLookupDataRule.year && vehicleLookupDataRule.colorId;
+        res.vehicles.should.have.length.of(19);
+        res.vehicles.every((vehicle) => {
+          return vehicle.makeId && vehicle.modelId &&
+            vehicle.year && vehicle.color;
         }).should.be.true;
       })
       .catch((err) => {

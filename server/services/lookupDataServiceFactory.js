@@ -43,64 +43,46 @@ function build() {
   lookupData.models = [
     {
       id: 'tms',
-      makeId: 'tsl',
       name: 'Model S'
     },
     {
       id: 'tmx',
-      makeId: 'tsl',
       name: 'Model X'
     },
     {
       id: 'cvt',
-      makeId: 'che',
       name: 'Corvette'
     },
     {
       id: 'fxp',
-      makeId: 'frd',
       name: 'Explorer'
     },
     {
       id: 'fta',
-      makeId: 'frd',
       name: 'Taurus'
     },
   ];
-  lookupData.colors = [
-    {
-      id: 'blk',
-      value: 'Black'
-    },
-    {
-      id: 'red',
-      value: 'Red'
-    },
-    {
-      id: 'slv',
-      value: 'Silver'
-    }
-  ];
-  lookupData.vehicle_rules = [
-    {makeId: 'tsl', modelId: 'tms', year: 2016, colorId: 'blk'},
-    {makeId: 'tsl', modelId: 'tmx', year: 2016, colorId: 'blk'},
-    {makeId: 'tsl', modelId: 'tms', year: 2017, colorId: 'blk'},
-    {makeId: 'tsl', modelId: 'tms', year: 2017, colorId: 'slv'},
-    {makeId: 'tsl', modelId: 'tmx', year: 2017, colorId: 'blk'},
-    {makeId: 'tsl', modelId: 'tmx', year: 2017, colorId: 'slv'},
-    {makeId: 'che', modelId: 'cvt', year: 2016, colorId: 'blk'},
-    {makeId: 'che', modelId: 'cvt', year: 2016, colorId: 'red'},
-    {makeId: 'che', modelId: 'cvt', year: 2017, colorId: 'blk'},
-    {makeId: 'che', modelId: 'cvt', year: 2017, colorId: 'red'},
-    {makeId: 'frd', modelId: 'fxp', year: 2016, colorId: 'blk'},
-    {makeId: 'frd', modelId: 'fta', year: 2016, colorId: 'blk'},
-    {makeId: 'frd', modelId: 'fta', year: 2016, colorId: 'red'},
-    {makeId: 'frd', modelId: 'fta', year: 2016, colorId: 'slv'},
-    {makeId: 'frd', modelId: 'fxp', year: 2017, colorId: 'blk'},
-    {makeId: 'frd', modelId: 'fxp', year: 2017, colorId: 'slv'},
-    {makeId: 'frd', modelId: 'fta', year: 2017, colorId: 'blk'},
-    {makeId: 'frd', modelId: 'fta', year: 2017, colorId: 'red'},
-    {makeId: 'frd', modelId: 'fta', year: 2017, colorId: 'slv'}
+  lookupData.colors = ['Black', 'Red', 'Silver'];
+  lookupData.vehicles = [
+    {makeId: 'tsl', modelId: 'tms', year: 2016, color: 'Black'},
+    {makeId: 'tsl', modelId: 'tmx', year: 2016, color: 'Black'},
+    {makeId: 'tsl', modelId: 'tms', year: 2017, color: 'Black'},
+    {makeId: 'tsl', modelId: 'tms', year: 2017, color: 'Silver'},
+    {makeId: 'tsl', modelId: 'tmx', year: 2017, color: 'Black'},
+    {makeId: 'tsl', modelId: 'tmx', year: 2017, color: 'Silver'},
+    {makeId: 'che', modelId: 'cvt', year: 2016, color: 'Black'},
+    {makeId: 'che', modelId: 'cvt', year: 2016, color: 'Red'},
+    {makeId: 'che', modelId: 'cvt', year: 2017, color: 'Black'},
+    {makeId: 'che', modelId: 'cvt', year: 2017, color: 'Red'},
+    {makeId: 'frd', modelId: 'fxp', year: 2016, color: 'Black'},
+    {makeId: 'frd', modelId: 'fta', year: 2016, color: 'Black'},
+    {makeId: 'frd', modelId: 'fta', year: 2016, color: 'Red'},
+    {makeId: 'frd', modelId: 'fta', year: 2016, color: 'Silver'},
+    {makeId: 'frd', modelId: 'fxp', year: 2017, color: 'Black'},
+    {makeId: 'frd', modelId: 'fxp', year: 2017, color: 'Silver'},
+    {makeId: 'frd', modelId: 'fta', year: 2017, color: 'Black'},
+    {makeId: 'frd', modelId: 'fta', year: 2017, color: 'Red'},
+    {makeId: 'frd', modelId: 'fta', year: 2017, color: 'Silver'}
   ];
 
   function getData(lookupTypes) {
