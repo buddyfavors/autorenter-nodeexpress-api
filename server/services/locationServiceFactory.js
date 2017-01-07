@@ -15,8 +15,8 @@ function build() {
     {
       id: 'dc95a8f9-713f-4aed-bf5e-4e5567c4dd9f',
       siteId: 'lax',
-      name: 'Los Angelas International Airport',
-      city: 'Los Angelas',
+      name: 'Los Angeles International Airport',
+      city: 'Los Angeles',
       stateCode: 'CA'
     }
   ];
