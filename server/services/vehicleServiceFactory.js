@@ -4,7 +4,7 @@ const uuid = require('uuid/v4');
 const errorTypes = require('../models/errorTypes');
 
 function build() {
-  const locationVehicles = [
+  const vehicles = [
     {
       id: '0b68a1d6-4210-42e0-9647-3747da20a181',
       locationId: 'c0b694ec-3352-43e3-9f22-77c87fe83d48',
@@ -51,13 +51,13 @@ function build() {
     }
   ];
 
-  function getLocationVehicles(locationId) {
+  function getVehicles(locationId) {
     return new Promise(
       (resolve, reject) => { // eslint-disable-line no-unused-vars
         let vehiclesByLocation = [];
-        locationVehicles.forEach((locationVehicleElement) => {
-          if (locationVehicleElement.locationId === locationId) {
-            vehiclesByLocation.push(locationVehicleElement);
+        vehicles.forEach((vehicleElement) => {
+          if (vehicleElement.locationId === locationId) {
+            vehiclesByLocation.push(vehicleElement);
           }
         });
         resolve(vehiclesByLocation);
@@ -65,30 +65,30 @@ function build() {
     );
   }
 
-  function addLocationVehicle(locationId, locationVehicle) {
+  function addVehicle(locationId, vehicle) {
     return new Promise(
       (resolve, reject) => { // eslint-disable-line no-unused-vars
-        locationVehicle.id = locationVehicle.id || uuid();
-        locationVehicle.locationId = locationId;
-        locationVehicles.push(locationVehicle);
-        resolve(locationVehicle);
+        vehicle.id = vehicle.id || uuid();
+        vehicle.locationId = locationId;
+        vehicles.push(vehicle);
+        resolve(vehicle);
       }
     );
   }
 
-  function getLocationVehicle(locationVehicleId) {
+  function getVehicle(vehicleId) {
     return new Promise(
       (resolve, reject) => {
-        locationVehicles.forEach((locationVehicleElement) => {
-          if (locationVehicleElement.id === locationVehicleId) {
-            resolve(locationVehicleElement);
+        vehicles.forEach((vehicleElement) => {
+          if (vehicleElement.id === vehicleId) {
+            resolve(vehicleElement);
           }
         });
 
         const errorMessage =
-          `No vehicle was found with the unique identifier '${locationVehicleId}'.`;
+          `No vehicle was found with the unique identifier '${vehicleId}'.`;
         reject({
-          id: locationVehicleId,
+          id: vehicleId,
           message: errorMessage,
           errorType: errorTypes.notFound
         });
@@ -96,13 +96,13 @@ function build() {
     );
   }
 
-  function updateLocationVehicle(locationVehicle) {
+  function updateVehicle(vehicle) {
     return new Promise(
       (resolve, reject) => {
-        getLocationVehicle(locationVehicle.id)
+        getVehicle(vehicle.id)
           .then((result) => {
-            const indexToUpdate = locationVehicles.indexOf(result);
-            locationVehicles[indexToUpdate] = locationVehicle;
+            const indexToUpdate = vehicles.indexOf(result);
+            vehicles[indexToUpdate] = vehicle;
             resolve();
           })
           .catch((error) => {
@@ -112,13 +112,13 @@ function build() {
     );
   }
 
-  function deleteLocationVehicle(locationVehicleId) {
+  function deleteVehicle(vehicleId) {
     return new Promise(
       (resolve, reject) => {
-        getLocationVehicle(locationVehicleId)
+        getVehicle(vehicleId)
           .then((result) => {
-            const indexToRemove = locationVehicles.indexOf(result);
-            locationVehicles.splice(indexToRemove, 1);
+            const indexToRemove = vehicles.indexOf(result);
+            vehicles.splice(indexToRemove, 1);
             resolve();
           })
           .catch((error) => {
@@ -129,11 +129,11 @@ function build() {
   }
 
   return {
-    getLocationVehicles: getLocationVehicles,
-    addLocationVehicle: addLocationVehicle,
-    getLocationVehicle: getLocationVehicle,
-    updateLocationVehicle: updateLocationVehicle,
-    deleteLocationVehicle: deleteLocationVehicle
+    getVehicles: getVehicles,
+    addVehicle: addVehicle,
+    getVehicle: getVehicle,
+    updateVehicle: updateVehicle,
+    deleteVehicle: deleteVehicle
   };
 }
 

@@ -3,7 +3,7 @@
 module.exports = getLocation;
 
 const locationService = require('../../services/locationService');
-const locationVehicleService = require('../../services/locationVehicleService');
+const vehicleService = require('../../services/vehicleService');
 
 function getLocation(request, response, next) {
   const id = request.params.id;
@@ -11,9 +11,9 @@ function getLocation(request, response, next) {
   locationService.getLocation(id)
     .then((location) => {
       let getVehicleCount = () => {
-        return locationVehicleService.getLocationVehicles(location.id)
-          .then((locationVehicles) => {
-            location.vehicleCount = locationVehicles.length;
+        return vehicleService.getVehicles(location.id)
+          .then((vehicles) => {
+            location.vehicleCount = vehicles.length;
           });
       };
 
