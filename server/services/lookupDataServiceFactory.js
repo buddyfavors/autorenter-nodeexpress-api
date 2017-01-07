@@ -63,7 +63,7 @@ function build() {
     },
   ];
   lookupData.colors = ['Black', 'Red', 'Silver'];
-  lookupData.vehicles = [
+  lookupData.vehicle_skus = [
     {makeId: 'tsl', modelId: 'tms', year: 2016, color: 'Black'},
     {makeId: 'tsl', modelId: 'tmx', year: 2016, color: 'Black'},
     {makeId: 'tsl', modelId: 'tms', year: 2017, color: 'Black'},

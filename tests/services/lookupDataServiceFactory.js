@@ -60,13 +60,12 @@ describe('lookupDataService', () => {
       });
     });
 
-    it('returns vehicles', () => {
-      return lookupDataService.getData(['vehicles'])
+    it('returns vehicle sku data', () => {
+      return lookupDataService.getData(['vehicle_skus'])
       .then((res) => {
-        res.vehicles.should.have.length.of(19);
-        res.vehicles.every((vehicle) => {
-          return vehicle.makeId && vehicle.modelId &&
-            vehicle.year && vehicle.color;
+        res.vehicle_skus.should.have.length.of(19);
+        res.vehicle_skus.every((sku) => {
+          return sku.makeId && sku.modelId && sku.year && sku.color;
         }).should.be.true;
       })
       .catch((err) => {
