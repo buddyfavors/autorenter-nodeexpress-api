@@ -23,14 +23,14 @@ function build() {
 
   function getLocations() {
     return new Promise(
-      (resolve, reject) => { // eslint-disable-line no-unused-vars
+      (resolve) => {
         resolve(locations);
       });
   }
 
   function addLocation(location) {
     return new Promise(
-      (resolve, reject) => { // eslint-disable-line no-unused-vars
+      (resolve) => {
         location.id = location.id || uuid();
         locations.push(location);
         resolve(location);
