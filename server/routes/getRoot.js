@@ -1,6 +1,6 @@
 'use strict';
 
-const enviornment = require('../enviornment/enviornment');
+const enviornment = require('../environment/environment');
 
 function getRoot(request, response) {
   enviornment.then((env) =>

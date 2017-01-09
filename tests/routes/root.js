@@ -5,7 +5,7 @@ const chai = require('chai');
 const sinon = require('sinon');
 const chaiHttp = require('chai-http');
 
-let rewire = require('rewire');
+let proxyquire = require('proxyquire');
 
 chai.use(chaiHttp);
 chai.should();
@@ -24,7 +24,7 @@ describe('(api root) /', () => {
       }
     };
     input.environmentPromise = Promise.resolve(input.environmentData);
-    rootCall = rewire('../../server/routes/getRoot',
+    rootCall = proxyquire('../../server/routes/getRoot',
       {'../enviornment/enviornment': input.environmentPromise});
   });
 

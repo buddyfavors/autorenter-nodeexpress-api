@@ -1,6 +1,6 @@
-const gitRev = require('git-rev');
+let gitRev = require('git-rev');
 
-const gitData = {};
+let gitData = {};
 
 let gitLong = new Promise((resolve) => {
   gitRev.long((longVersion) => {

@@ -1,56 +1,67 @@
 'use strict';
 
-let rewire = require('rewire');
-require('chai');
-require('chai-as-promised');
+let proxyquire = require('proxyquire');
+let chai = require('chai');
+let chaiAsPromised = require('chai-as-promised');
 let sinon = require('sinon');
+
+chai.use(chaiAsPromised);
+
 
 describe('git-data', () => {
   let gitData;
   let input;
+  let sandbox;
+  let mocks;
 
-  beforeEach(() => {
+  beforeEach((done) => {
     input = {
-      gitRev: {
-        short: sinon.spy(),
-        long: sinon.spy(),
-        branch: sinon.spy(),
-        tag: sinon.spy()
-      }
-    };
-    gitData = rewire('../../server/enviornment/git-data', {'git-rev': input.gitRev});
-  });
-
-  it('should get long git commit hash', () => {
-    input.gitRev.long.should.have.been.calledOnce;
-  });
-
-  it('should get short git commit hash', () => {
-    input.gitRev.short.should.have.been.calledOnce;
-  });
-
-  it('should get git branch', () => {
-    input.gitRev.branch.should.have.been.calledOnce;
-  });
-
-  it('should get git tag', () => {
-    input.gitRev.tag.should.have.been.calledOnce;
-  });
-
-  it('should resolve promise with correct object', () => {
-    let given = {
       long: 'long',
       short: 'short',
       branch: 'branch',
       tag: 'tag'
     };
+    sandbox = sinon.sandbox.create();
 
-    input.gitRev.short.getCall(0).args[0](given.short);
-    input.gitRev.long.getCall(0).args[0](given.long);
-    input.gitRev.branch.getCall(0).args[0](given.branch);
-    input.gitRev.tag.getCall(0).args[0](given.tag);
+    mocks = {
+      gitRev: {},
+    };
 
-    gitData.should.eventually.deep.equal(given);
+    Object.keys(input).forEach((key) => {
+      mocks.gitRev[key] = (cb) => cb(input[key]);
+      sandbox.spy(mocks.gitRev, key);
+    });
+
+    proxyquire('../../server/environment/git-data', {
+      'git-rev': mocks.gitRev,
+    }).then(results => {
+      gitData = results;
+      done();
+    });
+  });
+
+  afterEach(() => {
+    sandbox.restore();
+  });
+
+  it('should get long git commit hash', () => {
+    return mocks.gitRev.long.should.have.been.calledOnce;
+  });
+
+  it('should get short git commit hash', () => {
+    return mocks.gitRev.short.should.have.been.calledOnce;
+  });
+
+  it('should get git branch', () => {
+    return mocks.gitRev.branch.should.have.been.calledOnce;
+  });
+
+  it('should get git tag', () => {
+    return mocks.gitRev.tag.should.have.been.calledOnce;
+  });
+
+  it('should resolve promise with correct object', () => {
+    return gitData.should.deep.equal(input);
   });
 });
 
