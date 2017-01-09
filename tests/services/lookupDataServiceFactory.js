@@ -60,19 +60,6 @@ describe('lookupDataService', () => {
       });
     });
 
-    it('returns vehicle sku data', () => {
-      return lookupDataService.getData(['vehicle_skus'])
-      .then((res) => {
-        res.vehicle_skus.should.have.length.of(19);
-        res.vehicle_skus.every((sku) => {
-          return sku.makeId && sku.modelId && sku.year && sku.color;
-        }).should.be.true;
-      })
-      .catch((err) => {
-        throw err;
-      });
-    });
-
     it('returns multiple types of lookup data', () => {
       return lookupDataService.getData(['states', 'colors'])
       .then((res) => {
