@@ -9,11 +9,11 @@ chai.should();
 
 describe('(api root) /', () => {
   it('respond with json', () => {
-    chai
+    return chai
       .request(app)
       .get('/api/')
       .set('Accept', 'application/json')
-      .end((err, res) => {
+      .then((res) => {
         const body = res.body;
         res.should.have.status(200);
         body.should.have.property('title');
@@ -22,6 +22,9 @@ describe('(api root) /', () => {
         body.environment.length.should.not.equal(0);
         body.should.have.property('version');
         body.version.length.should.not.equal(0);
+      })
+      .catch((err) => {
+        throw err;
       });
   });
 });

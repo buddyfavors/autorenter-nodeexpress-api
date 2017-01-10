@@ -53,7 +53,7 @@ function build() {
 
   function getVehicles(locationId) {
     return new Promise(
-      (resolve, reject) => { // eslint-disable-line no-unused-vars
+      (resolve) => {
         let vehiclesByLocation = [];
         vehicles.forEach((vehicleElement) => {
           if (vehicleElement.locationId === locationId) {
@@ -67,7 +67,7 @@ function build() {
 
   function addVehicle(locationId, vehicle) {
     return new Promise(
-      (resolve, reject) => { // eslint-disable-line no-unused-vars
+      (resolve) => {
         vehicle.id = vehicle.id || uuid();
         vehicle.locationId = locationId;
         vehicles.push(vehicle);

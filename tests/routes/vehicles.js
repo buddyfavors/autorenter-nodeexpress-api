@@ -37,11 +37,14 @@ describe('routes/vehicles', () => {
         ]
       };
 
-      chai.request(server)
+      return chai.request(server)
         .get('/api/locations/c0b694ec-3352-43e3-9f22-77c87fe83d48/vehicles')
-        .end((err, res) => {
+        .then((res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.be.eql(expectedOutput);
+        })
+        .catch((err) => {
+          throw err;
         });
     });
   });
@@ -61,11 +64,14 @@ describe('routes/vehicles', () => {
         }
       };
 
-      chai.request(server)
+      return chai.request(server)
         .get('/api/vehicles/0b68a1d6-4210-42e0-9647-3747da20a181')
-        .end((err, res) => {
+        .then((res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.be.eql(expectedOutput);
+        })
+        .catch((err) => {
+          throw err;
         });
     });
   });

@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
     "chai-http": "3.0.0",
     "eslint": "3.11.1",
     "eslint-config-google": "0.7.1",

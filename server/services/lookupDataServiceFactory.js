@@ -6,52 +6,63 @@ function build() {
   let lookupData = {};
   lookupData.states = [
     {
-      stateCode: 'AL',
-      name: 'Alabama'
-    },
-    {
-      stateCode: 'AK',
-      name: 'Alaska'
-    },
-    {
       stateCode: 'AZ',
       name: 'Arizona'
     },
     {
-      stateCode: 'IL',
-      name: 'Illinois'
+      stateCode: 'CA',
+      name: 'California'
+    },
+    {
+      stateCode: 'HI',
+      name: 'Hawaii'
     },
     {
       stateCode: 'IN',
       name: 'Indiana'
     },
     {
-      stateCode: 'WV',
-      name: 'West Virginia'
+      stateCode: 'WA',
+      name: 'Washington'
     }
   ];
-  lookupData.colors = [
+  lookupData.makes = [
     {
-      id: '1',
-      value: 'Black'
+      id: 'tsl',
+      name: 'Tesla'
     },
     {
-      id: '2',
-      value: 'Blue'
+      id: 'che',
+      name: 'Chevrolet'
     },
     {
-      id: '3',
-      value: 'Orange'
-    },
-    {
-      id: '4',
-      value: 'Red'
-    },
-    {
-      id: '5',
-      value: 'Silver'
+      id: 'frd',
+      name: 'Ford'
     }
   ];
+  lookupData.models = [
+    {
+      id: 'tms',
+      name: 'Model S'
+    },
+    {
+      id: 'tmx',
+      name: 'Model X'
+    },
+    {
+      id: 'cvt',
+      name: 'Corvette'
+    },
+    {
+      id: 'fxp',
+      name: 'Explorer'
+    },
+    {
+      id: 'fta',
+      name: 'Taurus'
+    },
+  ];
+  lookupData.colors = ['Black', 'Red', 'Silver'];
 
   function getData(lookupTypes) {
     return new Promise(
