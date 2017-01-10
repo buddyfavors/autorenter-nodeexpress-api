@@ -13,7 +13,6 @@ module.exports = gitData.then((gitData) => {
     version: pkgJSON.version,
     commit: gitData,
     get build() {
-      // TODO: Update to gitData.tag once build system supports tags.
       return gitData.long;
     }
   };

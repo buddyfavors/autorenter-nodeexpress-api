@@ -14,7 +14,7 @@ describe('git-data', () => {
   let sandbox;
   let mocks;
 
-  beforeEach((done) => {
+  beforeEach(() => {
     input = {
       long: 'long',
       short: 'short',
@@ -28,15 +28,14 @@ describe('git-data', () => {
     };
 
     Object.keys(input).forEach((key) => {
-      mocks.gitRev[key] = (cb) => cb(input[key]);
+      mocks.gitRev[key] = (callback) => callback(input[key]);
       sandbox.spy(mocks.gitRev, key);
     });
 
-    proxyquire('../../server/environment/git-data', {
+    return proxyquire('../../server/environment/git-data', {
       'git-rev': mocks.gitRev,
     }).then((results) => {
       gitData = results;
-      done();
     });
   });
 
