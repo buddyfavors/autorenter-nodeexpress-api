@@ -14,23 +14,23 @@ function build() {
     },
     {
       id: 'dc95a8f9-713f-4aed-bf5e-4e5567c4dd9f',
-      siteId: 'ord',
-      name: 'Chicago O\'Hare Airport',
-      city: 'Chicago',
-      stateCode: 'IL'
+      siteId: 'lax',
+      name: 'Los Angeles International Airport',
+      city: 'Los Angeles',
+      stateCode: 'CA'
     }
   ];
 
   function getLocations() {
     return new Promise(
-      (resolve, reject) => { // eslint-disable-line no-unused-vars
+      (resolve) => {
         resolve(locations);
       });
   }
 
   function addLocation(location) {
     return new Promise(
-      (resolve, reject) => { // eslint-disable-line no-unused-vars
+      (resolve) => {
         location.id = location.id || uuid();
         locations.push(location);
         resolve(location);

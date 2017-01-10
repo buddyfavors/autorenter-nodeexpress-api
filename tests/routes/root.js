@@ -44,17 +44,20 @@ describe('(api root) /', () => {
   });
 
   it('respond with json', () => {
-    chai
+    return chai
       .request(app)
       .get('/api/')
       .set('Accept', 'application/json')
-      .end((err, res) => {
+      .then((res) => {
         const body = res.body;
         res.should.have.status(200);
         body.should.have.property('title');
         body.should.have.property('environment');
         body.should.have.property('version');
         body.should.have.property('build');
+      })
+      .catch((err) => {
+        throw err;
       });
   });
 });
