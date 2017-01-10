@@ -13,7 +13,7 @@ describe('environment', () => {
     sandbox = sinon.sandbox.create();
 
     mocks = {
-      app: { get: sandbox.stub() }
+      app: {get: sandbox.stub()}
     };
 
     inputs = {
@@ -24,8 +24,10 @@ describe('environment', () => {
         description: 'correctTitle',
         version: 'correctVersion'
       },
-      gitData: { long: 'longGitVersion' },
-      get gitDataPromise() { return Promise.resolve(inputs.gitData); }
+      gitData: {long: 'longGitVersion'},
+      get gitDataPromise() {
+        return Promise.resolve(inputs.gitData);
+      }
     };
 
     mocks.app.get.returns(inputs.environment);

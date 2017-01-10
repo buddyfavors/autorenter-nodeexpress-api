@@ -34,7 +34,7 @@ describe('git-data', () => {
 
     proxyquire('../../server/environment/git-data', {
       'git-rev': mocks.gitRev,
-    }).then(results => {
+    }).then((results) => {
       gitData = results;
       done();
     });
