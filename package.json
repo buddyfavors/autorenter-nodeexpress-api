@@ -36,6 +36,7 @@
     "body-parser": "1.15.1",
     "cors": "2.7.1",
     "express": "4.13.4",
+    "git-rev": "0.2.1",
     "morgan": "1.7.0",
     "nodemon": "1.11.0",
     "uuid": "3.0.1",
@@ -48,6 +49,7 @@
     "eslint": "3.11.1",
     "eslint-config-google": "0.7.1",
     "mocha": "3.2.0",
+    "proxyquire": "1.7.10",
     "sinon": "1.17.5"
   }
 }
