@@ -81,6 +81,5 @@ describe('configureVersionHeaderTags', () => {
       return inputs.environmentMock
         .then(() => responseSpy.withArgs('api-build-number', expectedBuildNumber).should.have.been.called);
     });
-
   });
 });
