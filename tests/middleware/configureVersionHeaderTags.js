@@ -50,14 +50,14 @@ describe('configureVersionHeaderTags', () => {
     it('should not call next if environment has not been resolved', () => {
       let nextSpy = sandbox.spy(given, 'next');
       responseMiddlewareCall(given.request, given.response, given.next);
-      return nextSpy.should.not.have.been.called;
+      return nextSpy.called.should.be.false;
     });
 
     it('should call the next argument passed from app when environment has been resolved', () => {
       let nextSpy = sandbox.spy(given, 'next');
       responseMiddlewareCall(given.request, given.response, given.next);
       inputs.resolveEnvironmentPromise({});
-      return inputs.environmentMock.then(() => nextSpy.should.have.been.called);
+      return inputs.environmentMock.then(() => nextSpy.calledOnce.should.be.true);
     });
 
     it('should set api-version to the environment version', () => {
@@ -68,7 +68,7 @@ describe('configureVersionHeaderTags', () => {
 
       return inputs.environmentMock
         .then(() => {
-          return responseSpy.withArgs('api-version', expectedVersion).should.have.been.called;
+          return responseSpy.withArgs('api-version', expectedVersion).calledOnce.should.be.true;
         });
     });
 
@@ -79,7 +79,8 @@ describe('configureVersionHeaderTags', () => {
       inputs.resolveEnvironmentPromise({buildNumber: expectedBuildNumber});
 
       return inputs.environmentMock
-        .then(() => responseSpy.withArgs('api-build-number', expectedBuildNumber).should.have.been.called);
+        .then(() => responseSpy.withArgs('api-build-number', expectedBuildNumber)
+          .called.should.be.false);
     });
   });
 });

@@ -44,19 +44,19 @@ describe('git-data', () => {
   });
 
   it('should get long git commit hash', () => {
-    return mocks.gitRev.long.should.have.been.calledOnce;
+    return mocks.gitRev.long.calledOnce.should.be.true;
   });
 
   it('should get short git commit hash', () => {
-    return mocks.gitRev.short.should.have.been.calledOnce;
+    return mocks.gitRev.short.calledOnce.should.be.true;
   });
 
   it('should get git branch', () => {
-    return mocks.gitRev.branch.should.have.been.calledOnce;
+    return mocks.gitRev.branch.calledOnce.should.be.true;
   });
 
   it('should get git tag', () => {
-    return mocks.gitRev.tag.should.have.been.calledOnce;
+    return mocks.gitRev.tag.calledOnce.should.be.true;
   });
 
   it('should resolve promise with correct object', () => {
