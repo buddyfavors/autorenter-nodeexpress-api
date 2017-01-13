@@ -12,7 +12,7 @@ function logDetail(username, level, message) {
     } else {
       const debugMessage =
         `(${logData.level}) ${logData.username} - ${logData.message}`;
-      logger.debug(debugMessage);
+      logger.log(logData.level, debugMessage);
       resolve();
     }
   });
