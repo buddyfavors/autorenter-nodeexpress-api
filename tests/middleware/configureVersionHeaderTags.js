@@ -23,10 +23,10 @@ describe('configureVersionHeaderTags', () => {
 
   afterEach(() => sandbox.restore());
 
-  it('should call app.use with a function', () => {
+  it('should call app.use', () => {
     let useSpy = sandbox.spy(inputs.app, 'use');
     configureVersionHeaderTags(inputs.app);
-    return useSpy.withArgs(sinon.match.function).should.have.been.called;
+    return useSpy.called.should.be.true;
   });
 
   describe('app.use function argument', () => {
