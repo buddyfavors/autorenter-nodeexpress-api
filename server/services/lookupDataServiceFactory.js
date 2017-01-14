@@ -62,7 +62,6 @@ function build() {
       name: 'Taurus'
     },
   ];
-  lookupData.colors = ['Black', 'Red', 'Silver'];
 
   function getData(lookupTypes) {
     return new Promise(
