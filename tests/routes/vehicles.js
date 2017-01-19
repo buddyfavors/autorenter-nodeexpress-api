@@ -16,21 +16,21 @@ describe('routes/vehicles', () => {
             'id': '0b68a1d6-4210-42e0-9647-3747da20a181',
             'locationId': 'c0b694ec-3352-43e3-9f22-77c87fe83d48',
             'vin': '1XKDPB0X04R047346',
-            'make': 'Toyota',
-            'model': 'Tercel',
-            'year': 1990,
-            'miles': 452303,
-            'color': 'Gold',
+            'makeId': 'frd',
+            'modelId': 'fxp',
+            'year': 2016,
+            'miles': 4523,
+            'color': 'Black',
             'isRentToOwn': false
           },
           {
             'id': '474086d6-eb1b-4861-9876-de892db743c9',
             'locationId': 'c0b694ec-3352-43e3-9f22-77c87fe83d48',
             'vin': '1HVLPHXM4GHA52708',
-            'make': 'Honda',
-            'model': 'Civic',
-            'year': 1994,
-            'miles': 282563,
+            'makeId': 'tsl',
+            'modelId': 'tms',
+            'year': 2017,
+            'miles': 344,
             'color': 'Silver',
             'isRentToOwn': true
           }
@@ -55,11 +55,11 @@ describe('routes/vehicles', () => {
           'id': '0b68a1d6-4210-42e0-9647-3747da20a181',
           'locationId': 'c0b694ec-3352-43e3-9f22-77c87fe83d48',
           'vin': '1XKDPB0X04R047346',
-          'make': 'Toyota',
-          'model': 'Tercel',
-          'year': 1990,
-          'miles': 452303,
-          'color': 'Gold',
+          'makeId': 'frd',
+          'modelId': 'fxp',
+          'year': 2016,
+          'miles': 4523,
+          'color': 'Black',
           'isRentToOwn': false
         }
       };

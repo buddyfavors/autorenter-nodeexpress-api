@@ -50,21 +50,11 @@ describe('lookupDataService', () => {
       });
     });
 
-    it('returns color data', () => {
-      return lookupDataService.getData(['colors'])
-      .then((res) => {
-        res.colors.should.deep.equal(['Black', 'Red', 'Silver']);
-      })
-      .catch((err) => {
-        throw err;
-      });
-    });
-
     it('returns multiple types of lookup data', () => {
-      return lookupDataService.getData(['states', 'colors'])
+      return lookupDataService.getData(['states', 'models'])
       .then((res) => {
         res.states.should.have.length.above(0);
-        res.colors.should.have.length.above(0);
+        res.models.should.have.length.above(0);
       })
       .catch((err) => {
         throw err;
