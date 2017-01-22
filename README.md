@@ -1,3 +1,5 @@
+[![Build Status][travis-image]][travis-url]
+
 # AutoRenter - Express/Node.js
 
 An Express/Node.js based implementation of the AutoRenter API.
@@ -174,3 +176,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 * Fusion Alliance for the initiative to create a community of open source development within our ranks.
+
+[travis-url]: https://travis-ci.org/fusionalliance/utorenter-nodeexpress-api
+[travis-image]: https://travis-ci.org/fusionalliance/utorenter-nodeexpress-api.svg?branch=development&style=flat-square
