@@ -14,10 +14,10 @@ engines:
   nodesecurity:
     enabled: true
 
-  ratings:
-    paths:
-      - "**.css"
-      - "**.js"
+ratings:
+  paths:
+    - "**.css"
+    - "**.js"
 exclude_paths:
 - tests/
 - node_modules/
