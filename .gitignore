@@ -60,3 +60,5 @@ obj/
 *.sln
 
 .version
+.vscode/
+jsconfig.json

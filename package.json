@@ -6,7 +6,7 @@
   "version": "0.0.1",
   "description": "AutoRenter API",
   "private": true,
-  "main": "server/app.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "nodemon server --ignore \"tests/**/*.js\"",
     "lint": "eslint \"server/**/*.js\" \"tests/**/*.js\"",
