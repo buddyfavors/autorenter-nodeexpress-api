@@ -2,16 +2,15 @@ engines:
   eslint:
     enabled: true
     channel: "eslint-3"
+  fixme:
+      enabled: true
+  csslint:
+    enabled: true
+
 ratings:
   paths:
-  - "**.inc"
-  - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
-  - "**.rb"
+    - "**.css"
+    - "**.js"
 exclude_paths:
 - tests/
-
-
+- node_modules/
