@@ -2,3 +2,16 @@ engines:
   eslint:
     enabled: true
     channel: "eslint-3"
+ratings:
+  paths:
+  - "**.inc"
+  - "**.js"
+  - "**.jsx"
+  - "**.module"
+  - "**.php"
+  - "**.py"
+  - "**.rb"
+exclude_paths:
+- tests/
+
+
