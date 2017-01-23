@@ -2,3 +2,21 @@ engines:
   eslint:
     enabled: true
     channel: "eslint-3"
+  fixme:
+      enabled: true
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+  nodesecurity:
+    enabled: true
+
+  ratings:
+    paths:
+      - "**.css"
+      - "**.js"
+exclude_paths:
+- node_modules/
