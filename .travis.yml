@@ -1,6 +1,10 @@
 language: node_js
 node_js:
-  - "node"
-  - "6"
-  - "6.1"
-  - "5.11"
+- node
+- '6'
+- '6.1'
+- '5.11'
+notifications:
+  slack:
+    rooms:
+      secure: FcwMliFFb/psWx4dRRUBtZsgUPhtmUgBktaX8wYxYBDnA25Gl8nKVgvx8fSoLHrBUsBCouUTrMMxLbrfYAbhyOeF81a7IkHGYFqQkicsvBGuEcf0u3QN1kNCWcxuwq3rsEjwe9/RTiYV6XB+vLGhtOFStD5vFL5a9uJFNfNmib3yPf3Kvo+NlG7uUcbyE2/e7XiUsRTTQ2aS2dVwGpfZt9uDNou2M39cxw40zo9BYl4LpTKf8fg+3zRVWII9WfMn1oFWW4o4yxkE/uKR4N3HFxQqwSiOzYOHw/h1bAIJNw4lon9wx2H3rS3waH/+Qt7JGjsVQnA9k2g+dXjgpC2+u/4ee5sx4z+CLA+X9w/YtxS9/SMBHdz5AFO1mhlMbdABuoFd1oX7ajZQFTcVeqIcGjfj51IpF0ATCe/Jgs8X9+hI1h7T3er5WYtxlRIBiJZCwzSyXBY7qPjecEkgWyni75qAmCWyrEmtii1hPSMOpHvTLE+IA3Q6o8s6tU74pD5LTKoUonXlXyPBQMrn0j1+NVF6SB20WcZP7OFqS6bIw6zgsWYozBXu9WIcJyPQlQlok5cQKEcHlWHtgq2D2zLhZbPQUkcsk3P3YupSZzZ2XtJ1cxvqAIyAMg3gJnwc2xxhZ31XRxHgMvzvOzTtxB65NK5I9eWermbOxPK23zYft+I=

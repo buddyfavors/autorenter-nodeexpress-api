@@ -177,5 +177,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 * Fusion Alliance for the initiative to create a community of open source development within our ranks.
 
-[travis-url]: https://travis-ci.org/fusionalliance/utorenter-nodeexpress-api
-[travis-image]: https://travis-ci.org/fusionalliance/utorenter-nodeexpress-api.svg?branch=development&style=flat-square
+[travis-url]: https://travis-ci.org/fusionalliance/autorenter-nodeexpress-api
+[travis-image]: https://travis-ci.org/fusionalliance/autorenter-nodeexpress-api.svg?branch=development&style=flat-square
