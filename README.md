@@ -167,7 +167,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * [**Jarred Keuch**](https://github.com/jarredkeuch) - *Initial work*
 * [**Devashri Oza**](https://github.com/Devashri) - *Initial work*
 
-See also the list of [contributors]() who participated in this project.
+See also the list of [contributors](https://github.com/fusionalliance/autorenter-nodeexpress-api/graphs/contributors) who participated in this project.
 
 ## License
 
