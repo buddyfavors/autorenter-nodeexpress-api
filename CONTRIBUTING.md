@@ -39,7 +39,7 @@ Before you create a new Issue:
 The following steps describe the recommended development workflow.
 
 1. Pull from the `development` branch.
-1. As described above:
+1. As described in the [README](README.md):
   1. Install project libraries.
   1. Run tests.
   1. Start the API.

@@ -13,6 +13,7 @@ These instructions will cover usage information for the API.
 - Make sure the project is at a location with minimal file path length (this is especially important in a Windows environment!). For this project we strongly recommend `c:/aur/api` as the project root.
 - Install [Git](https://git-scm.com/downloads).
 - Install [Node](https://nodejs.org/en/download/) (tested on version 6.2.2)
+- Clone the Git repository to your local machine.
 
 ## How To
 
@@ -126,6 +127,10 @@ This section contains additional information about the development environment.
 
 * `/server` - API source
 * `/tests` - Test source
+
+## Style Guide
+
+Please refer to the team's Node Style Guide, located [here](https://github.com/fusionalliance/autorenter-spec/blob/master/styleguide_node.md).
 
 ## Contributing
 
