@@ -48,7 +48,7 @@ npm start
 
 ### Browse the app
 
-After successfully starting the API app, you should be able to view data by browsing to (localhost:3000/api/locations).
+After successfully starting the API app, you should be able to view data by browsing to [http://localhost:3000/api/locations](http://localhost:3000/api/locations).
 For more in-depth testing, use a web debugging tool such as [Fiddler](https://www.telerik.com/download/fiddler) or [Postman](https://www.getpostman.com/).
 
 [Postman collection](https://www.getpostman.com/collections/5530fbffa46505020891)
@@ -70,14 +70,14 @@ If you are implementing a new feature, in addition to the previous steps you sho
 
 1. Create a feature branch by branching off of `development`.
 1. Implement your feature. *Note that during this process you should regularly (at least 1x/day) merge the `development` branch into your feature branch to ensure your code is staying current with work being done by the rest of the team.*
-	1. Develop
-		1. Make changes to code, scripts, unit tests, etc.
-		1. Lint your code.
-		1. Run the tests.
-		1. Browse the API.
-		1. Repeat until you have something meaningful to commit to your feature branch.
-	1. Commit changes to your feature branch.
-	1. Repeat these feature implementation steps until the feature is ready to review.
+  1. Develop
+    1. Make changes to code, scripts, unit tests, etc.
+    1. Lint your code.
+    1. Run the tests.
+    1. Browse the API.
+    1. Repeat until you have something meaningful to commit to your feature branch.
+  1. Commit changes to your feature branch.
+  1. Repeat these feature implementation steps until the feature is ready to review.
 1. Open a pull request to merge your feature branch into `development`.
 
 ## Troubleshooting
@@ -86,18 +86,20 @@ If you are implementing a new feature, in addition to the previous steps you sho
 
 * Re-run `npm install` to verify that your dependencies are up to date.
 
-
 ### Too Many Debug messages
 
 When starting the API with `npm start`, all log messages will be displayed. To fine tune logging, set a specific logging level using the `LOGGER_LEVEL` environment variable or config value:
 
 #### Using environment variables
+
 In non-window environments:
+
 ```bash
 LOGGER_LEVEL="warn" node server
 ```
 
 In windows:
+
 ```bash
 set LOGGER_LEVEL="warn"
 node server
@@ -110,7 +112,6 @@ Sometimes you just need to completely clean your development environment before 
 ```bash
 # Blow away the node_modules folder:
 rm -rf node_modules
-
 ```
 
 #### Express debugging
@@ -120,6 +121,7 @@ To see all the internal logs used in Express, set the DEBUG environment variable
 ```bash
 DEBUG=express:* node index.js
 ```
+
 On Windows, use the corresponding command.
 
 ```cmd
@@ -158,16 +160,7 @@ Please read the [CONTRIBUTING](./CONTRIBUTING.md) for details on our code of con
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository]().
-
-## Authors
-
-* [**Allen Buckley**](https://github.com/allensb) - *Initial work*
-* [**Ray Clanan**](https://github.com/rclanan) - *Initial work*
-* [**Jarred Keuch**](https://github.com/jarredkeuch) - *Initial work*
-* [**Devashri Oza**](https://github.com/Devashri) - *Initial work*
-
-See also the list of [contributors](https://github.com/fusionalliance/autorenter-nodeexpress-api/graphs/contributors) who participated in this project.
+We use [SemVer](http://semver.org/) for versioning.
 
 ## License
 
