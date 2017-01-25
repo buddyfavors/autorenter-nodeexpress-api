@@ -1,4 +1,5 @@
 [![Build Status][travis-image]][travis-url]
+[![Gitter][gitter-image]][gitter-url]
 
 # AutoRenter - Express/Node.js
 
@@ -179,3 +180,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 [travis-url]: https://travis-ci.org/fusionalliance/autorenter-nodeexpress-api
 [travis-image]: https://travis-ci.org/fusionalliance/autorenter-nodeexpress-api.svg?branch=development&style=flat-square
+
+[gitter-url]: https://gitter.im/fusionalliance/autorenter-nodeexpress-api
+[gitter-image]: https://badges.gitter.im/fusionalliance/autorenter-nodeexpress-api.svg?style=flat-square
