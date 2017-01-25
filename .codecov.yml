@@ -1,10 +1,7 @@
 codecov:
   notify:
     require_ci_to_pass: true
-    gitter:
-      default:
-        url: "https://webhooks.gitter.im/e/eeb01690768b12b9a0a8"
-        threshold: 1%
+
 comment:
   behavior: default
   layout: header, diff
@@ -19,6 +16,11 @@ coverage:
     changes: false
     patch: true
     project: true
+  notify:
+    gitter:
+      default:
+        url: "https://webhooks.gitter.im/e/eeb01690768b12b9a0a8"
+        threshold: 1%
 parsers:
   gcov:
     branch_detection:
