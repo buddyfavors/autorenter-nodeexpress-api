@@ -2,10 +2,9 @@
   "engines": {
     "node": "6.0.0"
   },
-  "name": "autorenter_node",
+  "name": "autorenter-nodeexpress-api",
   "version": "0.0.1",
   "description": "AutoRenter API",
-  "private": true,
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon server --ignore \"tests/**/*.js\"",
@@ -14,23 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@bitbucket.fusionalliance.com:7999/fusadip/autorenter_nodeexpress_api.git"
+    "url": "https://github.com/fusionalliance/autorenter-nodeexpress-api.git"
+  },
+  "bugs": {
+    "email": "code@fusionalliance.com",
+    "url": "https://github.com/fusionalliance/autorenter-nodeexpress-api/issues"
   },
   "author": "Fusion Alliance",
-  "contributors": [
-    {
-      "name": "Allen Buckley <allensb@gmail.com>"
-    },
-    {
-      "name": "Ray Clanan <rclanan@utopianconcept.com>"
-    },
-    {
-      "name": "Jarred Keuch <jkeuch@fusionalliance.com>"
-    },
-    {
-      "name": "Devashri Oza <doza@fusionalliance.com>"
-    }
-  ],
   "license": "MIT",
   "dependencies": {
     "body-parser": "1.16.0",
