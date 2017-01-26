@@ -4,12 +4,9 @@ engines:
     channel: "eslint-3"
   fixme:
       enabled: true
-  csslint:
-    enabled: true
 
 ratings:
   paths:
-    - "**.css"
     - "**.js"
 exclude_paths:
 - tests/
