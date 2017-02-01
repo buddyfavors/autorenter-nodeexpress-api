@@ -2,6 +2,10 @@
 
 const apiPrefix = '/api/';
 const express = require('express');
+const swaggerJSDoc = require('swagger-jsdoc');
+const routes = require('./routes');
+const path = require('path');
+
 const app = module.exports = express();
 
 const configureLogger = require('./middleware/configureLogger');
@@ -10,7 +14,6 @@ const configureCors = require('./middleware/configureCors');
 const errorHandlingConfigurer = require('./middleware/errorHandlingConfigurer');
 const configureRequestUrl = require('./middleware/configureRequestUrl');
 const configureVersionHeaderTags = require('./middleware/configureVersionHeaderTags');
-const routes = require('./routes');
 
 configureLogger(app);
 configureBodyParser(app);
@@ -18,6 +21,35 @@ configureCors(app);
 configureRequestUrl(app);
 configureVersionHeaderTags(app);
 
+// swagger definition
+const swaggerDefinition = {
+  info: {
+    title: 'Node Swagger API',
+    version: '1.0.0',
+    description: 'Demonstrating how to describe a RESTful API with Swagger',
+  },
+  host: 'localhost:3000',
+  basePath: '/',
+};
+
+// options for the swagger docs
+const options = {
+  // import swaggerDefinitions
+  swaggerDefinition: swaggerDefinition,
+  // path to the API docs
+  apis: ['server/routes/**/index.js'],
+};
+
+// initialize swagger-jsdoc
+const swaggerSpec = swaggerJSDoc(options);
+
+// serve swagger
+app.get('/swagger.json', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
+app.use('/api-docs', express.static(path.join(__dirname, '../api-docs')));
 app.use(apiPrefix, routes);
 
 // Note: this must go LAST, after the other handlers/routes have been configured.
