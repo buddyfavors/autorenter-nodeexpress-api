@@ -29,7 +29,7 @@ const swaggerDefinition = {
     description: 'Demonstrating how to describe a RESTful API with Swagger',
   },
   host: 'localhost:3000',
-  basePath: '/',
+  basePath: '/api/',
 };
 
 // options for the swagger docs

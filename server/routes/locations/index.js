@@ -24,7 +24,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /api/locations:
+ * /locations:
  *   get:
  *     tags:
  *       - Locations
@@ -41,7 +41,7 @@ router.get('/locations', require('./getAllLocations'));
 
 /**
  * @swagger
- * /api/locations/{id}:
+ * /locations/{id}:
  *   get:
  *     tags:
  *       - Locations
@@ -49,7 +49,7 @@ router.get('/locations', require('./getAllLocations'));
  *     produces:
  *       - application/json
  *     parameters:
- *       - locationId: id
+ *       - name: id
  *         description: Location's id
  *         in: path
  *         required: true
@@ -64,7 +64,7 @@ router.get('/locations/:id', require('./getLocation'));
 
 /**
  * @swagger
- * /api/locations:
+ * /locations:
  *   post:
  *     tags:
  *       - Locations
@@ -86,7 +86,7 @@ router.post('/locations', require('./postLocation'));
 
 /**
  * @swagger
- * /api/locations/{id}:
+ * /locations/{id}:
  *   put:
  *     tags:
  *       - Locations
@@ -113,7 +113,7 @@ router.put('/locations/:id', require('./putLocation'));
 
 /**
  * @swagger
- * /api/locations/{id}:
+ * /locations/{id}:
  *   delete:
  *     tags:
  *       - Locations

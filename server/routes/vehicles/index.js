@@ -32,7 +32,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /api/locations/{locationId}/vehicles:
+ * /locations/{locationId}/vehicles:
  *   get:
  *     tags:
  *       - Vehicles
@@ -40,7 +40,7 @@ module.exports = router;
  *     produces:
  *       - application/json
  *     parameters:
- *       - locationId: locationId
+ *       - name: locationId
  *         description: Location's id
  *         in: path
  *         required: true
@@ -55,7 +55,7 @@ router.get('/locations/:locationId/vehicles', require('./getAllVehicles'));
 
 /**
  * @swagger
- * /api/vehicles/{id}:
+ * /vehicles/{id}:
  *   get:
  *     tags:
  *       - Vehicles
@@ -63,7 +63,7 @@ router.get('/locations/:locationId/vehicles', require('./getAllVehicles'));
  *     produces:
  *       - application/json
  *     parameters:
- *       - vehicleId: id
+ *       - name: id
  *         description: Vehicle's id
  *         in: path
  *         required: true
@@ -78,7 +78,7 @@ router.get('/vehicles/:id', require('./getVehicle'));
 
 /**
  * @swagger
- * /api/locations/{locationId}/vehicles:
+ * /locations/{locationId}/vehicles:
  *   post:
  *     tags:
  *       - Vehicles
@@ -86,7 +86,7 @@ router.get('/vehicles/:id', require('./getVehicle'));
  *     produces:
  *       - application/json
  *     parameters:
- *       - locationId: locationId
+ *       - name: locationId
  *         description: Location's id
  *         in: path
  *         required: true
@@ -106,7 +106,7 @@ router.post('/locations/:locationId/vehicles', require('./postVehicle'));
 
 /**
  * @swagger
- * /api/vehicles/{id}:
+ * /vehicles/{id}:
  *   put:
  *     tags:
  *       - Vehicles
@@ -133,7 +133,7 @@ router.put('/vehicles/:id', require('./putVehicle'));
 
 /**
  * @swagger
- * /api/vehicles/{id}:
+ * /vehicles/{id}:
  *   delete:
  *     tags:
  *       - Vehicles
