@@ -2,6 +2,7 @@
 
 const apiPrefix = '/api/';
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
 const routes = require('./routes');
 const path = require('path');
@@ -49,7 +50,7 @@ app.get('/swagger.json', function(req, res) {
   res.send(swaggerSpec);
 });
 
-app.use('/api-docs', express.static(path.join(__dirname, '../api-docs')));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(apiPrefix, routes);
 
 // Note: this must go LAST, after the other handlers/routes have been configured.
