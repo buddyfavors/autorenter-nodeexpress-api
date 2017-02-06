@@ -4,7 +4,7 @@ const apiPrefix = '/api/';
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
-const routes = require('./routes');
+const config = require('./config');
 
 const app = module.exports = express();
 
@@ -14,6 +14,7 @@ const configureCors = require('./middleware/configureCors');
 const errorHandlingConfigurer = require('./middleware/errorHandlingConfigurer');
 const configureRequestUrl = require('./middleware/configureRequestUrl');
 const configureVersionHeaderTags = require('./middleware/configureVersionHeaderTags');
+const routes = require('./routes');
 
 configureLogger(app);
 configureBodyParser(app);
@@ -21,32 +22,28 @@ configureCors(app);
 configureRequestUrl(app);
 configureVersionHeaderTags(app);
 
-// swagger definition
 const swaggerDefinition = {
   info: {
-    title: 'AutoRenter API',
-    version: '1.0.0',
-    description: 'Node.js + Express implementation of the RESTful AutoRenter API.',
+    title: config.server.title,
+    version: config.server.version,
+    description: config.server.description,
   },
-  host: 'localhost:3000',
-  basePath: '/api/',
+  host: `${config.server.host}:${config.server.port}`,
+  basePath: apiPrefix,
 };
 
-// options for the swagger docs
-const options = {
-  // import swaggerDefinitions
+const swaggerOptions = {
   swaggerDefinition: swaggerDefinition,
-  // path to the API docs
+  // path to the API routes containing the jsdoc markup
   apis: ['server/routes/**/index.js'],
 };
 
 // initialize swagger-jsdoc
-const swaggerSpec = swaggerJSDoc(options);
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
 // serve swagger
-app.get('/swagger.json', function(req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerSpec);
+app.get('/swagger.json', function(request, response) {
+  response.json(swaggerSpec);
 });
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

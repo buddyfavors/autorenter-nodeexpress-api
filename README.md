@@ -55,6 +55,10 @@ For more in-depth testing, use a web debugging tool such as [Fiddler](https://ww
 
 [Postman collection](https://www.getpostman.com/collections/5530fbffa46505020891)
 
+### API Route Documentation - [Swagger](http://swagger.io/)
+
+Once running locally, you can acceess swagger by going to: [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)
+
 ## Troubleshooting
 
 ### API or Test Commands Don't Work Due To Missing Dependencies
