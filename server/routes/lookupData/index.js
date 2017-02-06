@@ -53,7 +53,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /lookup-data?{query}:
+ * /lookup-data:
  *   get:
  *     tags:
  *       - LookupData
@@ -61,10 +61,20 @@ module.exports = router;
  *     produces:
  *       - application/json
  *     parameters:
- *       - name: query
- *         description: The type of lookup data to fetch.  Can be 'states', 'makes', or 'models', separated by '&'.
- *         in: path
- *         required: true
+ *       - name: states
+ *         description: Returns states LookupData.
+ *         in: query
+ *         required: false
+ *         type: string
+ *       - name: makes
+ *         description: Returns makes LookupData.
+ *         in: query
+ *         required: false
+ *         type: string
+ *       - name: models
+ *         description: Returns models LookupData.
+ *         in: query
+ *         required: false
  *         type: string
  *     responses:
  *       200:
