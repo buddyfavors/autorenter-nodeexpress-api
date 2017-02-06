@@ -24,9 +24,9 @@ configureVersionHeaderTags(app);
 // swagger definition
 const swaggerDefinition = {
   info: {
-    title: 'Node Swagger API',
+    title: 'AutoRenter API',
     version: '1.0.0',
-    description: 'Demonstrating how to describe a RESTful API with Swagger',
+    description: 'Node.js + Express implementation of the RESTful AutoRenter API.',
   },
   host: 'localhost:3000',
   basePath: '/api/',
