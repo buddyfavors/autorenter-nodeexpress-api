@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * Location Service Factory
+ * @module services/locationServiceFactory
+ */
 const uuid = require('uuid/v4');
 const errorTypes = require('../models/errorTypes');
 
@@ -28,6 +32,11 @@ function build() {
       });
   }
 
+  /**
+  * @function addLocation
+  * @param  {Object} location - An AutoRenter location
+  * @return {Promise<{}>} - returns a location
+  */
   function addLocation(location) {
     return new Promise(
       (resolve) => {

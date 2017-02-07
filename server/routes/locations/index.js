@@ -23,6 +23,7 @@ module.exports = router;
  */
 
 /**
+ * Get all locations route
  * @swagger
  * /locations:
  *   get:

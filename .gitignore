@@ -13,6 +13,9 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
+# JSDoc directory used for documentation
+jsdoc
+
 # node-waf configuration
 .lock-wscript
 
