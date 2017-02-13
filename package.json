@@ -28,7 +28,7 @@
     "git-rev": "0.2.1",
     "morgan": "1.7.0",
     "nodemon": "1.11.0",
-    "swagger-ui-express": "latest",
+    "swagger-ui-express": "1.0.4",
     "swagger-jsdoc": "1.9.1",
     "uuid": "3.0.1",
     "winston": "2.3.0"
