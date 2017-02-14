@@ -28,8 +28,8 @@
     "git-rev": "0.2.1",
     "morgan": "1.7.0",
     "nodemon": "1.11.0",
-    "swagger-ui-express": "latest",
     "swagger-jsdoc": "1.9.1",
+    "swagger-ui-express": "latest",
     "uuid": "3.0.1",
     "winston": "2.3.0"
   },
@@ -37,7 +37,7 @@
     "chai": "3.5.0",
     "chai-as-promised": "6.0.0",
     "chai-http": "3.0.0",
-    "coveralls": "2.11.15",
+    "coveralls": "2.11.16",
     "eslint": "3.11.1",
     "eslint-config-google": "0.7.1",
     "istanbul": "0.4.5",
