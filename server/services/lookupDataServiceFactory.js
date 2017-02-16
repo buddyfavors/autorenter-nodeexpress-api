@@ -7,6 +7,10 @@
 
 const errorTypes = require('../models/errorTypes');
 
+/**
+* @function build
+* @return {build~getData} - The getData function
+*/
 function build() {
   let lookupData = {};
   lookupData.states = [

@@ -9,6 +9,7 @@ const errorTypes = require('../models/errorTypes');
 
 /**
  * @function build
+ * @return {array} - The factory methods
  */
 function build() {
   const locations = [
@@ -30,7 +31,7 @@ function build() {
 
   /**
    * @function getLocation
-   * @return {Promise<{}>} - returns a location
+   * @return {Promise<{}>} - @resolve returns a location
    */
   function getLocations() {
     return new Promise(
@@ -42,7 +43,7 @@ function build() {
   /**
   * @function addLocation
   * @param  {Object} location - An AutoRenter location
-  * @return {Promise.<{}>} - returns a location
+  * @return {Promise.<{}>} - @resolve returns a location
   */
   function addLocation(location) {
     return new Promise(
@@ -57,7 +58,9 @@ function build() {
   /**
   * @function getLocation
   * @param  {string} locationId - The id of the location to return
-  * @return {Promise.<{}>} - returns a location
+  * @return {Promise.<{}>}
+      - @resolve returns a location<br/>
+      - @reject returns an error message if no location was found with the provided id
   */
   function getLocation(locationId) {
     return new Promise(
@@ -82,7 +85,9 @@ function build() {
   /**
   * @function updateLocation
   * @param  {Object} location - The location to update
-  * @return {Promise.<{}>} - returns the updated location
+  * @return {Promise.<{}>}
+      - @resolve returns the updated location<br/>
+      - @reject returns an error
   */
   function updateLocation(location) {
     return new Promise(
@@ -104,6 +109,7 @@ function build() {
   * @function deleteLocation
   * @param  {string} locationId - The id of the location to be deleted
   * @return {Promise.<{}>}
+      - @reject returns an error
   */
   function deleteLocation(locationId) {
     return new Promise(
