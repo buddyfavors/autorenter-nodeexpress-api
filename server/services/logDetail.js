@@ -1,8 +1,20 @@
 'use strict';
 
+/**
+ * Log Detail Service
+ * @module services/logDetail
+ */
+
 const errorTypes = require('../models/errorTypes');
 const logger = require('./logger');
 
+/**
+* @function logDetail
+* @param  {string} username - The user creating the log entry
+* @param  {string} level    - The level of the log entry
+* @param  {string} message  - The message of the log entry
+* @return {Promise.<{}>} - Returns 'Log added' on success or an error message with details on failure.
+*/
 function logDetail(username, level, message) {
   const logData = {username, level, message};
   const log = new Promise((resolve, reject) => {

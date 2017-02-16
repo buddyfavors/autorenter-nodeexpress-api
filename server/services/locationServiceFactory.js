@@ -7,6 +7,9 @@
 const uuid = require('uuid/v4');
 const errorTypes = require('../models/errorTypes');
 
+/**
+ * @function build
+ */
 function build() {
   const locations = [
     {
@@ -25,6 +28,10 @@ function build() {
     }
   ];
 
+  /**
+   * @function getLocation
+   * @return {Promise<{}>} - returns a location
+   */
   function getLocations() {
     return new Promise(
       (resolve) => {
@@ -35,7 +42,7 @@ function build() {
   /**
   * @function addLocation
   * @param  {Object} location - An AutoRenter location
-  * @return {Promise<{}>} - returns a location
+  * @return {Promise.<{}>} - returns a location
   */
   function addLocation(location) {
     return new Promise(
@@ -47,6 +54,11 @@ function build() {
     );
   }
 
+  /**
+  * @function getLocation
+  * @param  {string} locationId - The id of the location to return
+  * @return {Promise.<{}>} - returns a location
+  */
   function getLocation(locationId) {
     return new Promise(
       (resolve, reject) => {
@@ -67,6 +79,11 @@ function build() {
     );
   }
 
+  /**
+  * @function updateLocation
+  * @param  {Object} location - The location to update
+  * @return {Promise.<{}>} - returns the updated location
+  */
   function updateLocation(location) {
     return new Promise(
       (resolve, reject) => {
@@ -83,6 +100,11 @@ function build() {
     );
   }
 
+  /**
+  * @function deleteLocation
+  * @param  {string} locationId - The id of the location to be deleted
+  * @return {Promise.<{}>}
+  */
   function deleteLocation(locationId) {
     return new Promise(
       (resolve, reject) => {
