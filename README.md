@@ -57,7 +57,11 @@ For more in-depth testing, use a web debugging tool such as [Fiddler](https://ww
 
 ### API Route Documentation - [Swagger](http://swagger.io/)
 
-Once running locally, you can acceess swagger by going to: [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)
+Once running locally, you can access Swagger by going to: [http://localhost:3000/api-docs/swagger/](http://localhost:3000/api-docs/swagger/)
+
+### API JSDoc Documentation - [JSDoc](http://usejsdoc.org/)
+
+Once running locally, you can access JSDoc by going to: [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)
 
 ## Troubleshooting
 
