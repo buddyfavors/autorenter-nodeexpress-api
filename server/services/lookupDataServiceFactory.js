@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * Lookup Data Service
+ * @module services/lookupDataService
+ */
+
 const errorTypes = require('../models/errorTypes');
 
 function build() {
@@ -63,6 +68,14 @@ function build() {
     },
   ];
 
+  /**
+  * @function getData
+  * @param  {string} lookupTypes - This is a query string which specifies which types of data to fetch.
+  * @return {Promise<{}>}
+      - @resolve Returns lookupData object with the requested data.<br/>
+      - @reject Returns an error message if no types were specified.<br/>
+      - @reject Returns an error message if the provided type does not exist.
+  */
   function getData(lookupTypes) {
     return new Promise(
       (resolve, reject) => {
