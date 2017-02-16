@@ -40,6 +40,12 @@ Note that this will lint the code before running tests. No tests will run if lin
 npm test
 ```
 
+### Generate API JSDoc documentation - [JSDoc](http://usejsdoc.org/)
+
+```bash
+npm run jsdoc
+```
+
 ### Start the API app
 
 To start the API with all debug logging enabled (recommended):
