@@ -11,4 +11,4 @@ notifications:
     on_start: never
 after_script: 
       - "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
-      - "rm -rf ./jsdoc && npm run jsdoc"
+      - "npm run jsdoc"

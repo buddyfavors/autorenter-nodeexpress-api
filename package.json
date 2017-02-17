@@ -7,8 +7,8 @@
   "description": "Node.js + Express implementation of the RESTful AutoRenter API.",
   "main": "server/index.js",
   "scripts": {
-    "jsdoc": "jsdoc --configure .jsdocconf",
-    "prestart": "rm -rf ./jsdoc && npm run jsdoc",
+    "jsdoc": "rm -rf ./jsdoc && jsdoc --configure .jsdocconf",
+    "prestart": "npm run jsdoc",
     "start": "nodemon server --ignore \"tests/**/*.js\"",
     "lint": "eslint \"server/**/*.js\" \"tests/**/*.js\"",
     "test": "npm run lint && istanbul cover ./node_modules/mocha/bin/_mocha -- \"tests/**/*.js\" -R spec"
