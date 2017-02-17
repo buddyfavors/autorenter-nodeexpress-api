@@ -23,8 +23,6 @@ function logDetail(username, level, message) {
   /**
   * @constant
   * @type {Promise.<{}>}
-      - @resolve Sets the debug message and writes to the logger.<br/>
-      - @reject Returns an error message if the log message was empty.
   * @default
   */
   const log = new Promise((resolve, reject) => {
