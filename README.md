@@ -61,13 +61,13 @@ For more in-depth testing, use a web debugging tool such as [Fiddler](https://ww
 
 [Postman collection](https://www.getpostman.com/collections/5530fbffa46505020891)
 
-### API Route Documentation - [Swagger](http://swagger.io/)
+### API Route Documentation
 
-Once running locally, you can access Swagger by going to: [http://localhost:3000/docs/api/](http://localhost:3000/docs/api/)
+Once running locally, you can access API route documentation (useful for those consuming the API) by going to: [http://localhost:3000/docs/api/](http://localhost:3000/docs/api/)
 
-### API JSDoc Documentation - [JSDoc](http://usejsdoc.org/)
+### API implementation Documentation
 
-Once running locally, you can access JSDoc by going to: [http://localhost:3000/docs/dev/](http://localhost:3000/docs/dev/)
+Once running locally, you can access API implementation documentation (useful for those implementing the API) by going to: [http://localhost:3000/docs/dev/](http://localhost:3000/docs/dev/)
 
 ## Troubleshooting
 
