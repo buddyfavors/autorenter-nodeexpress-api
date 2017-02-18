@@ -44,11 +44,20 @@ module.exports = router;
  *   LookupData:
  *     properties:
  *       states:
- *         $ref: '#/definitions/State'
+ *         type: array
+ *         description: An array of State objects
+ *         items:
+ *           $ref: '#/definitions/State'
  *       makes:
- *         $ref: '#/definitions/Make'
+ *         type: array
+ *         description: An array of Make objects
+ *         items:
+ *           $ref: '#/definitions/Make'
  *       models:
- *         $ref: '#/definitions/Model'
+ *         type: array
+ *         description: An array of Model objects
+ *         items:
+ *           $ref: '#/definitions/Model'
  */
 
 /**
@@ -57,28 +66,28 @@ module.exports = router;
  *   get:
  *     tags:
  *       - LookupData
- *     description: Returns all LookupData
+ *     description: Returns a LookupData object containing requested types of data
  *     produces:
  *       - application/json
  *     parameters:
  *       - name: states
- *         description: Returns states LookupData.
+ *         description: Includes States in the response
  *         in: query
  *         required: false
  *         type: string
  *       - name: makes
- *         description: Returns makes LookupData.
+ *         description: Includes Makes in the response
  *         in: query
  *         required: false
  *         type: string
  *       - name: models
- *         description: Returns models LookupData.
+ *         description: Includes Models in the response
  *         in: query
  *         required: false
  *         type: string
  *     responses:
  *       200:
- *         description: An array of LookupData
+ *         description: A LookupData object
  *         schema:
  *           $ref: '#/definitions/LookupData'
  */

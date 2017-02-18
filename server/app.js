@@ -35,7 +35,7 @@ const swaggerDefinition = {
 const swaggerOptions = {
   swaggerDefinition: swaggerDefinition,
   // path to the API routes containing the jsdoc markup
-  apis: ['server/routes/**/index.js'],
+  apis: ['server/routes/**/index.js', 'server/routes/index.js'],
 };
 
 // initialize swagger-jsdoc
