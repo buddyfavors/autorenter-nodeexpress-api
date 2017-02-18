@@ -11,11 +11,11 @@ module.exports = router;
  *   get:
  *     tags:
  *       - RaiseError
- *     description: Returns an api error message
+ *     description: Forces a server error, and returns the error message
  *     produces:
  *       - application/json
  *     responses:
  *       500:
- *         description: An error message from the api
+ *         description: Server error
  */
 router.get('/raise-error', require('./getRaiseError'));

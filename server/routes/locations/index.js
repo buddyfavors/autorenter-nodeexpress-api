@@ -16,6 +16,9 @@ module.exports = router;
  *         type: string
  *       name:
  *         type: string
+ *       vehicleCount:
+ *         type: number
+ *         readOnly: true
  *       city:
  *         type: string
  *       stateCode:
@@ -36,7 +39,9 @@ module.exports = router;
  *       200:
  *         description: An array of locations
  *         schema:
- *           $ref: '#/definitions/Location'
+ *           type: array
+ *           items:
+ *             $ref: '#/definitions/Location'
  */
 router.get('/locations', require('./getAllLocations'));
 
@@ -51,7 +56,7 @@ router.get('/locations', require('./getAllLocations'));
  *       - application/json
  *     parameters:
  *       - name: id
- *         description: Location's id
+ *         description: The location id
  *         in: path
  *         required: true
  *         type: string
@@ -80,7 +85,7 @@ router.get('/locations/:id', require('./getLocation'));
  *         schema:
  *           $ref: '#/definitions/Location'
  *     responses:
- *       200:
+ *       201:
  *         description: Successfully created
  */
 router.post('/locations', require('./postLocation'));
@@ -96,15 +101,14 @@ router.post('/locations', require('./postLocation'));
  *       - application/json
  *     parameters:
  *       - name: id
- *         description: Location's id
+ *         description: The location id
  *         in: path
  *         required: true
  *         type: string
  *       - name: location
  *         in: body
- *         description: Fields for the Location resource
+ *         description: Location object
  *         schema:
- *           type: array
  *           $ref: '#/definitions/Location'
  *     responses:
  *       200:
@@ -123,12 +127,12 @@ router.put('/locations/:id', require('./putLocation'));
  *       - application/json
  *     parameters:
  *       - name: id
- *         description: Location's id
+ *         description: The location id
  *         in: path
  *         required: true
  *         type: string
  *     responses:
- *       200:
+ *       204:
  *         description: Successfully deleted
  */
 router.delete('/locations/:id', require('./deleteLocation'));
