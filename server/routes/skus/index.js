@@ -33,6 +33,8 @@ module.exports = router;
  *       200:
  *         description: An array of skus
  *         schema:
- *           $ref: '#/definitions/Sku'
+ *           type: array
+ *           items:
+ *             $ref: '#/definitions/Sku'
  */
 router.get('/skus', require('./getSkus'));

@@ -35,7 +35,7 @@ module.exports = router;
  *         schema:
  *           $ref: '#/definitions/Log'
  *     responses:
- *       200:
+ *       201:
  *         description: Successfully created
  */
 router.post('/log', require('./postLog'));

@@ -14,6 +14,7 @@ module.exports = router;
  *         type: string
  *       locationId:
  *         type: string
+ *         readOnly: true
  *       vin:
  *         type: string
  *       makeId:
@@ -28,6 +29,8 @@ module.exports = router;
  *         type: string
  *       isRentToOwn:
  *         type: boolean
+ *       image:
+ *         type: binary
  */
 
 /**
@@ -41,7 +44,7 @@ module.exports = router;
  *       - application/json
  *     parameters:
  *       - name: locationId
- *         description: Location's id
+ *         description: The Location id
  *         in: path
  *         required: true
  *         type: string
@@ -49,7 +52,9 @@ module.exports = router;
  *       200:
  *         description: An array of vehicles
  *         schema:
- *           $ref: '#/definitions/Vehicle'
+ *           type: array
+ *           items:
+ *             $ref: '#/definitions/Vehicle'
  */
 router.get('/locations/:locationId/vehicles', require('./getAllVehicles'));
 
@@ -64,7 +69,7 @@ router.get('/locations/:locationId/vehicles', require('./getAllVehicles'));
  *       - application/json
  *     parameters:
  *       - name: id
- *         description: Vehicle's id
+ *         description: The vehicle id
  *         in: path
  *         required: true
  *         type: string
@@ -82,12 +87,12 @@ router.get('/vehicles/:id', require('./getVehicle'));
  *   post:
  *     tags:
  *       - Vehicles
- *     description: Creates a new vehicle
+ *     description: Creates a new vehicle at the specified location
  *     produces:
  *       - application/json
  *     parameters:
  *       - name: locationId
- *         description: Location's id
+ *         description: The location id
  *         in: path
  *         required: true
  *         type: string
@@ -98,7 +103,7 @@ router.get('/vehicles/:id', require('./getVehicle'));
  *         schema:
  *           $ref: '#/definitions/Vehicle'
  *     responses:
- *       200:
+ *       201:
  *         description: Successfully created
  */
 router.post('/locations/:locationId/vehicles', require('./postVehicle'));
@@ -115,15 +120,14 @@ router.post('/locations/:locationId/vehicles', require('./postVehicle'));
  *       - application/json
  *     parameters:
  *       - name: id
- *         description: Vehicle's id
+ *         description: The vehicle id
  *         in: path
  *         required: true
  *         type: string
  *       - name: vehicle
  *         in: body
- *         description: Fields for the Vehicle resource
+ *         description: Vehicle object
  *         schema:
- *           type: array
  *           $ref: '#/definitions/Vehicle'
  *     responses:
  *       200:
@@ -142,12 +146,12 @@ router.put('/vehicles/:id', require('./putVehicle'));
  *       - application/json
  *     parameters:
  *       - name: id
- *         description: Vehicle's id
+ *         description: The vehicle id
  *         in: path
  *         required: true
  *         type: string
  *     responses:
- *       200:
+ *       204:
  *         description: Successfully deleted
  */
 router.delete('/vehicles/:id', require('./deleteVehicle'));
