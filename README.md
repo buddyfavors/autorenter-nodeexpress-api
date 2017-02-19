@@ -123,9 +123,7 @@ To see the logs only from the router implementation set the value of DEBUG to ex
 
 This section contains additional information about the development environment.
 
-### Container Parameters
-
-#### Environment Variables
+### Environment Variables
 
 * `LOGGER_LEVEL` - Set the logging level
   * Examples:
