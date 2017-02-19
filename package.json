@@ -7,6 +7,7 @@
   "description": "Node.js + Express implementation of the RESTful AutoRenter API.",
   "main": "server/index.js",
   "scripts": {
+    "jsdoc": "rm -rf ./jsdoc && jsdoc --configure .jsdocconf",
     "start": "nodemon server --ignore \"tests/**/*.js\"",
     "lint": "eslint \"server/**/*.js\" \"tests/**/*.js\"",
     "test": "npm run lint && istanbul cover ./node_modules/mocha/bin/_mocha -- \"tests/**/*.js\" -R spec"
@@ -28,8 +29,9 @@
     "git-rev": "0.2.1",
     "morgan": "1.8.0",
     "nodemon": "1.11.0",
-    "swagger-ui-express": "1.0.4",
+    "jsdoc": "3.4.3",
     "swagger-jsdoc": "1.9.1",
+    "swagger-ui-express": "1.0.4",
     "uuid": "3.0.1",
     "winston": "2.3.1"
   },

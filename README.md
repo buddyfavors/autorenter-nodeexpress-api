@@ -40,6 +40,12 @@ Note that this will lint the code before running tests. No tests will run if lin
 npm test
 ```
 
+### Generate API JSDoc documentation - [JSDoc](http://usejsdoc.org/)
+
+```bash
+npm run jsdoc
+```
+
 ### Start the API app
 
 To start the API with all debug logging enabled (recommended):
@@ -55,9 +61,13 @@ For more in-depth testing, use a web debugging tool such as [Fiddler](https://ww
 
 [Postman collection](https://www.getpostman.com/collections/5530fbffa46505020891)
 
-### API Route Documentation - [Swagger](http://swagger.io/)
+### API Route Documentation
 
-Once running locally, you can acceess swagger by going to: [http://localhost:3000/api-docs/](http://localhost:3000/api-docs/)
+Once running locally, you can access API route documentation (useful for those consuming the API) by going to: [http://localhost:3000/docs/api/](http://localhost:3000/docs/api/)
+
+### API implementation Documentation
+
+Once running locally, you can access API implementation documentation (useful for those implementing the API) by going to: [http://localhost:3000/docs/dev/](http://localhost:3000/docs/dev/)
 
 ## Troubleshooting
 
@@ -113,9 +123,7 @@ To see the logs only from the router implementation set the value of DEBUG to ex
 
 This section contains additional information about the development environment.
 
-### Container Parameters
-
-#### Environment Variables
+### Environment Variables
 
 * `LOGGER_LEVEL` - Set the logging level
   * Examples:

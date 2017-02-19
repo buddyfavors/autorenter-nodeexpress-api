@@ -46,7 +46,8 @@ app.get('/swagger.json', function(request, response) {
   response.json(swaggerSpec);
 });
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/docs/api', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/docs/dev', express.static('jsdoc/'));
 app.use(apiPrefix, routes);
 
 // Note: this must go LAST, after the other handlers/routes have been configured.
