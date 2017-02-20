@@ -46,7 +46,11 @@ app.get('/swagger.json', function(request, response) {
   response.json(swaggerSpec);
 });
 
-app.use('/docs/api', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+const options = {
+  validatorUrl: './swagger.json'
+};
+
+app.use('/docs/api', swaggerUi.serve, swaggerUi.setup(swaggerSpec, true, options));
 app.use('/docs/dev', express.static('jsdoc/'));
 app.use(apiPrefix, routes);
 
