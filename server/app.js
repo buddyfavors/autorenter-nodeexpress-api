@@ -7,7 +7,6 @@ const swaggerJSDoc = require('swagger-jsdoc');
 const config = require('./config');
 
 const app = module.exports = express();
-const env = app.get('env');
 const configureLogger = require('./middleware/configureLogger');
 const configureBodyParser = require('./middleware/configureBodyParser');
 const configureCors = require('./middleware/configureCors');
@@ -47,7 +46,7 @@ app.get('/swagger.json', function(request, response) {
 });
 
 const options = {
-  validatorUrl: env === 'production' ? 'https://autorenter-nodeexpress-api.herokuapp.com/swagger.json' : null //eslint-disable-line
+  validatorUrl: config.server.environment === 'production' ? 'https://autorenter-nodeexpress-api.herokuapp.com/swagger.json' : null //eslint-disable-line
 };
 
 app.use('/docs/api', swaggerUi.serve, swaggerUi.setup(swaggerSpec, true, options));
