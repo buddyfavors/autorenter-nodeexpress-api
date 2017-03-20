@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 /**
  * Log Detail Service
@@ -30,9 +30,9 @@ function logDetail(username, level, message) {
       const err = new Error('Log message was empty');
       reject(err);
     } else {
-      const debugMessage =
+      const messageToLog =
         `(${logData.level}) ${logData.username} - ${logData.message}`;
-      logger.log(logData.level, debugMessage);
+      logger.log(logData.level, messageToLog);
       resolve();
     }
   });
