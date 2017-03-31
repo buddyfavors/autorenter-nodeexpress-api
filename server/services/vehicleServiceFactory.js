@@ -1,7 +1,9 @@
-'use strict';
+﻿'use strict';
 
 const uuid = require('uuid/v4');
 const errorTypes = require('../models/errorTypes');
+
+const lookupDataService = require('./lookupDataService');
 
 function build() {
   /* eslint-disable max-len */
@@ -66,9 +68,23 @@ function build() {
             vehiclesByLocation.push(vehicleElement);
           }
         });
-        resolve(vehiclesByLocation);
+        getEnhancedVehicleData(vehiclesByLocation)
+          .then(resolve);
       }
     );
+  }
+
+  function getEnhancedVehicleData(vehicles) {
+    return new Promise((resolve) => {
+      lookupDataService.getData(['makes', 'models'])
+        .then((lookupData) => {
+          vehicles.forEach((vehicle) => {
+            vehicle.make = lookupData.makes.find((make) => make.id === vehicle.makeId).name;
+            vehicle.model = lookupData.models.find((model) => model.id === vehicle.modelId).name;
+          });
+          resolve(vehicles);
+        });
+    });
   }
 
   function addVehicle(locationId, vehicle) {
